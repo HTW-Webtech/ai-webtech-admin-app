@@ -22,7 +22,7 @@ default: &default
   pool: 5
   database: <%= ENV['PG_DB'] %>
   username: <%= ENV['PG_USER'] %>
-  password: <%= ENV['PG_PASSWD'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
 
 development:
   <<: *default
