@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   has_many :apps
 
   def admin?
-   persisted? && name == 'admin'
+    persisted? && name == 'admin'
   end
 end
