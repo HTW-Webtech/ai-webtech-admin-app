@@ -1,10 +1,10 @@
 class AddAdminUser < ActiveRecord::Migration
   def up
     User.create!({
-      email:                 ENV['ARIS_ADMIN_EMAIL'],
+      email:                 ENV['APP_ADMIN_EMAIL'],
       username:              'admin',
-      password:              ENV['ARIS_ADMIN_PASSWORD'],
-      password_confirmation: ENV['ARIS_ADMIN_PASSWORD']
+      password:              ENV['APP_ADMIN_PASSWORD'],
+      password_confirmation: ENV['APP_ADMIN_PASSWORD']
     })
   end
 
