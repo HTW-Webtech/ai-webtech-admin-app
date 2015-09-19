@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'aris-control'
 
-gem 'devise'
+gem 'devise', '~> 3.4.1'
 gem 'rails_admin'
 gem 'cancancan', '~> 1.10'
 
