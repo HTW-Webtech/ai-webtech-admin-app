@@ -30,6 +30,7 @@ gem 'cancancan', '~> 1.10'
 
 gem 'switch_user'
 
+gem 'simple_form', '~> 3.0.2'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
