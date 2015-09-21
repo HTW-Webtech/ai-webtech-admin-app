@@ -1,0 +1,11 @@
+h2 Hi #{@user.name}!
+- if @apps.size > 0
+  p These are your currently configured apps:
+  ul
+    - @apps.each do |app|
+      li
+        = link_to app.name, user_app_path(app.user, app)
+
+- else
+  p You currently have no app configured.
+  = link_to 'Create a new app!', new_user_app_path(current_user)

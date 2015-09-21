@@ -1,0 +1,9 @@
+= simple_form_for [app.user, app] do |f|
+  = f.error_notification
+
+  = f.input :name, readonly: true
+  = f.input :email
+  = f.input :ssh_key,  as: :text
+  = f.input :env_vars, as: :text
+
+  = f.button :submit
