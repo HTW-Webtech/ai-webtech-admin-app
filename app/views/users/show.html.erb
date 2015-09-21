@@ -1,0 +1,12 @@
+<h2>Hi <%= @user.name %>!</h2>
+
+<%- if @apps.size > 0 %>
+  <p>These are your currently configured apps:</p>
+  <ol>
+    <%- @apps.each do |app| %>
+      <%= link_to app %>
+    <%- end -%>
+  </ol>
+<%- else -%>
+  <p>You currently have no app configured. <%= link_to 'Create a new app!', new_user_app_path(current_user) %></p>
+<%- end -%>
