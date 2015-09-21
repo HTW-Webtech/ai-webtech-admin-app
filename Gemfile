@@ -29,6 +29,8 @@ gem 'devise', '3.5.1'
 gem 'rails_admin'
 gem 'cancancan', '~> 1.10'
 
+gem 'switch_user'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
