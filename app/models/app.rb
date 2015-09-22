@@ -1,10 +1,10 @@
-require 'file/tail'
 require 'securerandom'
 
 class App < ActiveRecord::Base
   belongs_to :user
 
   attr_accessor :env_vars_view
+  serialize :env_vars, JSON
 
   before_save :transform_env_vars_view
   after_save :publish_to_aris
@@ -25,23 +25,24 @@ class App < ActiveRecord::Base
   end
 
   def fetch_logs
-    lines = []
-    @logs ||= File::Tail::Logfile.tail(rails_log_path, backward: 500) do |line|
-      lines << line
-    end
-    lines.join
-  end
-
-  private
-
-  def rails_log_path
-    # FIXME: Better access via Rails.logger somehow
-    Rails.root.join("log/#{Rails.env}.log")
+    @logs ||= AppLogTailer.fetch(self)
   end
 
   def publish_to_aris
-    Aris.update_app(self)
+    Aris.publish(self)
   end
+
+  # TODO: Move somewhere else
+  def pg_env_vars_view
+    <<-ENV_VAR.strip_heredoc
+      PG_HOST: #{pg_host}
+      PG_DATABASE: #{pg_database}
+      PG_LOGIN: #{pg_login}
+      PG_PASSWD: #{self.pg_passwd}
+    ENV_VAR
+  end
+
+  private
 
   def transform_env_vars_view
     self.env_vars = AppEnvVars.encode(self.env_vars_view)

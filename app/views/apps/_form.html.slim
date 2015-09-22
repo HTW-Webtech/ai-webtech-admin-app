@@ -2,20 +2,20 @@
     html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
   = f.error_notification
 
+  = f.input :pg_host,     as: :hidden
+  = f.input :pg_database, as: :hidden
+  = f.input :pg_login,    as: :hidden
+  = f.input :pg_passwd,   as: :hidden
+
   = f.input :name, readonly: true
   = f.input :email
   = f.input :ssh_key,  as: :text
   = f.input :env_vars_view, as: :text, hint: 'Provide env-var configuration via "KEY: Value" per line. See: http://rubular.com/r/XZjbArjZ3Y', placeholder: 'SECRET_KEY_BASE: abcdefgh…01'
 
-  .row
-    .col-md-offset-3.col-md-9
-      .panel.panel-default
-        .panel-heading
-          h3.panel-title Postgres DB access
-        .panel-body
-          = f.input :pg_host, readonly: true
-          = f.input :pg_database, readonly: true
-          = f.input :pg_login, readonly: true
-          = f.input :pg_passwd, readonly: true
+  .form-group.text
+    label.text.col-sm-3.control-label ENV-Vars for Postgres DB Access
+    .col-sm-9
+      textarea.text.form-control data-no-autosize=true readonly=true style='height: 120px'
+        = app.pg_env_vars_view
 
   = f.button :submit
