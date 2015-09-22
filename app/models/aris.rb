@@ -1,6 +1,6 @@
 class Aris
   def self.publish(app)
-    bookkeeper.add(app.name, app_opts(opts))
+    bookkeeper.add(app.name, app_opts(app))
   end
 
   def self.app_opts(app)
