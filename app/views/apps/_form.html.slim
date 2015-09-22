@@ -1,9 +1,21 @@
-= simple_form_for [current_user, app] do |f|
+= simple_form_for [current_user, app],
+    html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
   = f.error_notification
 
   = f.input :name, readonly: true
   = f.input :email
   = f.input :ssh_key,  as: :text
-  = f.input :env_vars, as: :text
+  = f.input :env_vars_view, as: :text, hint: 'Provide env-var configuration via "KEY: Value" per line. See: http://rubular.com/r/XZjbArjZ3Y', placeholder: 'SECRET_KEY_BASE: abcdefgh…01'
+
+  .row
+    .col-md-offset-3.col-md-9
+      .panel.panel-default
+        .panel-heading
+          h3.panel-title Postgres DB access
+        .panel-body
+          = f.input :pg_host, readonly: true
+          = f.input :pg_database, readonly: true
+          = f.input :pg_login, readonly: true
+          = f.input :pg_passwd, readonly: true
 
   = f.button :submit

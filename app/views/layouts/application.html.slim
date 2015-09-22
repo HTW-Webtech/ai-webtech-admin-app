@@ -9,10 +9,6 @@ body
 
   .container
     .row
-      .notice= notice
-      .alert= alert
-
-    .row
       .col-md-12
         nav.navbar.navbar-inverse
           div.container-fluid
@@ -28,9 +24,13 @@ body
                         | Apps
                         span.caret
                       ul.dropdown-menu
-                        - current_user.apps.find_each do |app|
-                          li
-                            = link_to app.name, user_app_path(current_user, app)
+                        - if current_user.apps.exists?
+                          - current_user.apps.find_each do |app|
+                            li
+                              = link_to app.name, user_app_path(current_user, app)
+                          li.divider role="separator"
+                        li
+                          = link_to 'Create new app', new_user_app_path(current_user)
 
 
                   = active_link_to_li 'Dashboard', user_path(current_user)
@@ -49,6 +49,20 @@ body
 
                 - else
                   li= link_to 'Login', new_user_session_path
+
+    .row
+      .col-md-12
+        - if notice.present?
+          .alert.alert-success.alert-dismissible
+            button.close type="button" data-dismiss="alert" aria-label="Close"
+              span aria-hidden="true" ×
+            = notice
+
+        - if alert.present?
+          .alert.alert-danger.alert-dismissible
+            button.close type="button" data-dismiss="alert" aria-label="Close"
+              span aria-hidden="true" ×
+            = alert
 
     .row
       .col-md-12

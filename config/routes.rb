@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#show'
 
-  resources :users do
-    resources :apps
+  resources :users, only: [:show, :edit, :update]  do
+    resources :apps, except: [:destroy] do
+      resource :logs, only: [:show]
+    end
   end
 
   # foo

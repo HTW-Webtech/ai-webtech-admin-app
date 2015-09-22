@@ -38,6 +38,8 @@ gem 'slim'
 gem 'active_link_to'
 gem 'autosize-rails'
 
+gem 'file-tail'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,18 +1,16 @@
 class AppsController < ApplicationController
+  include AppFetching
+
   def index
     redirect_to current_user
   end
 
   def show
-    @app = fetch_app
+    @app = fetch_app(params[:id])
   end
 
   def new
-    @app = App.new.tap do |app|
-      app.name    = AppName.generate_unique
-      app.email   = current_user.email
-      app.ssh_key = current_user.ssh_key
-    end
+    @app = App.new(user: current_user)
   end
 
   def edit
@@ -23,7 +21,7 @@ class AppsController < ApplicationController
   def create
     @app = App.new(app_params)
     if @app.save
-      redirect_to user_app_path(@app.user, @app)
+      redirect_to user_app_path(@app.user, @app), notice: 'Changes are being propagated. It may take 1-2 min. Check the app status icon.'
     else
       render :edit, flash: 'Please check your input!'
     end
@@ -32,7 +30,7 @@ class AppsController < ApplicationController
   def update
     @app = fetch_app
     if @app.update(app_params)
-      redirect_to user_app_path(@app.user, @app), flash: 'Successfully updated'
+      redirect_to user_app_path(@app.user, @app), notice: "Successfully updated #{@app.name}"
     else
       render :edit
     end
@@ -41,12 +39,6 @@ class AppsController < ApplicationController
   private
 
   def app_params
-    params.require(:app).permit(:name, :email, :ssh_key, :env_vars).merge(user_id: current_user.id)
-  end
-
-  def fetch_app
-    App.find(params[:id]).tap do |app|
-      redirect_to current_user unless app.user == current_user
-    end
+    params.require(:app).permit(:name, :email, :ssh_key, :env_vars_view).merge(user_id: current_user.id)
   end
 end
