@@ -28,7 +28,7 @@ class AppsController < ApplicationController
   end
 
   def update
-    @app = fetch_app
+    @app = fetch_app(params[:id])
     if @app.update(app_params)
       redirect_to user_app_path(@app.user, @app), notice: "Successfully updated #{@app.name}"
     else
