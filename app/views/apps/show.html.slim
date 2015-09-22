@@ -1,2 +1,19 @@
-h2= @app.name
-= link_to 'Edit', edit_user_app_path(@app.user, @app)
+.row
+  .col-md-12
+    h2= @app.name
+
+  .col-md-6
+    .row
+      .col-md-12
+        h3 ENV-Vars
+        = @app.env_vars
+
+  .col-md-6
+    .row
+      .col-md-12
+        h3 ENV-Vars
+        = @app.env_vars
+
+
+  .col-md-12
+    = link_to 'Edit', edit_user_app_path(@app.user, @app)

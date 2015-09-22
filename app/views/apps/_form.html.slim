@@ -1,4 +1,4 @@
-= simple_form_for [app.user, app] do |f|
+= simple_form_for [current_user, app] do |f|
   = f.error_notification
 
   = f.input :name, readonly: true

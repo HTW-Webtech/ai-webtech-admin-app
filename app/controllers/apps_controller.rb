@@ -23,9 +23,18 @@ class AppsController < ApplicationController
   def create
     @app = App.new(app_params)
     if @app.save
-      redirect_to [@app.user, @app]
+      redirect_to user_app_path(@app.user, @app)
     else
       render :edit, flash: 'Please check your input!'
+    end
+  end
+
+  def update
+    @app = fetch_app
+    if @app.update(app_params)
+      redirect_to user_app_path(@app.user, @app), flash: 'Successfully updated'
+    else
+      render :edit
     end
   end
 
