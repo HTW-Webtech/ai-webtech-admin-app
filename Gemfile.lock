@@ -73,8 +73,6 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
-    file-tail (1.1.0)
-      tins (~> 1.0)
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
     foreman (0.78.0)
@@ -210,7 +208,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
-    tins (1.6.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -236,7 +233,6 @@ DEPENDENCIES
   cancancan (~> 1.10)
   coffee-rails (~> 4.1.0)
   devise (= 3.5.1)
-  file-tail
   foreman
   jbuilder (~> 2.0)
   jquery-rails
