@@ -1,0 +1,9 @@
+h2 Edit!
+
+= simple_form_for @user, html: { class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
+  = f.error_notification
+
+  = f.input :name
+  = f.input :ssh_key, as: :text
+
+  = f.button :submit
