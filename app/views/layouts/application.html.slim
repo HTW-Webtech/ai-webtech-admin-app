@@ -8,51 +8,7 @@ head
 body
 
   .container
-    .row
-      .col-md-12
-        nav.navbar.navbar-inverse
-          div.container-fluid
-            div.navbar-header
-              a.navbar-brand href="/" Aris
-
-            div.navbar-collapse.collapse
-              ul.nav.navbar-nav
-                - if current_user
-                  - if current_user.apps.present?
-                    li.dropdown
-                      a.dropdown-toggle href='#' data-toggle="dropdown"
-                        | Apps
-                        span.caret
-                      ul.dropdown-menu
-                        - if current_user.apps.exists?
-                          - current_user.apps.find_each do |app|
-                            li
-                              = link_to app.name, user_app_path(current_user, app)
-                          li.divider role="separator"
-                        li
-                          = link_to 'Create new app', new_user_app_path(current_user)
-
-
-                  = active_link_to_li 'Dashboard', user_path(current_user)
-                  - if current_user.admin?
-                    = active_link_to_li 'Rails-Admin', rails_admin.dashboard_path
-
-                  = active_link_to_li 'Edit Profile', edit_user_path(current_user)
-
-                  - if current_user.admin?
-                    li.dropdown
-                      a.dropdown-toggle href='#' data-toggle="dropdown"
-                        | Login as
-                        span.caret
-                      ul.dropdown-menu
-                        - User.find_each do |user|
-                          li
-                            = link_to user.name, "/switch_user?scope_identifier=user_#{user.id}"
-
-                  = active_link_to_li 'Logout', destroy_user_session_path, method: :delete
-
-                - else
-                  li= link_to 'Login', new_user_session_path
+    = render 'layouts/navigation'
 
     .row
       .col-md-12
