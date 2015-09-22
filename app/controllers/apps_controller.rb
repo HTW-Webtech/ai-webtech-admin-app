@@ -14,7 +14,7 @@ class AppsController < ApplicationController
   end
 
   def edit
-    @app = fetch_app
+    @app = fetch_app(params[:id])
     render :edit
   end
 
@@ -39,6 +39,9 @@ class AppsController < ApplicationController
   private
 
   def app_params
-    params.require(:app).permit(:name, :email, :ssh_key, :env_vars_view).merge(user_id: current_user.id)
+    params.require(:app).permit(
+      :name, :email, :ssh_key, :env_vars_view,
+      :pg_host, :pg_database, :pg_login, :pg_passwd
+    ).merge(user_id: current_user.id)
   end
 end
