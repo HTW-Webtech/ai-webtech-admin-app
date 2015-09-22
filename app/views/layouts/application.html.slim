@@ -38,7 +38,6 @@ body
                     = active_link_to_li 'Rails-Admin', rails_admin.dashboard_path
 
                   = active_link_to_li 'Edit Profile', edit_user_path(current_user)
-                  = active_link_to_li 'Logout', destroy_user_session_path, method: :delete
 
                   - if current_user.admin?
                     li.dropdown
