@@ -34,6 +34,9 @@ body
 
 
                   = active_link_to_li 'Dashboard', user_path(current_user)
+                  - if current_user.admin?
+                    = active_link_to_li 'Rails-Admin', rails_admin.dashboard_path
+
                   = active_link_to_li 'Edit Profile', edit_user_path(current_user)
                   = active_link_to_li 'Logout', destroy_user_session_path, method: :delete
 
@@ -46,6 +49,8 @@ body
                         - User.find_each do |user|
                           li
                             = link_to user.name, "/switch_user?scope_identifier=user_#{user.id}"
+
+                  = active_link_to_li 'Logout', destroy_user_session_path, method: :delete
 
                 - else
                   li= link_to 'Login', new_user_session_path
