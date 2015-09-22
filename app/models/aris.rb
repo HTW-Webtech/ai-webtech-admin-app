@@ -1,5 +1,3 @@
-require 'typhoeus'
-
 class Aris
   def self.publish(app)
     bookkeeper.add(app.name, app_opts(opts))
