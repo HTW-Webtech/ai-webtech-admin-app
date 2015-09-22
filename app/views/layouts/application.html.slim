@@ -1,0 +1,55 @@
+doctype 5
+head
+  title ArisWebUi
+  meta name="viewport" content="width=device-width, initial-scale=1"
+  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+body
+
+  .container
+    .row
+      .notice= notice
+      .alert= alert
+
+    .row
+      .col-md-12
+        nav.navbar.navbar-inverse
+          div.container-fluid
+            div.navbar-header
+              a.navbar-brand href="/" Aris
+
+            div.navbar-collapse.collapse
+              ul.nav.navbar-nav
+                - if current_user
+                  - if current_user.apps.present?
+                    li.dropdown
+                      a.dropdown-toggle href='#' data-toggle="dropdown"
+                        | Apps
+                        span.caret
+                      ul.dropdown-menu
+                        - current_user.apps.find_each do |app|
+                          li
+                            = link_to app.name, user_app_path(current_user, app)
+
+
+                  = active_link_to_li 'Dashboard', user_path(current_user)
+                  = active_link_to_li 'Edit Profile', edit_user_path(current_user)
+                  = active_link_to_li 'Logout', destroy_user_session_path, method: :delete
+
+                  - if current_user.admin?
+                    li.dropdown
+                      a.dropdown-toggle href='#' data-toggle="dropdown"
+                        | Login as
+                        span.caret
+                      ul.dropdown-menu
+                        - User.find_each do |user|
+                          li
+                            = link_to user.name, "/switch_user?scope_identifier=user_#{user.id}"
+
+                - else
+                  li= link_to 'Login', new_user_session_path
+
+    .row
+      .col-md-12
+        = yield
