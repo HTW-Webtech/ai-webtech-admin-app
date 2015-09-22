@@ -11,19 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921120000) do
+ActiveRecord::Schema.define(version: 20150922081030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "apps", force: :cascade do |t|
-    t.string   "email",      null: false
-    t.string   "name",       null: false
+    t.string   "email",                               null: false
+    t.string   "name",                                null: false
     t.string   "ssh_key"
     t.text     "env_vars"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id",    null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "user_id",                             null: false
+    t.string   "env_vars_view", default: "",          null: false
+    t.string   "pg_host",       default: "localhost", null: false
+    t.string   "pg_database",   default: "",          null: false
+    t.string   "pg_login",      default: "",          null: false
+    t.string   "pg_passwd",     default: "",          null: false
   end
 
   add_index "apps", ["name"], name: "index_apps_on_name", unique: true, using: :btree
