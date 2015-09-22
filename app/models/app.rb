@@ -12,8 +12,8 @@ class App < ActiveRecord::Base
   after_initialize do
     if self.new_record?
       self.name        = AppName.generate_unique
-      self.email       = user.email
-      self.ssh_key     = user.ssh_key
+      self.email       = user.email   if user
+      self.ssh_key     = user.ssh_key if user
       self.pg_database = self.name
       self.pg_login    = self.name
       self.pg_passwd   = SecureRandom.uuid
