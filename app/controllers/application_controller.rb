@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(_)
-    current_user.admin? ? rails_admin.dashboard_path : users_path(current_user)
+    users_path(current_user)
   end
 end
