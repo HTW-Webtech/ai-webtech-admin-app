@@ -1,0 +1,15 @@
+.panel.panel-default
+  .panel-heading:strong #{app.name}
+  .panel-body
+    .row
+      .col-md-3:strong E-Mail
+      .col-md-9
+        pre= app.email
+    .row
+      .col-md-3:strong SSH-Key
+      .col-md-9
+        pre= app.ssh_key
+    .row
+      .col-md-3:strong ENV
+      .col-md-9
+        pre= app.env_vars_view

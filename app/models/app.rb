@@ -33,13 +33,18 @@ class App < ActiveRecord::Base
   end
 
   # TODO: Move somewhere else
-  def pg_env_vars_view
-    <<-ENV_VAR.strip_heredoc
-      PG_HOST: #{pg_host}
-      PG_DATABASE: #{pg_database}
-      PG_LOGIN: #{pg_login}
-      PG_PASSWD: #{self.pg_passwd}
-    ENV_VAR
+  # def pg_env_vars_view
+  #   <<-ENV_VAR.strip_heredoc
+  #     PG_HOST: #{pg_host}
+  #     PG_DATABASE: #{pg_database}
+  #     PG_LOGIN: #{pg_login}
+  #     PG_PASSWD: #{self.pg_passwd}
+  #   ENV_VAR
+  # end
+
+  # TODO: Move in some view helper
+  def view_git_clone_host
+    "ssh://#{name}@#{Rails.application.secrets.git_ssh_host}:/var/apps/#{name}/code"
   end
 
   private

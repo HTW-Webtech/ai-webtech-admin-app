@@ -1,0 +1,19 @@
+.panel.panel-default
+  .panel-heading:strong Postgres SQL access
+  .panel-body
+    .row
+      .col-md-3:strong Postgres Host
+      .col-md-9
+        pre= app.pg_host
+    .row
+      .col-md-3:strong Postgres Database
+      .col-md-9
+        pre= app.pg_database
+    .row
+      .col-md-3:strong Postgres Login
+      .col-md-9
+        pre= app.pg_login
+    .row
+      .col-md-3:strong Postgres Password
+      .col-md-9
+        pre= app.pg_passwd

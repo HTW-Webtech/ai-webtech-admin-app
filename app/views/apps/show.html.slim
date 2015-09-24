@@ -1,3 +1,11 @@
 h2= @app.name
 
-= render 'form', app: @app
+.row
+  .col-md-6
+    = render 'app_details', app: @app
+  .col-md-6
+    = render 'git_access', app: @app
+  .col-md-6
+    = render 'postgres_access', app: @app
+
+= link_to 'Edit app', edit_user_app_path(current_user, @app), class: 'btn btn-primary'

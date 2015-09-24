@@ -1,0 +1,9 @@
+.panel.panel-default
+  .panel-heading:strong Git access
+  .panel-body
+    .row
+      .col-md-3:strong SSH
+      .col-md-9
+        p
+          | To clone this repistory, you must provide your public ssh key for authentication and then run:
+          pre.bg-success git clone #{app.view_git_clone_host}

@@ -1,5 +1,5 @@
 = simple_form_for [current_user, app],
-    html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+    html: { class: 'form-vertical' }, wrapper: :vertical_form do |f|
   = f.error_notification
 
   = f.input :pg_host,     as: :hidden
@@ -11,11 +11,5 @@
   = f.input :email
   = f.input :ssh_key,  as: :text
   = f.input :env_vars_view, as: :text, hint: 'Provide env-var configuration via "KEY: Value" per line. See: http://rubular.com/r/XZjbArjZ3Y', placeholder: 'SECRET_KEY_BASE: abcdefgh…01'
-
-  .form-group.text
-    label.text.col-sm-3.control-label ENV-Vars for Postgres DB Access
-    .col-sm-9
-      textarea.text.form-control data-no-autosize=true readonly=true style='height: 120px'
-        = app.pg_env_vars_view
 
   = f.button :submit
