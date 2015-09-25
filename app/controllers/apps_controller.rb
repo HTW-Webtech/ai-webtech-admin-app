@@ -30,7 +30,7 @@ class AppsController < ApplicationController
   def update
     @app = fetch_app(params[:id])
     if @app.update_attributes(app_params)
-      redirect_to user_app_path(@app.user, @app), notice: "Successfully updated #{@app.name}"
+      redirect_to user_app_path(@app.user, @app), notice: "Successfully updated #{@app.name}. It may take 2-3 min. for your changes to take action."
     else
       render :edit
     end
