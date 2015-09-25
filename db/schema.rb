@@ -17,19 +17,18 @@ ActiveRecord::Schema.define(version: 20150925050624) do
   enable_extension "plpgsql"
 
   create_table "apps", force: :cascade do |t|
-    t.string   "name",                                null: false
-    t.string   "email",                               null: false
-    t.string   "ssh_key",       default: "",          null: false
-    t.string   "pg_host",       default: "localhost", null: false
-    t.string   "string",        default: "",          null: false
-    t.string   "pg_database",   default: "",          null: false
-    t.string   "pg_login",      default: "",          null: false
-    t.string   "pg_passwd",     default: "",          null: false
+    t.string   "name",                              null: false
+    t.string   "email",                             null: false
+    t.string   "ssh_key",                           null: false
+    t.string   "pg_host",     default: "localhost", null: false
+    t.string   "string",      default: "",          null: false
+    t.string   "pg_database", default: "",          null: false
+    t.string   "pg_login",    default: "",          null: false
+    t.string   "pg_passwd",   default: "",          null: false
     t.text     "env_vars"
-    t.text     "env_vars_view", default: "",          null: false
-    t.integer  "user_id",                             null: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.integer  "user_id",                           null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   add_index "apps", ["name"], name: "index_apps_on_name", unique: true, using: :btree
