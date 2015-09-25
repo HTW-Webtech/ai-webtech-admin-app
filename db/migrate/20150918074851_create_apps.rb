@@ -3,7 +3,7 @@ class CreateApps < ActiveRecord::Migration
     create_table :apps do |t|
       t.string :name,        null: false
       t.string :email,       null: false
-      t.string :ssh_key,     null: false, default: ''
+      t.string :ssh_key,     null: false
 
       t.string :pg_host,     :string, default: 'localhost', null: false
       t.string :pg_database, :string, default: '', null: false
