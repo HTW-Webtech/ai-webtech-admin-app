@@ -6,7 +6,13 @@ class User < ActiveRecord::Base
 
   has_many :apps
 
+  ADMIN_NAME = 'admin'
+
+  def self.admin
+    where(name: ADMIN_NAME).first!
+  end
+
   def admin?
-    persisted? && name == 'admin'
+    persisted? && name == ADMIN_NAME
   end
 end
