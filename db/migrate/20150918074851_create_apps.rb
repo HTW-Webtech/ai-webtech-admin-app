@@ -6,9 +6,9 @@ class CreateApps < ActiveRecord::Migration
       t.string :ssh_key,     null: false
 
       t.string :pg_host,     :string, default: 'localhost', null: false
-      t.string :pg_database, :string, default: '', null: false
-      t.string :pg_login,    :string, default: '', null: false
-      t.string :pg_passwd,   :string, default: '', null: false
+      t.string :pg_database, :string, null: false
+      t.string :pg_login,    :string, null: false
+      t.string :pg_passwd,   :string, null: false
 
       t.text :env_vars
 
