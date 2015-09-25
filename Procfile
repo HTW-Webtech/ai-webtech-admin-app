@@ -1,1 +1,1 @@
-server: bundle exec rails s
+server: bundle exec rails s -p 3003
