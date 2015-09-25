@@ -9,7 +9,7 @@ class Aris
     opts[:name]     = app.name
     opts[:email]    = app.email
     opts[:ssh_key]  = app.ssh_key
-    opts[:env_vars] = app.env_vars
+    opts[:env_vars] = app.env_vars || {}
     opts[:env_vars] = opts[:env_vars].merge(
       pg_host: app.pg_host,
       pg_database: app.pg_database,
