@@ -4,9 +4,15 @@
       | Apps
       span.caret
     ul.dropdown-menu
-      - current_user.apps.find_each do |app|
-        li
-          = link_to app.name, user_app_path(current_user, app)
+      li
+        = link_to 'Overview', user_path(current_user)
+
+      - if current_user.apps.exists?
+        li.divider role="separator"
+
+        - current_user.apps.find_each do |app|
+          li
+            = link_to app.name, user_app_path(current_user, app)
       li.divider role="separator"
       li
         = link_to 'Create new app', new_user_app_path(current_user)

@@ -1,5 +1,9 @@
 h2 Logs for #{@app.name}
+p Scroll to the bottom for the latest logs.
 
-textarea.form-control.text readonly=true data-no-autosize=true style='height: 1000px'
-  = @logs
+p
+  textarea.form-control.text readonly=true data-no-autosize=true style='height: 1000px'
+    = @logs
 
+p
+  = link_to 'Back to app',  user_app_path(current_user, @app), class: 'btn btn-primary'

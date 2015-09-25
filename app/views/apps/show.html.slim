@@ -7,5 +7,10 @@ h2= @app.name
     = render 'git_access', app: @app
   .col-md-6
     = render 'postgres_access', app: @app
+  .col-md-12
+    = render 'env_vars', app: @app
 
-= link_to 'Edit app', edit_user_app_path(current_user, @app), class: 'btn btn-primary'
+p
+  = link_to 'Edit app',  edit_user_app_path(current_user, @app), class: 'btn btn-primary'
+p
+  = link_to 'View logs', user_app_logs_path(current_user, @app), class: 'btn btn-default'
