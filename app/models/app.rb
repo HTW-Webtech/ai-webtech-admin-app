@@ -3,19 +3,18 @@ require 'securerandom'
 class App < ActiveRecord::Base
   belongs_to :user
 
-  attr_accessor :env_vars_view
   serialize :env_vars, JSON
 
   after_save :publish_to_aris
 
   after_initialize do
     if self.new_record?
-      self.name        = AppName.generate_unique
-      self.email       = user.email   if user
-      self.ssh_key     = user.ssh_key if user
-      self.pg_database = self.name
-      self.pg_login    = self.name
-      self.pg_passwd   = SecureRandom.uuid
+      self.name        ||= AppName.generate_unique
+      self.email       ||= user.email   if user
+      self.ssh_key     ||= user.ssh_key if user
+      self.pg_database ||= self.name
+      self.pg_login    ||= self.name
+      self.pg_passwd   ||= SecureRandom.uuid
     end
   end
 
@@ -28,18 +27,8 @@ class App < ActiveRecord::Base
   end
 
   def publish_to_aris
-    Aris.publish(self)
+    # Aris.publish(self)
   end
-
-  # TODO: Move somewhere else
-  # def pg_env_vars_view
-  #   <<-ENV_VAR.strip_heredoc
-  #     PG_HOST: #{pg_host}
-  #     PG_DATABASE: #{pg_database}
-  #     PG_LOGIN: #{pg_login}
-  #     PG_PASSWD: #{self.pg_passwd}
-  #   ENV_VAR
-  # end
 
   # TODO: Move in some view helper
   def view_git_clone_host
