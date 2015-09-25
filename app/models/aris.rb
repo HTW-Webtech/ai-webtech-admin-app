@@ -3,7 +3,6 @@ class Aris
     bookkeeper.add(app.name, app_opts(app))
   end
 
-  # TODO: Make pg_passwd => pg_password
   def self.app_opts(app)
     opts = {}
     opts[:name]     = app.name
