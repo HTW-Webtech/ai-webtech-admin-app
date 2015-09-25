@@ -15,6 +15,7 @@ class App < ActiveRecord::Base
       self.pg_database ||= self.name
       self.pg_login    ||= self.name
       self.pg_passwd   ||= SecureRandom.uuid
+      self.env_vars    ||= { 'FOO' => 'BAR' }
     end
   end
 
@@ -27,7 +28,7 @@ class App < ActiveRecord::Base
   end
 
   def publish_to_aris
-    # Aris.publish(self)
+    Aris.publish(self)
   end
 
   # TODO: Move in some view helper

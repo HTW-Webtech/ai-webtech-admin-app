@@ -29,7 +29,7 @@ class AppsController < ApplicationController
 
   def update
     @app = fetch_app(params[:id])
-    if @app.update(app_params)
+    if @app.update_attributes(app_params)
       redirect_to user_app_path(@app.user, @app), notice: "Successfully updated #{@app.name}"
     else
       render :edit
@@ -40,8 +40,14 @@ class AppsController < ApplicationController
 
   def app_params
     params.require(:app).permit(
-      :name, :email, :ssh_key, :env_vars,
-      :pg_host, :pg_database, :pg_login, :pg_passwd
-    ).merge(user_id: current_user.id)
+      :name, :email, :ssh_key, :pg_host, :pg_database, :pg_login, :pg_passwd
+    ).merge(user_id: current_user.id, env_vars: env_vars_params)
+  end
+
+  def env_vars_params
+    params[:env_vars] or return {}
+    params[:env_vars].each_with_object({}) do |var, env_vars|
+      env_vars[var['name'].upcase] = var['value']
+    end
   end
 end
