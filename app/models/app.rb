@@ -6,7 +6,6 @@ class App < ActiveRecord::Base
   attr_accessor :env_vars_view
   serialize :env_vars, JSON
 
-  before_save :transform_env_vars_view
   after_save :publish_to_aris
 
   after_initialize do
@@ -45,11 +44,5 @@ class App < ActiveRecord::Base
   # TODO: Move in some view helper
   def view_git_clone_host
     "ssh://#{name}@#{Rails.application.secrets.git_ssh_host}:/var/apps/#{name}/code"
-  end
-
-  private
-
-  def transform_env_vars_view
-    self.env_vars = AppEnvVars.encode(self.env_vars_view)
   end
 end
