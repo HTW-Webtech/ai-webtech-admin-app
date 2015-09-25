@@ -40,7 +40,7 @@ class AppsController < ApplicationController
 
   def app_params
     params.require(:app).permit(
-      :name, :email, :ssh_key, :env_vars_view,
+      :name, :email, :ssh_key, :env_vars,
       :pg_host, :pg_database, :pg_login, :pg_passwd
     ).merge(user_id: current_user.id)
   end

@@ -10,6 +10,6 @@
   = f.input :name, readonly: true
   = f.input :email
   = f.input :ssh_key,  as: :text
-  = f.input :env_vars_view, as: :text, hint: 'Provide env-var configuration via "KEY: Value" per line. See: http://rubular.com/r/XZjbArjZ3Y', placeholder: 'SECRET_KEY_BASE: abcdefgh…01'
+  = f.input :env_vars, as: :text, hint: 'Provide a valid ruby hash here!'
 
   = f.button :submit

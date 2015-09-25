@@ -11,7 +11,6 @@ class CreateApps < ActiveRecord::Migration
       t.string :pg_passwd,   :string, default: '', null: false
 
       t.text :env_vars
-      t.text :env_vars_view, null: false, default: ''
 
       t.integer :user_id,    null: false
       t.timestamps null: false

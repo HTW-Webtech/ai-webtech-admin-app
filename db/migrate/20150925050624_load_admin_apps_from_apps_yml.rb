@@ -13,7 +13,6 @@ class LoadAdminAppsFromAppsYml < ActiveRecord::Migration
       pg_login: admin_app['env_vars']['PG_USER'],
       pg_passwd: admin_app['env_vars']['PG_PASSWORD'],
     })
-    app.update_column(:env_vars_view, 'Managed by ansible!')
   end
 
   def down
