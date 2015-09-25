@@ -33,6 +33,6 @@ class App < ActiveRecord::Base
 
   # TODO: Move in some view helper
   def view_git_clone_host
-    "ssh://#{name}@#{Rails.application.secrets.git_ssh_host}:/var/apps/#{name}/code"
+    "ssh://#{name}@#{Rails.application.config.git_ssh_public_host}:/var/apps/#{name}/code"
   end
 end
