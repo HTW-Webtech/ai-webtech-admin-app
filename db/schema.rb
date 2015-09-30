@@ -21,10 +21,9 @@ ActiveRecord::Schema.define(version: 20150925050624) do
     t.string   "email",                             null: false
     t.string   "ssh_key",                           null: false
     t.string   "pg_host",     default: "localhost", null: false
-    t.string   "string",      default: "",          null: false
-    t.string   "pg_database", default: "",          null: false
-    t.string   "pg_login",    default: "",          null: false
-    t.string   "pg_passwd",   default: "",          null: false
+    t.string   "pg_database",                       null: false
+    t.string   "pg_login",                          null: false
+    t.string   "pg_passwd",                         null: false
     t.text     "env_vars"
     t.integer  "user_id",                           null: false
     t.datetime "created_at",                        null: false

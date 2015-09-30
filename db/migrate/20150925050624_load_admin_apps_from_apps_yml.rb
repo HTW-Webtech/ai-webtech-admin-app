@@ -2,7 +2,7 @@ class LoadAdminAppsFromAppsYml < ActiveRecord::Migration
   # Move this into a generic feature?
   def up
     admin_app = ArisControl::Bookkeeper.new.apps['admin']
-    App.create!({
+    app = App.new({
       name: 'admin',
       user: User.admin,
       email: admin_app['email'],
@@ -12,6 +12,7 @@ class LoadAdminAppsFromAppsYml < ActiveRecord::Migration
       pg_login: admin_app['env_vars']['POSTGRES_LOGIN'],
       pg_passwd: admin_app['env_vars']['POSTGRES_PASSWORD'],
     })
+    app.save!
   end
 
   def down
