@@ -6,9 +6,6 @@ class App < ActiveRecord::Base
 
   serialize :env_vars, JSON
 
-  after_save :publish_to_app_service
-  after_save :publish_to_jenkins_service
-
   after_initialize do
     if self.new_record?
       self.name        ||= AppName.generate_unique
@@ -43,5 +40,6 @@ class App < ActiveRecord::Base
   end
 
   def public_url
+
   end
 end
