@@ -6,7 +6,7 @@ class Aris
   def self.app_opts(app)
     opts = {}
     opts[:name]     = app.name
-    opts[:email]    = app.email
+    opts[:email]    = app.user.email
     opts[:ssh_key]  = app.ssh_key
     opts[:env_vars] = app.env_vars || {}
     opts[:env_vars] = opts[:env_vars].merge(
