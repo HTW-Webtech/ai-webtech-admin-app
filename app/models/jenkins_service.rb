@@ -1,3 +1,9 @@
+# YAML:
+# jenkins_jobs:
+#   app-name:
+#     url: http://app-name.webtech.info
+#     exercise_id: 1
+#     user_email: foo@bar.com
 class JenkinsService
   def self.publish(app)
     @jobs = load_jobs
@@ -21,6 +27,10 @@ class JenkinsService
   end
 
   def self.add_or_update(jobs, app)
+    job = jobs[app.name] || {}
+    job['url'] = app.public_url
+    job['exercise_id'] = app.exercise_id
+    job['user_email']  = app.user.email
     jobs
   end
 
