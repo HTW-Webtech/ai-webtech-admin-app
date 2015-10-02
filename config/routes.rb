@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :apps, except: [:destroy] do
       resource :logs, only: [:show]
     end
+    resources :exercises, except: [:destroy, :update]
   end
 
   # foo

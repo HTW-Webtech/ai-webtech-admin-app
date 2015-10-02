@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   def admin?
     persisted? && name == ADMIN_NAME
   end
+
+  def app_count
+    apps.count
+  end
 end

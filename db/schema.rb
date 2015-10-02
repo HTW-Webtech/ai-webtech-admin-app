@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150925050624) do
     t.string   "pg_passwd",                         null: false
     t.text     "env_vars"
     t.integer  "user_id",                           null: false
+    t.integer  "exercise_id",                       null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
   end
