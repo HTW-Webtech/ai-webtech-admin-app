@@ -5,10 +5,11 @@
 #     exercise_id: 1
 #     user_email: foo@bar.com
 class JenkinsService
-  def self.publish(app)
-    @jobs = load_jobs
-    add_or_update(@jobs, app)
-    store_jobs(@jobs)
+  def self.publish(app_or_apps)
+    apps = Array(app_or_apps)
+    jobs = load_jobs
+    jobs = add_or_update(jobs, apps)
+    store_jobs(jobs)
   end
 
   def self.load_jobs
@@ -16,26 +17,30 @@ class JenkinsService
     jobs = if jobs_yml.present?
       YAML.load(jobs_yml)
     else
-      { 'jenkins_jobs': {} }
+      { 'jenkins_jobs' => {} }
     end
     jobs['jenkins_jobs']
   end
 
   def self.read_jenkins_jobs_yaml
     IO.binread jenkins_jobs_yaml_path
-    rescue Errno::ENOENT
+    rescue Errno::ENOENT => e
   end
 
   def self.store_jobs(jobs)
-    jobs_yml = YAML.dump({ 'jenkins_jobs': jobs })
+    jobs_yml = YAML.dump({ 'jenkins_jobs' => jobs })
     IO.binwrite jenkins_jobs_yaml_path, jobs_yml
   end
 
-  def self.add_or_update(jobs, app)
-    job = jobs[app.name] || {}
-    job['url'] = app.public_url
-    job['exercise_id'] = app.exercise_id
-    job['user_email']  = app.user.email
+  def self.add_or_update(jobs, apps)
+    apps.each do |app|
+      job = jobs[app.name] || {}
+      job['test_url'] = app.public_url
+      job['git_url']  = app.view_git_clone_host
+      job['exercise_id'] = app.exercise_id
+      job['user_email']  = app.user.email
+      jobs[app.name] = job
+    end
     jobs
   end
 

@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     resources :exercises, except: [:destroy, :update]
   end
 
+  resource :fixtures, only: [:create]
+  resource :jenkins, only: [:create]
+
   # foo
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
