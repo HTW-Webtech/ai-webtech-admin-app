@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20150925050624) do
 
   create_table "apps", force: :cascade do |t|
     t.string   "name",                              null: false
-    t.string   "email",                             null: false
     t.string   "ssh_key",                           null: false
     t.string   "pg_host",     default: "localhost", null: false
     t.string   "pg_database",                       null: false
