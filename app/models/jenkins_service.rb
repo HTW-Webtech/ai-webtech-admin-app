@@ -35,9 +35,9 @@ class JenkinsService
   def self.add_or_update(jobs, apps)
     apps.each do |app|
       job = jobs[app.name] || {}
-      job['test_url'] = app.public_url
-      job['git_url']  = app.view_git_clone_host
+      job['exercise_base_url'] = app.public_url
       job['exercise_id'] = app.exercise_id
+      job['user_name']  = app.user.name
       job['user_email']  = app.user.email
       jobs[app.name] = job
     end
