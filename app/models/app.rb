@@ -12,7 +12,6 @@ class App < ActiveRecord::Base
   after_initialize do
     if self.new_record?
       self.name        ||= AppName.generate_unique
-      self.email       ||= user.email
       self.ssh_key     ||= user.ssh_key
       self.pg_database ||= self.name
       self.pg_login    ||= self.name
@@ -41,5 +40,8 @@ class App < ActiveRecord::Base
   # TODO: Move in some view helper
   def view_git_clone_host
     "ssh://#{name}@#{Rails.application.config.git_ssh_public_host}:/var/apps/#{name}/code"
+  end
+
+  def public_url
   end
 end

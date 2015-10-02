@@ -5,7 +5,6 @@ class LoadAdminAppsFromAppsYml < ActiveRecord::Migration
     app = App.new({
       name: 'admin',
       user: User.admin,
-      email: admin_app['email'],
       env_vars: admin_app['env_vars'],
       ssh_key: admin_app['ssh_key'],
       pg_database: admin_app['env_vars']['POSTGRES_DATABASE_NAME'],
