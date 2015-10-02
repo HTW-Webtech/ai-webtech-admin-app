@@ -12,13 +12,18 @@ class JenkinsService
   end
 
   def self.load_jobs
-    jobs_yml = IO.binread jenkins_jobs_yaml_path
+    jobs_yml = read_jenkins_jobs_yaml
     jobs = if jobs_yml.present?
       YAML.load(jobs_yml)
     else
       { 'jenkins_jobs': {} }
     end
     jobs['jenkins_jobs']
+  end
+
+  def self.read_jenkins_jobs_yaml
+    IO.binread jenkins_jobs_yaml_path
+    rescue Errno::ENOENT
   end
 
   def self.store_jobs(jobs)
