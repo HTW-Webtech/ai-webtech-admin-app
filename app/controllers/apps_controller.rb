@@ -1,5 +1,6 @@
 class AppsController < ApplicationController
   include AppFetching
+  before_action :limit_ten_apps_per_user
 
   def index
     redirect_to current_user
@@ -41,6 +42,12 @@ class AppsController < ApplicationController
   end
 
   private
+
+  def limit_ten_apps_per_user
+    if current_user.apps.count >= 10
+      redirect_to user_path(current_user), notice: 'You can not create more than 10 apps right now'
+    end
+  end
 
   def app_params
     params.require(:app).permit(
