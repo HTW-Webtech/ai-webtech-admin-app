@@ -40,6 +40,6 @@ class App < ActiveRecord::Base
   end
 
   def public_url
-
+    "http://#{name}.htw-webtech.info"
   end
 end
