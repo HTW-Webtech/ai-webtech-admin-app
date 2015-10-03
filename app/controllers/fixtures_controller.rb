@@ -19,7 +19,7 @@ class FixturesController < ApplicationController
   end
 
   def create_yml
-    App.all do |app|
+    App.all.each do |app|
       Aris.publish(app)
     end
     redirect_to root_path, notice: 'Recreated the apps.yml file'
