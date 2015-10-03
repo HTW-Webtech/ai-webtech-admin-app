@@ -13,8 +13,16 @@ class FixturesController < ApplicationController
     10.times do |i|
       app = App.new(user: user)
       app.save!
+      Aris.publish(app)
     end
     redirect_to root_path, notice: "Created user: #{user.name} with 10 apps"
+  end
+
+  def create_yml
+    App.all do |app|
+      Aris.publish(app)
+    end
+    redirect_to root_path, notice: 'Recreated the apps.yml file'
   end
 
   private

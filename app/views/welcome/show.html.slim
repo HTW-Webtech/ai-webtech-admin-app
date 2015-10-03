@@ -1,3 +1,4 @@
 - if current_user.admin?
-  = button_to 'Create user and apps', fixtures_path
+  = button_to 'Create user and apps', fixtures_create_path
+  = button_to 'Recreate apps yml', fixtures_create_yml_path
   = button_to 'Recreate jenkins yaml', jenkins_path

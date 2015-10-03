@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     resources :exercises, except: [:destroy, :update]
   end
 
-  resource :fixtures, only: [:create]
+  post 'fixtures/create',     controller: :fixtures, action: :create
+  post 'fixtures/create_yml', controller: :fixtures, action: :create_yml
   resource :jenkins, only: [:create]
 
   # foo
