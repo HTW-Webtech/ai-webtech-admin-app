@@ -1,10 +1,10 @@
 - if current_user
-  = render 'layouts/apps_navigation_dropdown'
-  = active_link_to_li 'Exercises', user_exercises_path(current_user)
   = render 'layouts/admin_navigation'
+  = render 'layouts/apps_navigation_dropdown'
 
   = active_link_to_li 'Edit Profile', edit_user_path(current_user)
   = active_link_to_li 'Logout', destroy_user_session_path, method: :delete
+  = render 'layouts/login_as_user'
 
 - else
   li= link_to 'Login', new_user_session_path

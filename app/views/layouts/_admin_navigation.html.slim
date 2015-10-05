@@ -1,10 +1,2 @@
 - if current_user.admin?
   = active_link_to_li 'Rails-Admin', rails_admin.dashboard_path
-  li.dropdown
-    a.dropdown-toggle href='#' data-toggle="dropdown"
-      | Login as
-      span.caret
-    ul.dropdown-menu
-      - User.find_each do |user|
-        li
-          = link_to user.name, "/switch_user?scope_identifier=user_#{user.id}"
