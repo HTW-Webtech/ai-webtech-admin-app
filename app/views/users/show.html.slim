@@ -16,10 +16,10 @@ h2 Hi #{@user.name}!
         td= app.exercise_id
         td= app_status_info(app)
         td
-          = link_to 'Logs', user_app_logs_path(app.user, app)
-          = link_to 'Jenkins', '#'
+          = link_to 'Logs', user_app_logs_path(app.user, app), class: 'btn btn-default'
+          = link_to 'Jenkins', '#', class: 'btn btn-default'
 
 - else
   p You currently have no app configured.
 
-= link_to 'Create a new app!', new_user_app_path(current_user), class: 'btn btn-default'
+= link_to 'Create a new app!', new_user_app_path(current_user), class: 'btn btn-primary'
