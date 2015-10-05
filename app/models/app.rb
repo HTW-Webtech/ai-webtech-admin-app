@@ -26,6 +26,11 @@ class App < ActiveRecord::Base
     @logs ||= AppLogTailer.fetch(self)
   end
 
+  # TODO: Extract me
+  def jenkins_url
+    "http://jenkis.htw-webtech.igelmund.info/job/#{app.name}/"
+  end
+
   def publish_to_app_service
     Aris.publish(self)
   end
