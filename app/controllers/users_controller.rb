@@ -30,6 +30,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :ssh_key)
+    params.require(:user).permit(:name, :ssh_key, :password, :password_confirmation, :reset_password_token)
   end
 end

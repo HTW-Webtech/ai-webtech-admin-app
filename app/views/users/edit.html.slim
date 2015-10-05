@@ -1,9 +1,25 @@
-h2 Edit!
+.row
+  .col-md-6
+    h2 Profil bearbeiten
 
-= simple_form_for @user, html: { class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
-  = f.error_notification
+    = simple_form_for @user, html: { class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
+      = f.error_notification
 
-  = f.input :name
-  = f.input :ssh_key, as: :text
+      = f.input :name
+      = f.input :ssh_key, as: :text
 
-  = f.button :submit
+      = f.button :submit
+
+  .col-md-6
+    h2 Passwort ändern
+
+    = simple_form_for @user,
+        html: { class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
+      = f.error_notification
+      = f.input :reset_password_token, as: :hidden
+
+      = f.input :password, label: 'Neues Passwort', autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+      = f.input :password_confirmation, label: 'Passwort bestätigen'
+
+      = f.button :submit, value: 'Passwort speichern'
+
