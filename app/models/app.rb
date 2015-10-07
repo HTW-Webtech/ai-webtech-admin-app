@@ -47,8 +47,4 @@ class App < ActiveRecord::Base
   def public_url
     "http://#{name}.htw-webtech.dev:8081"
   end
-
-  def jenkins_url
-    "http://htw-webtech.dev:8082/jobs/#{name}"
-  end
 end
