@@ -22,13 +22,25 @@ class App < ActiveRecord::Base
     true
   end
 
+  def points
+    if exercise_passed_at.present?
+      Exercise.points(exercise_id)
+    else
+      0
+    end
+  end
+
+  def reviewed?
+    reviewed_at.present?
+  end
+
   def fetch_logs
     @logs ||= AppLogTailer.fetch(self)
   end
 
   # TODO: Extract me
   def jenkins_url
-    "http://jenkis.htw-webtech.igelmund.info/job/#{app.name}/"
+    "http://jenkis.htw-webtech.igelmund.info/job/#{name}/"
   end
 
   def publish_to_app_service

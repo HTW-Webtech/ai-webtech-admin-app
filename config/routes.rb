@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/admin/rails_admin', as: 'rails_admin'
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -14,9 +14,16 @@ Rails.application.routes.draw do
     resources :exercises, except: [:destroy, :update]
   end
 
-  post 'fixtures/create',     controller: :fixtures, action: :create
-  post 'fixtures/create_yml', controller: :fixtures, action: :create_yml
-  resource :jenkins, only: [:create]
+  namespace :admin do
+    post 'fixtures/create',     controller: :fixtures, action: :create
+    post 'fixtures/create_yml', controller: :fixtures, action: :create_yml
+
+    resource :jenkins,     only: [:create]
+
+    get  '/:app_id/app_review', controller: :app_reviews, action: :show, as: :app_review
+    post '/:app_id/app_review/confirm', controller: :app_reviews, action: :confirm, as: :app_review_confirm
+    post '/:app_id/app_review/revoke', controller: :app_reviews, action: :revoke, as: :app_review_revoke
+  end
 
   # foo
   # Example of regular route:
