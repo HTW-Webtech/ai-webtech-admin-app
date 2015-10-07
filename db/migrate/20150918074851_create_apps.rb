@@ -12,7 +12,12 @@ class CreateApps < ActiveRecord::Migration
       t.text :env_vars
 
       t.integer :user_id,     null: false
+
       t.integer :exercise_id, null: false
+
+      t.datetime :reviewed_at
+      t.datetime :exercise_passed_at
+
       t.timestamps null: false
     end
 
