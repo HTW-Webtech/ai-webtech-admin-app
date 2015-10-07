@@ -1,0 +1,7 @@
+h1= "App Review for #{@app.name}"
+
+- if @app.reviewed?
+  p= "Reviewed at #{@app.reviewed_at}"
+  = button_to 'Revoke!', admin_app_review_confirm_path(@app), class: 'btn btn-primary'
+- else
+  = button_to 'Confirm!', admin_app_review_confirm_path(@app), class: 'btn btn-primary'

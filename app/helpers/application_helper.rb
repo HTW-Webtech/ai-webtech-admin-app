@@ -14,6 +14,14 @@ module ApplicationHelper
     '✓'
   end
 
+  def app_review_icon(app)
+    if app.reviewed?
+      '✓'
+    else
+      '⤫'
+    end
+  end
+
   def link_to_back(record)
     if record.persisted?
       link_to 'Back', :back, class: 'btn btn-default'
