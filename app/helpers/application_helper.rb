@@ -10,16 +10,16 @@ module ApplicationHelper
     active_link_to *args
   end
 
-  def app_status_info(app)
-    '✓'
+  def app_exercise_status(app)
+    app.exercise_passed_at.present? ? "✓ +#{app.achievable_exercise_points} Points" : '⤫'
   end
 
   def app_review_icon(app)
-    if app.reviewed?
-      '✓'
-    else
-      '⤫'
-    end
+    app.reviewed? ? "✓ +#{app.achievable_review_points} Points" : '⤫'
+  end
+
+  def app_points(app)
+    "#{app.total_points} / #{app.achievable_total_points}"
   end
 
   def link_to_back(record)

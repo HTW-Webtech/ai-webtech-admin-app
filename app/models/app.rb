@@ -6,6 +6,14 @@ class App < ActiveRecord::Base
 
   serialize :env_vars, JSON
 
+  def self.reviewed
+    where.not(reviewed_at: nil)
+  end
+
+  def self.exercise_completed
+    where.not(exercise_passed_at: nil)
+  end
+
   after_initialize do
     if self.new_record?
       self.name        ||= AppName.generate_unique
@@ -22,12 +30,28 @@ class App < ActiveRecord::Base
     true
   end
 
-  def points
-    if exercise_passed_at.present?
-      Exercise.points(exercise_id)
-    else
-      0
-    end
+  def total_points
+    exercise_points + review_points
+  end
+
+  def exercise_points
+    exercise_passed_at.present? ? achievable_exercise_points : 0
+  end
+
+  def achievable_total_points
+    achievable_exercise_points + achievable_review_points
+  end
+
+  def achievable_exercise_points
+    Exercise.points(exercise_id)
+  end
+
+  def review_points
+    reviewed? ? achievable_review_points : 0
+  end
+
+  def achievable_review_points
+    2
   end
 
   def reviewed?
@@ -40,7 +64,7 @@ class App < ActiveRecord::Base
 
   # TODO: Extract me
   def jenkins_url
-    "http://jenkis.htw-webtech.igelmund.info/job/#{name}/"
+    "http://jenkins.htw-webtech.igelmund.info/job/#{name}/"
   end
 
   def publish_to_app_service
