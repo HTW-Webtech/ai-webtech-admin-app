@@ -1,6 +1,6 @@
 export SECRET_KEY_BASE=
 
-export POSTGRES_DATABASE_NAME=admin
+export POSTGRES_DATABASE=admin
 export POSTGRES_LOGIN=your-login
 export POSTGRES_PASSWORD=your-password
 
