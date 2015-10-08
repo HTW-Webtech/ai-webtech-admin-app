@@ -7,3 +7,7 @@
         p
           | To clone this repistory, you must provide your public ssh key for authentication and then run:
           pre.bg-success:em git clone #{app.view_git_clone_host}
+    .row
+      .col-md-3:strong SSH-Key
+      .col-md-9
+        pre= app.ssh_key

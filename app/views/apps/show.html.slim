@@ -3,8 +3,6 @@ p Diese App wird als Lösung für die Aufgabe (#{@app.exercise_id}) verwendet.
 
 .row
   .col-md-6
-    = render 'app_details', app: @app
-  .col-md-6
     = render 'git_access', app: @app
   .col-md-6
     = render 'postgres_access', app: @app
