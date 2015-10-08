@@ -1,6 +1,6 @@
 class AppsController < ApplicationController
   include AppFetching
-  before_action :limit_ten_apps_per_user
+  before_action :limit_ten_apps_per_user, only: [:new, :create]
 
   def index
     redirect_to current_user
