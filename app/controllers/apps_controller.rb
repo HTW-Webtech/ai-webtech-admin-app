@@ -1,4 +1,4 @@
-class AppsController < ApplicationController
+class AppsController < ::BaseController
   include AppFetching
   before_action :limit_ten_apps_per_user, only: [:new, :create]
 

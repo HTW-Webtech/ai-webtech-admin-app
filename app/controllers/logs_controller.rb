@@ -1,4 +1,4 @@
-class LogsController < ApplicationController
+class LogsController < ::BaseController
   include AppFetching
 
   def show

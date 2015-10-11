@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < ::BaseController
   def show
     @user = fetch_user
     @apps = @user.apps.order(id: :asc)
