@@ -37,6 +37,7 @@ gem 'slim'
 
 gem 'active_link_to'
 gem 'autosize-rails'
+gem 'cipher-base64'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

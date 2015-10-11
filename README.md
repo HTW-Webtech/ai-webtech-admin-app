@@ -1,4 +1,4 @@
-# Aris Admin app
+# Admin app
 
 # TODOs
 [] Code Reviewed

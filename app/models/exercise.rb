@@ -1,4 +1,7 @@
 class Exercise
+  DEADLINES = {
+    1 => Date.new(2015, 10, 26)
+  }
   POINTS = {
     1 => 2,
     2 => 4,
@@ -10,5 +13,9 @@ class Exercise
 
   def self.points(exercise_id)
     POINTS.fetch(exercise_id, 0)
+  end
+
+  def self.deadline(exercise_id)
+    DEADLINES.fetch(exercise_id, Date.new(2017, 01, 01))
   end
 end

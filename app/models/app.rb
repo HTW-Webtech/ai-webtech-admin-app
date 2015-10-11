@@ -3,6 +3,7 @@ require 'securerandom'
 class App < ActiveRecord::Base
   validates :user, presence: true
   belongs_to :user
+  has_many :exercise_results
 
   serialize :env_vars, JSON
 
@@ -35,7 +36,10 @@ class App < ActiveRecord::Base
   end
 
   def exercise_points
-    exercise_passed_at.present? ? achievable_exercise_points : 0
+    return 0 unless exercise_results.exists?
+    result = exercise_results.where('created_at < ?', Exercise.deadline(exercise_id)).order(created_at: :desc).first!
+    points = achievable_review_points - result.failures_count
+    [points, 0].max
   end
 
   def achievable_total_points

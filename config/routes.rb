@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   namespace :apiv1, path: 'api-v1', format: true, constraints: { format: 'json' }  do
     post 'ping', controller: :pings, action: :ping
-    post 'results/:app_name/:exercise_id', controller: :results, action: :create
+    post 'exercise_results/:app_name/:exercise_id', controller: :exercise_results, action: :create
   end
 
   # foo
