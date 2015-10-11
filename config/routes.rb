@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     post ':app_id/app_review/confirm', controller: :app_reviews, action: :confirm, as: :app_review_confirm
     post ':app_id/app_review/revoke', controller: :app_reviews, action: :revoke, as: :app_review_revoke
   end
+
+  namespace :apiv1, format: true, constraints: { format: 'json' }  do
+    post 'ping', controller: :pings, action: :ping
+    post 'results/:app_id/:exercise_id', controller: :results, action: :create
   end
 
   # foo
