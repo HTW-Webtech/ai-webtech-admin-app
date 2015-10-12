@@ -1,6 +1,11 @@
 class Aris
   def self.publish(app)
     bookkeeper.add(app.name, app_opts(app))
+    write_semaphore(app)
+  end
+
+  def self.write_semaphore(app)
+    IO.binwrite("/var/apps/#{app.name}/.reloading")
   end
 
   def self.app_opts(app)

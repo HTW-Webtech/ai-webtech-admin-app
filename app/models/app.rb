@@ -27,8 +27,8 @@ class App < ActiveRecord::Base
     end
   end
 
-  def is_active?
-    true
+  def reloaded?
+    !File.exists?("/var/apps/#{app.name}/.reloading")
   end
 
   def total_points
