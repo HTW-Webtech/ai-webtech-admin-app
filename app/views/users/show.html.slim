@@ -5,6 +5,7 @@ h2 Hi #{@user.name}!
     thead
       th #
       th Name
+      th Status
       th Aufgabe
       th Tests passed?
       th Reviewed?
@@ -14,6 +15,7 @@ h2 Hi #{@user.name}!
     - @apps.each do |app|
       tr
         td= app.id
+        td= app_status(app)
         td= link_to app.name, user_app_path(app.user, app)
         td= app.exercise_id
         td= app_exercise_status(app)

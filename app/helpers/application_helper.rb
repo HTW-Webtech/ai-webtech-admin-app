@@ -10,6 +10,11 @@ module ApplicationHelper
     active_link_to *args
   end
 
+  def app_status(app)
+    return 'Reloading' if app.reloading?
+    'Ready'
+  end
+
   def app_exercise_status(app)
     app.exercise_passed_at.present? ? "✓ +#{app.achievable_exercise_points} Points" : '⤫'
   end
