@@ -1,7 +1,6 @@
 # Admin app
 
 # TODOs
-[] Delete an app?
 [] Code Reviewed
 [] Status Icon!
   [] Check wether postgres-DBs and users are created
