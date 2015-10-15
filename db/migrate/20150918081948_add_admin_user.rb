@@ -1,11 +1,11 @@
 class AddAdminUser < ActiveRecord::Migration
   def up
     User.create!({
-      email:                 ENV['ADMIN_EMAIL'],
+      email:                 ENV.fetch('ADMIN_EMAIL'),
       name:                  'admin',
-      ssh_key:               ENV['ADMIN_PUB_SSH_KEY'],
-      password:              ENV['ADMIN_PASSWORD'],
-      password_confirmation: ENV['ADMIN_PASSWORD']
+      ssh_key:               ENV.fetch('ADMIN_PUB_SSH_KEY'),
+      password:              ENV.fetch('ADMIN_PASSWORD'),
+      password_confirmation: ENV.fetch('ADMIN_PASSWORD'),
     })
   end
 
