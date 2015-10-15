@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'aris-control'
 gem 'complex_config'
+gem 'tins'
 
 gem 'devise', '3.5.1'
 gem 'rails_admin'
