@@ -5,7 +5,7 @@ class Aris
   end
 
   def self.write_semaphore(app)
-    IO.binwrite("/var/apps/#{app.name}/.reloading", "Time: #{Time.now.to_s}")
+    IO.binwrite(app.semaphore_file_path, "Time: #{Time.now.to_s}")
   end
 
   def self.app_opts(app)

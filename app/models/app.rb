@@ -28,7 +28,11 @@ class App < ActiveRecord::Base
   end
 
   def reloaded?
-    !File.exists?("/var/apps/#{app.name}/.reloading")
+    !File.exists? semaphore_file_path
+  end
+
+  def semaphore_file_path
+    Rails.root + "/tmp/#{app.name}-reloading"
   end
 
   def total_points
