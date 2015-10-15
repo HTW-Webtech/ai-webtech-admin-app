@@ -1,7 +1,0 @@
----
-development: &development
-  database_name: admin
-  login: admin
-
-production: *development
-

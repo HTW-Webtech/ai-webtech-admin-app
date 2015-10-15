@@ -20,8 +20,8 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  database: <%= cc(:postgres).database_name %>
-  username: <%= cc(:postgres).login %>
+  database: admin
+  username: admin
   password: <%= ENV.fetch('POSTGRES_PASSWORD') %>
 
 development:

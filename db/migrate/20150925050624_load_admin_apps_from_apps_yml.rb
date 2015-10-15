@@ -6,9 +6,9 @@ class LoadAdminAppsFromAppsYml < ActiveRecord::Migration
       user: User.admin,
       env_vars: {},
       ssh_key: cc(:admin).pub_ssh_key,
-      pg_database: cc(:postgres).database_name,
-      pg_login: cc(:postgres).login,
-      pg_passwd: ENV.fetch('ADMIN_APP_POSTGRES_PASSWORD'),
+      pg_database: admin,
+      pg_login: admin,
+      pg_passwd: ENV.fetch('POSTGRES_PASSWORD'),
     })
     app.save!
   end
