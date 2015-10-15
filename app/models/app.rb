@@ -72,7 +72,7 @@ class App < ActiveRecord::Base
 
   # TODO: Extract me
   def jenkins_url
-    "http://jenkins.htw-webtech.igelmund.info/job/#{name}/"
+    "http://#{cc(:site).jenkins_hostname}/job/#{name}/"
   end
 
   def publish_to_app_service
@@ -85,10 +85,10 @@ class App < ActiveRecord::Base
 
   # TODO: Move in some view helper
   def view_git_clone_host
-    "ssh://#{name}@#{Rails.application.config.git_ssh_public_host}:/var/apps/#{name}/code"
+    "ssh://#{name}@#{cc(:gitserver).public_hostname}:/var/apps/#{name}/code"
   end
 
   def public_url
-    "http://#{name}.htw-webtech.dev:8081"
+    "http://#{name}.#{cc(:site).hostname}"
   end
 end

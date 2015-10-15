@@ -8,14 +8,12 @@ class User < ActiveRecord::Base
 
   validate :allow_only_htwberlin_accounts, on: :create
 
-  ADMIN_NAME = 'admin'
-
   def self.admin
-    where(name: ADMIN_NAME).first!
+    where(name: cc(:admin).name).first!
   end
 
   def admin?
-    persisted? && name == ADMIN_NAME
+    persisted? && name == cc(:admin).name
   end
 
   def app_count

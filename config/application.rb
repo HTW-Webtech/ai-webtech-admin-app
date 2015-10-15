@@ -22,8 +22,5 @@ module ArisWebUi
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-
-    # Public Aris Git SSH Host
-    config.git_ssh_public_host = ENV.fetch('GIT_SSH_PUBLIC_HOST')
   end
 end
