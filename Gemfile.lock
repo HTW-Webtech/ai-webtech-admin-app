@@ -63,6 +63,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    complex_config (0.3.0)
+      json
     debug_inspector (0.0.2)
     devise (3.5.1)
       bcrypt (~> 3.0)
@@ -234,6 +236,7 @@ DEPENDENCIES
   cancancan (~> 1.10)
   cipher-base64
   coffee-rails (~> 4.1.0)
+  complex_config
   devise (= 3.5.1)
   foreman
   jbuilder (~> 2.0)
