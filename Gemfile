@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'aris-control'
-gem 'complex_config'
+gem 'complex_config', require: 'complex_config/rude'
 gem 'tins'
 
 gem 'devise', '3.5.1'
