@@ -15,8 +15,8 @@ h2 Hi #{@user.name}!
     - @apps.each do |app|
       tr
         td= app.id
-        td= app_status(app)
         td= link_to app.name, user_app_path(app.user, app)
+        td= app_status(app)
         td= app.exercise_id
         td= app_exercise_status(app)
         td= app_review_icon(app)
