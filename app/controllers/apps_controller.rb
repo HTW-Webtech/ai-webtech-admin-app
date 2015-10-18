@@ -35,7 +35,7 @@ class AppsController < ::BaseController
     if @app.update_attributes(app_params)
       @app.publish_to_app_service
       @app.publish_to_jenkins_service
-      redirect_to user_path(curent_user), notice: "Successfully updated #{@app.name}. It may take 2-3 min. for your changes to take action."
+      redirect_to user_path(current_user), notice: "Successfully updated #{@app.name}. It may take 2-3 min. for your changes to take action."
     else
       render :edit
     end
