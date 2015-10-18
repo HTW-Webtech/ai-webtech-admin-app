@@ -32,7 +32,7 @@ class App < ActiveRecord::Base
   end
 
   def semaphore_file_path
-    Rails.root + "/tmp/#{name}-reloading"
+    Rails.root + "tmp/#{name}-reloading"
   end
 
   def total_points
