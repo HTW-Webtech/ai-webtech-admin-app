@@ -1,5 +1,5 @@
 ---
-development:
+development: &:development
   public_hostname: 127.0.0.1
 
 staging: *development
