@@ -3,13 +3,16 @@ development:
   hostname: htw-webtech.dev:8881
   jenkins_hostname: jenkins.htw-webtech.dev:8081
   git_hostname: 127.0.0.1
+  app_limit: 10
 
 staging:
   hostname: htw-webtech.dev:8081
   jenkins_hostname: jenkins.htw-webtech.dev:8081
   git_hostname: localhost:8023
+  app_limit: 10
 
 production:
   hostname: htw-webtech.com
   jenkins_hostname: jenkins.htw-webtech.com
   git_hostname: htw-webtech.com
+  app_limit: 1
