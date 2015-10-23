@@ -85,7 +85,7 @@ class App < ActiveRecord::Base
 
   # TODO: Move in some view helper
   def view_git_clone_host
-    "ssh://#{name}@#{cc(:gitserver).public_hostname}:/var/apps/#{name}/code"
+    "ssh://#{name}@#{cc(:site).git_hostname}:/var/apps/#{name}/code"
   end
 
   def public_url

@@ -2,11 +2,14 @@
 development:
   hostname: htw-webtech.dev:8881
   jenkins_hostname: jenkins.htw-webtech.dev:8081
+  git_hostname: 127.0.0.1
 
 staging:
-  hostname: htw-webtech.dev
-  jenkins_hostname: jenkins.htw-webtech.dev
+  hostname: htw-webtech.dev:8081
+  jenkins_hostname: jenkins.htw-webtech.dev:8081
+  git_hostname: htw-webtech.dev:8023
 
 production:
   hostname: htw-webtech.com
   jenkins_hostname: jenkins.htw-webtech.com
+  git_hostname: htw-webtech.com
