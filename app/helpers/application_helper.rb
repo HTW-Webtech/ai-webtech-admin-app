@@ -20,7 +20,7 @@ module ApplicationHelper
 
   def app_status_class(app)
     if app.reloading?
-      'warning'
+      'danger'
     end
   end
 
