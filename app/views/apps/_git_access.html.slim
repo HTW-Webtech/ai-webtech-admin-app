@@ -7,8 +7,8 @@
         p
           | To clone this repistory, you must provide your public ssh key for authentication and then run:
           pre.bg-success:code
-            git add remote origin #{app.view_git_clone_host}
-            git push origin -u master
+            | git add remote origin #{app.view_git_clone_host}
+              git push origin -u master
     .row
       .col-md-3:strong SSH-Key
       .col-md-9
