@@ -28,7 +28,7 @@ class App < ActiveRecord::Base
   end
 
   def reloading?
-    !File.exists? semaphore_file_path
+    File.exists? semaphore_file_path
   end
 
   def semaphore_file_path
