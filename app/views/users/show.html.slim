@@ -22,6 +22,7 @@ h2 Hi #{@user.name}!
         td= app_review_icon(app)
         td= app_points(app)
         td
+          = link_to 'Open', app.public_url, target: :blank, class: 'btn btn-default'
           = link_to 'Logs', user_app_logs_path(app.user, app), class: 'btn btn-default'
           = link_to 'Jenkins', app.jenkins_url, class: 'btn btn-default', target: '_blank'
     tfoot
