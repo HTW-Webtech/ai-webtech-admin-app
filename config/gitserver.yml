@@ -2,5 +2,7 @@
 development:
   public_hostname: 127.0.0.1
 
+staging: *development
+
 production:
   public_hostname: htw-webtech.com

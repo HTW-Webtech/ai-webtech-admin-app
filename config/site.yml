@@ -3,6 +3,10 @@ development:
   hostname: htw-webtech.dev:8881
   jenkins_hostname: jenkins.htw-webtech.dev:8081
 
+staging:
+  hostname: htw-webtech.dev
+  jenkins_hostname: jenkins.htw-webtech.dev
+
 production:
   hostname: htw-webtech.com
   jenkins_hostname: jenkins.htw-webtech.com
