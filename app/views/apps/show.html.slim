@@ -2,9 +2,9 @@ h2= @app.name
 p Diese App wird als Lösung für die Aufgabe (#{@app.exercise_id}) verwendet.
 
 .row
-  .col-md-6
+  .col-md-12
     = render 'git_access', app: @app
-  .col-md-6
+  .col-md-12
     = render 'postgres_access', app: @app
   .col-md-12
     = render 'env_vars', app: @app
