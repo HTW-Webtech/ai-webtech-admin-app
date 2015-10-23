@@ -13,7 +13,7 @@ h2 Hi #{@user.name}!
       th Links
     tbody
     - @apps.each do |app|
-      tr
+      tr class=app_status_class(app)
         td= app.id
         td= link_to app.name, user_app_path(app.user, app)
         td= app_status(app)

@@ -11,8 +11,17 @@ module ApplicationHelper
   end
 
   def app_status(app)
-    return 'Reloading' if app.reloading?
-    'Ready'
+    if app.reloading?
+      'Reloading'
+    else
+      'Ready'
+    end
+  end
+
+  def app_status_class(app)
+    if app.reloading?
+      'warning'
+    end
   end
 
   def app_exercise_status(app)
