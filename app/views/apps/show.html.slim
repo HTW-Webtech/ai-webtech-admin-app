@@ -11,5 +11,4 @@ p Diese App wird als Lösung für die Aufgabe (#{@app.exercise_id}) verwendet.
 
 p
   = link_to 'Edit app',  edit_user_app_path(current_user, @app), class: 'btn btn-primary'
-p
   = link_to 'View logs', user_app_logs_path(current_user, @app), class: 'btn btn-default'
