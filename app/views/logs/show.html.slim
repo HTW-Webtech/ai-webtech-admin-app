@@ -2,7 +2,7 @@ h2 #{@log_file_name} for #{@app.name}
 p Scroll to the bottom for the latest logs.
 
 p
-  = link_to 'Back to all logs',  user_logs_path(current_user, @app), class: 'btn btn-primary'
+  = link_to 'Back to all logs',  user_app_logs_path(current_user, @app), class: 'btn btn-primary'
   = link_to 'Back to app',  user_app_path(current_user, @app), class: 'btn btn-primary'
 
 p
