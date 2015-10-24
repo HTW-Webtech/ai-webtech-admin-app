@@ -14,7 +14,7 @@ end
 
 class AppLogTailer::Index < AppLogTailer
   def log_files
-    Dir["#{log_base_path}/*.log"].map { |path| File.basename(path) }
+    Dir["#{log_base_path}/*.log"].map { |path| File.basename(path, '.log') }
   end
 end
 
