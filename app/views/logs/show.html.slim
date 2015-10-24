@@ -1,9 +1,9 @@
-h2 Logs for #{@app.name}
+h2 #{@log_file_name} for #{@app.name}
 p Scroll to the bottom for the latest logs.
 
 p
   textarea.form-control.text readonly=true data-no-autosize=true style='height: 1000px'
-    = @logs
+    = @log_content
 
 p
   = link_to 'Back to app',  user_app_path(current_user, @app), class: 'btn btn-primary'

@@ -1,0 +1,10 @@
+h2 Log files for #{@app.name}
+- if @log_files.size == 0
+  | Es gibt keine Log files für diese App
+- else
+  ul
+    - @log_files.each do |log_file_name|
+      li:a href=user_app_log_path(current_user, @app, log_file_name)
+        = log_file_name
+
+= link_to 'Back to app',  user_app_path(current_user, @app), class: 'btn btn-primary'
