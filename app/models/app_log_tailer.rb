@@ -28,7 +28,7 @@ class AppLogTailer::Show
   end
 
   def valid?
-    index = AppLogTailer::Index.new
+    index = AppLogTailer::Index.new(app)
     index.log_files.include? log_file_name
   end
 
