@@ -33,7 +33,7 @@ class AppLogTailer::Show < AppLogTailer
   end
 
   def log_file_path
-    log_base_path + log_file_name + '.log'
+    "#{log_base_path}/#{log_file_name}.log"
   end
 
   def log_file_size
