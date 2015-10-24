@@ -18,7 +18,7 @@ class AppLogTailer::Index < AppLogTailer
   end
 end
 
-class AppLogTailer::Show
+class AppLogTailer::Show < AppLogTailer
   attr_reader :app, :log_file_name
 
   def initialize(app, log_file_name)
