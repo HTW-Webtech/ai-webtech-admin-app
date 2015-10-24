@@ -1,6 +1,8 @@
 require 'pathname'
 
 class AppLogTailer
+  attr_reader :app
+
   def initialize(app)
     @app = app
   end
