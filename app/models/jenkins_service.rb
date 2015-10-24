@@ -1,7 +1,7 @@
 # YAML:
 # jenkins_jobs:
 #   app-name:
-#     url: http://app-name.webtech.info
+#     url: http://app-name.webtech.com
 #     exercise_id: 1
 #     user_email: foo@bar.com
 class JenkinsService
