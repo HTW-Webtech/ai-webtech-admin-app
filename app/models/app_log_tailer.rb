@@ -1,7 +1,7 @@
 class AppLogTailer
   def self.fetch(app)
     path = log_path(app)
-    File.exists?(path) or return ''
+    File.exists?(path) or return "Log file not found: #{log_path}"
     size = File.size(path)
     size_to_fetch = [size, 200000].min
     offset = [size-size_to_fetch, size_to_fetch].max
