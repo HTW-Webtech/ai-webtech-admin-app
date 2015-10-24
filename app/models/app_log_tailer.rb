@@ -1,11 +1,13 @@
 class AppLogTailer
   def self.fetch(app)
     path = log_path(app)
-    File.exists?(path) or return "Log file not found: #{log_path}"
+    File.exists?(path) or return "Log file not found: #{path}"
     size = File.size(path)
     size_to_fetch = [size, 200000].min
     offset = [size-size_to_fetch, size_to_fetch].max
-    IO.binread(path, size_to_fetch, offset)
+    result = "Fetching: #{path}, Size: #{size_to_fetch}, Offset: #{offset}\n\n"
+    result += IO.binread(path, size_to_fetch, offset)
+    result
   end
 
   # TODO: uargs
