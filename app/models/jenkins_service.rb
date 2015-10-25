@@ -1,8 +1,10 @@
 # YAML:
 # jenkins_jobs:
-#   app-name:
+#   1-app-name:
 #     url: http://app-name.webtech.com
 #     exercise_id: 1
+#     app_name: foo@bar.com
+#     user_name: foo@bar.com
 #     user_email: foo@bar.com
 class JenkinsService
   def self.publish(app_or_apps)
