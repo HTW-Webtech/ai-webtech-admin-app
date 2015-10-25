@@ -24,7 +24,6 @@ class Aris
   end
 
   def self.bookkeeper
-    # TODO: Config for bookkeeper?
-    @bookkeeper ||= ArisControl::Bookkeeper.new
+    @bookkeeper = ArisControl::Bookkeeper.new
   end
 end
