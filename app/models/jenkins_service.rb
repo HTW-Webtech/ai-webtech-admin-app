@@ -40,7 +40,7 @@ class JenkinsService
       job['exercise_id'] = app.exercise_id
       job['user_name']   = app.user.name
       job['user_email']  = app.user.email
-      jobs[app.name] = job
+      jobs[job_name] = job
     end
     jobs
   end
