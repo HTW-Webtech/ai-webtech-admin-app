@@ -2,8 +2,8 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: aris
-  username: aris
+  database: admin
+  username: admin
   password: <%= ENV.fetch('POSTGRES_PASSWORD') %>
 
 development: *default
