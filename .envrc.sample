@@ -1,11 +1,6 @@
 export SECRET_KEY_BASE=
-
-export POSTGRES_DATABASE=admin
-export POSTGRES_LOGIN=your-login
 export POSTGRES_PASSWORD=your-password
 
 export ADMIN_EMAIL=your-app-login-email@example.com
 export ADMIN_PASSWORD=your-app-login-password
 export ADMIN_PUB_SSH_KEY=
-
-export GIT_SSH_PUBLIC_HOST=127.0.0.1

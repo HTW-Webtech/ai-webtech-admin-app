@@ -12,8 +12,6 @@ p Wird als Lösung für die Aufgabe #{app.exercise_id} verwendet.
   = f.input :name, readonly: true
   = f.input :ssh_key,  as: :text
 
-  /= f.input :'env_vars[foo]', as: :text, hint: 'Provide a valid json hash here!'
-  /= f.input :'env_vars[bar]', as: :text, hint: 'Provide a valid json hash here!'
   .panel.panel-default
     .panel-heading:h3.panel-title ENV-Vars
 
