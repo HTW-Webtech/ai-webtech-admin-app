@@ -37,7 +37,7 @@ class JenkinsService
       job = jobs[app.name] || {}
       job['exercise_base_url'] = app.public_url
       job['exercise_id'] = app.exercise_id
-      job['user_name']  = app.user.name
+      job['user_name']  = "exercise-#{app.exercise_id}-#{app.user.name}"
       job['user_email']  = app.user.email
       jobs[app.name] = job
     end
