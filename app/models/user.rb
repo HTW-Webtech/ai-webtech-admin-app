@@ -9,11 +9,11 @@ class User < ActiveRecord::Base
   validate :allow_only_htwberlin_accounts, on: :create
 
   def self.admin
-    where(name: cc(:admin).name).first!
+    where(email: cc(:admin).email).first!
   end
 
   def admin?
-    persisted? && name == cc(:admin).name
+    persisted? && email == cc(:admin).email
   end
 
   def app_count
