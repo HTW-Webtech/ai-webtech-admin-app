@@ -72,7 +72,7 @@ class App < ActiveRecord::Base
 
   # TODO: Extract me
   def jenkins_url
-    "http://#{cc(:site).jenkins_hostname}/job/#{name}/"
+    "http://#{cc(:site).jenkins_hostname}/job/#{exercise_id}-#{name}/"
   end
 
   def publish_to_app_service
