@@ -1,4 +1,4 @@
-class Aris
+class ArisService
   def self.publish(app)
     bookkeeper.add(app.name, app_opts(app))
     write_semaphore(app)

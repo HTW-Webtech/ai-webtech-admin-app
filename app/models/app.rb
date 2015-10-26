@@ -76,7 +76,7 @@ class App < ActiveRecord::Base
   end
 
   def publish_to_app_service
-    Aris.publish(self)
+    ArisService.publish(self)
   end
 
   def publish_to_jenkins_service
