@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     resources :apps, except: [:destroy] do
       resources :logs, only: [:index, :show]
     end
-    resources :exercises, except: [:destroy, :update]
   end
 
   namespace :admin do
