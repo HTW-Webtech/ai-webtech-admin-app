@@ -1,12 +1,11 @@
-# Admin app
+# Application management
 
 # TODOs
-[] Status Icon!
-  [] Check wether postgres-DBs and users are created
-  [] How-To make those sanity checks from Web-UI App?
+- [ ] Add description
 
 # Done
-[✓] Code Reviewed Flag
+- [x] Status Icon!
+- [x] Code Reviewed Flag
 
 # License
 http://grekko.mit-license.org/
