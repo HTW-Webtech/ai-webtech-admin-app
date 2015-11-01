@@ -3,7 +3,6 @@ h2 Hi #{@user.name}!
 - if @apps.size > 0
   table.table.table-striped
     thead
-      th #
       th Name
       th Status
       th Aufgabe
@@ -14,7 +13,6 @@ h2 Hi #{@user.name}!
     tbody
     - @apps.each do |app|
       tr class=app_status_class(app)
-        td= app.id
         td= link_to app.name, user_app_path(app.user, app)
         td= app_status(app)
         td= app.exercise_id
