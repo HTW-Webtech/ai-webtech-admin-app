@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin/rails_admin', as: 'rails_admin'
   devise_for :users
 
-  root 'welcome#show'
+  root 'admin/status#show'
 
   resources :users, only: [:show, :edit, :update]  do
     resources :apps, except: [:destroy] do
