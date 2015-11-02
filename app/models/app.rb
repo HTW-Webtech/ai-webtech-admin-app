@@ -31,6 +31,10 @@ class App < ActiveRecord::Base
     File.exists? semaphore_file_path
   end
 
+  def ready?
+    !reloading?
+  end
+
   def semaphore_file_path
     Rails.root + "tmp/#{name}-reloading"
   end

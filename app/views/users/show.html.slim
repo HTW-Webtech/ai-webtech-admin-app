@@ -13,20 +13,24 @@ h2 Hi #{@user.name}!
     tbody
     - @apps.each do |app|
       tr class=app_status_class(app)
-        td= link_to app.name, user_app_path(app.user, app)
+        td= link_to_if app.ready?, app.name, user_app_path(app.user, app)
         td= app_status(app)
         td= app.exercise_id
         td= app_exercise_status(app)
         td= app_review_icon(app)
         td= app_points(app)
         td
-          = link_to 'Edit', edit_user_app_path(app.user, app), class: 'btn btn-default'
-          = link_to 'Open', app.public_url, target: :blank, class: 'btn btn-default'
-          = link_to 'Logs', user_app_logs_path(app.user, app), class: 'btn btn-default'
-          = link_to 'Jenkins', app.jenkins_url, class: 'btn btn-default', target: '_blank'
+          - if app.ready?
+            = link_to 'Edit', edit_user_app_path(app.user, app), class: 'btn btn-primary'
+            = link_to 'Open', app.public_url, target: :blank, class: 'btn btn-default'
+            = link_to 'Logs', user_app_logs_path(app.user, app), class: 'btn btn-default'
+            = link_to 'Jenkins', app.jenkins_url, class: 'btn btn-default', target: '_blank'
+          - else
+            | Deine App wird gerade im Hintergrund aktualisiert. Wenn dies länger als 5 Minuten
+              dauert solltest du dich melden: <a href="mailto:igelmund@htw.de">igelmund@htw.de</a>.
     tfoot
       tr
-        td colspan=7
+        td colspan=8
           h4 Gesamtpunkte: #{@user.total_points}
 
 - else
