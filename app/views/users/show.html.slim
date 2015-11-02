@@ -11,23 +11,23 @@ h2 Hi #{@user.name}!
       th Punkte
       th Links
     tbody
-    - @apps.each do |app|
-      tr class=app_status_class(app)
-        td= link_to_if app.ready?, app.name, user_app_path(app.user, app)
-        td= app_status(app)
-        td= app.exercise_id
-        td= app_exercise_status(app)
-        td= app_review_icon(app)
-        td= app_points(app)
-        td
-          - if app.ready?
-            = link_to 'Edit', edit_user_app_path(app.user, app), class: 'btn btn-primary'
-            = link_to 'Open', app.public_url, target: :blank, class: 'btn btn-default'
-            = link_to 'Logs', user_app_logs_path(app.user, app), class: 'btn btn-default'
-            = link_to 'Jenkins', app.jenkins_url, class: 'btn btn-default', target: '_blank'
-          - else
-            | Deine App wird gerade im Hintergrund aktualisiert. Wenn dies länger als 5 Minuten
-              dauert solltest du dich melden: <a href="mailto:igelmund@htw-berlin.de">igelmund@htw-berlin.de</a>.
+      - @apps.each do |app|
+        tr class=app_status_class(app)
+          td= link_to_if app.ready?, app.name, user_app_path(app.user, app)
+          td= app_status(app)
+          td= app.exercise_id
+          td= app_exercise_status(app)
+          td= app_review_icon(app)
+          td= app_points(app)
+          td
+            - if app.ready?
+              = link_to 'Edit', edit_user_app_path(app.user, app), class: 'btn btn-primary'
+              = link_to 'Open', app.public_url, target: :blank, class: 'btn btn-default'
+              = link_to 'Logs', user_app_logs_path(app.user, app), class: 'btn btn-default'
+              = link_to 'Jenkins', app.jenkins_url, class: 'btn btn-default', target: '_blank'
+            - else
+              | Deine App wird gerade im Hintergrund aktualisiert. Wenn dies länger als 5 Minuten
+                dauert solltest du dich melden: <a href="mailto:igelmund@htw-berlin.de">igelmund@htw-berlin.de</a>.
     tfoot
       tr
         td colspan=8
