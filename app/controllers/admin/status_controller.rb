@@ -1,7 +1,7 @@
 module Admin
   class StatusController < BaseController
     def show
-      @exercise_ids = App.distinct(:exercise_id).pluck(:exercise_id).sort
+      @exercise_ids = Exercise.active_ids
       @apps = App.all
     end
   end
