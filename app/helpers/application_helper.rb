@@ -7,7 +7,7 @@ module ApplicationHelper
       additional
     end
     args.push(opts)
-    active_link_to *args
+    active_link_to(*args)
   end
 
   def app_status(app)
@@ -24,12 +24,26 @@ module ApplicationHelper
     end
   end
 
-  def app_exercise_status(app)
-    app.exercise_passed_at.present? ? "✓ +#{app.achievable_exercise_points} Points" : '⤫'
+  def app_tests_passed_icon(app)
+    if app.tests_passed?
+      "✓ +#{app.achievable_exercise_points} Points"
+    else
+      '⤫'
+    end
+  end
+
+  def app_tests_class(app)
+    if app.tests_passed?
+     'success'
+    end
   end
 
   def app_review_icon(app)
-    app.reviewed? ? "✓ +#{app.achievable_review_points} Points" : '⤫'
+    if app.reviewed?
+      "✓ +#{app.achievable_review_points} Points"
+    else
+      '⤫'
+    end
   end
 
   def app_points(app)
