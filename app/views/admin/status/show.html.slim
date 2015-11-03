@@ -1,27 +1,18 @@
-.row
-  .col-md-12
-    nav
-      - if !Rails.env.production?
-        = button_to 'Create user and apps', admin_fixtures_create_path
-      = button_to 'Recreate jenkins yaml', admin_jenkins_path
-      = button_to 'Recreate apps yml', admin_fixtures_create_yml_path
+table.table.table-striped
+  thead
+    th Exercise
+    th Count
+    th Tests passed
+    th Reviewed?
+  tbody
+    - @exercise_ids.each do |exercise_id|
+      - apps = @apps.select { |app| app.exercise_id == exercise_id }
+      - count = apps.size
+      - tests = apps.select { |app| app.exercise_passed_at.present? }.count
+      - reviewed = apps.select { |app| app.reviewed_at.present? }.count
+      tr
+        td= exercise_id
+        td= count
+        td= tests
+        td= reviewed
 
-.row
-  .col-md-12
-    table.table.table-striped
-      thead
-        th Exercise
-        th Count
-        th Tests passed
-        th Reviewed?
-      tbody
-        - @exercise_ids.each do |exercise_id|
-          - apps = @apps.select { |app| app.exercise_id == exercise_id }
-          - count = apps.size
-          - tests = apps.select { |app| app.exercise_passed_at.present? }.count
-          - reviewed = apps.select { |app| app.reviewed_at.present? }.count
-          tr
-            td= exercise_id
-            td= count
-            td= tests
-            td= reviewed

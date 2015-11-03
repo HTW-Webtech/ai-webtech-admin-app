@@ -37,6 +37,10 @@ class App < ActiveRecord::Base
     Rails.root + "tmp/#{name}-reloading"
   end
 
+  def tests_passed?
+    exercise_passed_at?
+  end
+
   def total_points
     exercise_points + review_points
   end

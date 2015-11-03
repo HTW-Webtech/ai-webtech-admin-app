@@ -1,0 +1,15 @@
+.row
+  .col-md-12
+    table.table.table-striped
+      thead
+        th Name
+        - @exercise_ids.each do |id|
+          th= id
+      tbody
+        - @students.each do |student|
+          td= student.name
+          - @exercise_ids.each do |student_exercise_id|
+            - app = student.apps.detect { |app| app.exercise_id == student_exercise_id } || App.new
+            td class=app_tests_class(app)
+              = app_review_icon(app)
+          tr

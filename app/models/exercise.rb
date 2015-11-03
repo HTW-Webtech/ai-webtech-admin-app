@@ -1,6 +1,6 @@
 class Exercise
   DEADLINES = {
-    1 => Date.new(2015, 10, 26)
+    1 => Date.new(2015, 11, 9)
   }
   POINTS = {
     1 => 2,
