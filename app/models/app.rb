@@ -15,16 +15,14 @@ class App < ActiveRecord::Base
     where.not(exercise_passed_at: nil)
   end
 
-  after_initialize do
-    if self.new_record?
-      self.name        ||= AppName.generate_unique
-      self.ssh_key     ||= user.ssh_key
-      self.pg_database ||= self.name
-      self.pg_login    ||= self.name
-      self.pg_passwd   ||= SecureRandom.uuid
-      self.env_vars    ||= { 'VARIABLE_NAME' => 'VALUE' }
-      self.exercise_id ||= Exercise.generate_next_id(user)
-    end
+  def prefill(user)
+    self.name        ||= AppName.generate_unique
+    self.ssh_key     ||= user.ssh_key
+    self.pg_database ||= self.name
+    self.pg_login    ||= self.name
+    self.pg_passwd   ||= SecureRandom.uuid
+    self.env_vars    ||= { 'VARIABLE_NAME' => 'VALUE' }
+    self.exercise_id ||= Exercise.generate_next_id(user)
   end
 
   def reloading?

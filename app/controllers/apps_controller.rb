@@ -11,7 +11,7 @@ class AppsController < ::BaseController
   end
 
   def new
-    @app = App.new(user: current_user)
+    @app = App.new(user: current_user).prefill(current_user)
   end
 
   def edit
@@ -20,7 +20,7 @@ class AppsController < ::BaseController
   end
 
   def create
-    @app = App.new(app_params)
+    @app = App.new(app_params).prefill(current_user)
     if @app.save
       @app.publish_to_app_service
       @app.publish_to_jenkins_service
