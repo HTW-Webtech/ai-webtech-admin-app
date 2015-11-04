@@ -4,6 +4,7 @@
       | Admin
       span.caret
     ul.dropdown-menu
+      li= active_link_to_li 'Übungen', admin_exercises_path
       li= active_link_to_li 'Students', admin_students_path
       li.divider role="separator"
       - if !Rails.env.production?

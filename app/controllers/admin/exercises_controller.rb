@@ -1,5 +1,5 @@
 module Admin
-  class StatusController < BaseController
+  class ExercisesController < BaseController
     def show
       @exercise_ids = Exercise.active_ids
       @apps = App.all

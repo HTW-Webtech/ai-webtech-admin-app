@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin/rails_admin', as: 'rails_admin'
   devise_for :users
 
-  root 'admin/status#show'
+  root 'home#index'
 
   resources :users, only: [:show, :edit, :update]  do
     resources :apps, except: [:destroy] do
@@ -11,11 +11,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    post 'fixtures/create',     controller: :fixtures, action: :create
-    post 'fixtures/create_yml', controller: :fixtures, action: :create_yml
-
     resource :jenkins, only: [:create]
     resource :students, only: [:show]
+    resource :exercises, only: [:show]
+
+    post 'fixtures/create',     controller: :fixtures, action: :create
+    post 'fixtures/create_yml', controller: :fixtures, action: :create_yml
 
     get  ':app_id/app_review', controller: :app_reviews, action: :show, as: :app_review
     post ':app_id/app_review/confirm', controller: :app_reviews, action: :confirm, as: :app_review_confirm
