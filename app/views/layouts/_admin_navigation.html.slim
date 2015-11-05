@@ -8,9 +8,9 @@
       li= active_link_to_li 'Students', admin_students_path
       li.divider role="separator"
       - if !Rails.env.production?
-        li= link_to 'Create user and apps', admin_fixtures_create_path
-      li= link_to 'Recreate jenkins yaml', admin_jenkins_path
-      li= link_to 'Recreate apps yml', admin_fixtures_create_yml_path
+        li= link_to 'Create user and apps', admin_fixtures_create_path, method: :post
+      li= link_to 'Recreate jenkins yaml', admin_jenkins_path, method: :post
+      li= link_to 'Recreate apps yml', admin_fixtures_create_yml_path, method: :post
       li.divider role="separator"
       li= active_link_to_li 'Rails-Admin', rails_admin.dashboard_path
 
