@@ -4,6 +4,6 @@
       | Review app
       span.caret
     ul.dropdown-menu
-      - App.find_each do |app|
+      - App.order(id: :desc).find_each do |app|
         li
           = link_to app.name, admin_app_review_path(app)
