@@ -23,6 +23,7 @@ class App < ActiveRecord::Base
     self.pg_passwd   ||= SecureRandom.uuid
     self.env_vars    ||= { 'VARIABLE_NAME' => 'VALUE' }
     self.exercise_id ||= Exercise.generate_next_id(user)
+    self
   end
 
   def reloading?

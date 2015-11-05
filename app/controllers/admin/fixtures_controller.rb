@@ -10,7 +10,7 @@ module Admin
         password_confirmation: '123geheim',
       })
       10.times do |i|
-        app = App.new(user: user)
+        app = App.new(user: user).prefill(user)
         app.save!
         ArisService.publish(app)
       end
