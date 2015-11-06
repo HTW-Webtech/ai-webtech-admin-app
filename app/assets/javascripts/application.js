@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require jquery.autosize
+//= require vendor/autosize-3.0.13
 //
+//= require initialize/autosize
 //= require_tree .
