@@ -15,13 +15,14 @@ class App < ActiveRecord::Base
     where.not(exercise_passed_at: nil)
   end
 
-  def prefill(user)
+  # TODO: remove user dependency
+  def prefill
     self.name        ||= AppName.generate_unique
-    self.ssh_key     ||= user.ssh_key
+    self.ssh_key     ||= user.ssh_key if user
     self.pg_database ||= self.name
     self.pg_login    ||= self.name
     self.pg_passwd   ||= SecureRandom.uuid
-    self.env_vars    ||= { 'ENV_VAR_NAME' => 'VALUE' }
+    self.env_vars    ||= Hash.new
     self.exercise_id ||= Exercise.generate_next_id(user)
     self
   end
