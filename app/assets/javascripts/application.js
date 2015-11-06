@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require vendor/typeahead-0.11.1
 //= require vendor/autosize-3.0.13
 //
 //= require initialize/autosize
+//= require initialize/typeahead-app-review
+//
 //= require_tree .

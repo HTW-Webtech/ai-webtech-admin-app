@@ -1,9 +1,6 @@
 - if current_user.admin?
-  li.dropdown
-    a.dropdown-toggle href='#' data-toggle="dropdown"
-      | Review app
-      span.caret
-    ul.dropdown-menu
-      - App.order(id: :desc).find_each do |app|
-        li
-          = link_to app.name, admin_app_review_path(app)
+  .navbar-form.navbar-right
+    .form-group
+      input.typeahead.form-control type="text" placeholder="Search for app id" data-behavior='app-review-typeahead'
+  javascript:
+    review_app_names = #{JSON.generate(App.pluck(:name)).html_safe}
