@@ -7,6 +7,11 @@ class App < ActiveRecord::Base
 
   serialize :env_vars, JSON
 
+  def self.for_permalink_or_id(permalink_or_id)
+    id = permalink_or_id.to_s.split('-').first
+    find(id)
+  end
+
   def self.reviewed
     where.not(reviewed_at: nil)
   end
@@ -27,6 +32,10 @@ class App < ActiveRecord::Base
     self
   end
 
+  def permalink
+    "#{id}-#{name}"
+  end
+
   def reloading?
     File.exists? semaphore_file_path
   end
@@ -36,7 +45,7 @@ class App < ActiveRecord::Base
   end
 
   def semaphore_file_path
-    Rails.root + "tmp/#{name}-reloading"
+    Rails.root + "tmp/#{permalink}-reloading"
   end
 
   def tests_passed?
@@ -81,7 +90,7 @@ class App < ActiveRecord::Base
 
   # TODO: Extract me
   def jenkins_url
-    "http://#{cc(:site).jenkins_hostname}/job/#{exercise_id}-#{name}/"
+    "http://#{cc(:site).jenkins_hostname}/job/#{exercise_id}-#{permalink}/"
   end
 
   def publish_to_app_service
@@ -94,10 +103,10 @@ class App < ActiveRecord::Base
 
   # TODO: Move in some view helper
   def view_git_clone_host
-    "ssh://#{name}@#{cc(:site).git_hostname}/var/apps/#{name}/code"
+    "ssh://#{permalink}@#{cc(:site).git_hostname}/var/apps/#{permalink}/code"
   end
 
   def public_url
-    "http://#{name}.#{cc(:site).hostname}"
+    "http://#{permalink}.#{cc(:site).hostname}"
   end
 end
