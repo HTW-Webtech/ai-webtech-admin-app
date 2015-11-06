@@ -3,7 +3,7 @@ class AppName
   NAMES = %w(blossom hound boar archid baham furud stewie brian richard bird elephant panda sheep tower castle)
 
   def self.generate_unique
-    "#{App.count+1}-#{pick_prefix}-#{pick_name}"
+    "#{pick_prefix}-#{pick_name}"
   end
 
   private
