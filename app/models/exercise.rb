@@ -4,7 +4,7 @@ class Exercise
   }
   POINTS = {
     1 => 2,
-    2 => 4,
+    2 => 2,
   }
 
   def self.active_ids
