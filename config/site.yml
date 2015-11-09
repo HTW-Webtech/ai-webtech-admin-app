@@ -15,4 +15,4 @@ production:
   hostname: htw-webtech.com
   jenkins_hostname: jenkins.htw-webtech.com
   git_hostname: htw-webtech.com
-  app_limit: 1
+  app_limit: 2
