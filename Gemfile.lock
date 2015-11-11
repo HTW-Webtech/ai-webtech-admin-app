@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/grekko/base64-cipher.git
+  revision: 3d7e15e7d7ad74dd4dcbe5da96b431cb414d5032
+  ref: HEAD
+  specs:
+    base64-cipher (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -55,7 +62,6 @@ GEM
     builder (3.2.2)
     byebug (6.0.2)
     cancancan (1.13.1)
-    cipher-base64 (0.0.3)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -232,10 +238,10 @@ DEPENDENCIES
   active_link_to
   aris-control
   autosize-rails
+  base64-cipher!
   bootstrap-sass (~> 3.3.5)
   byebug
   cancancan (~> 1.10)
-  cipher-base64
   coffee-rails (~> 4.1.0)
   complex_config
   devise (= 3.5.1)

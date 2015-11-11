@@ -39,7 +39,7 @@ gem 'slim'
 
 gem 'active_link_to'
 gem 'autosize-rails'
-gem 'cipher-base64'
+gem 'base64-cipher', git: 'https://github.com/grekko/base64-cipher.git', ref: 'HEAD'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
