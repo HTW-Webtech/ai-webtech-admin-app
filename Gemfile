@@ -25,7 +25,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'aris-control'
 gem 'complex_config', require: 'complex_config/rude'
-gem 'tins'
 
 gem 'devise', '3.5.1'
 gem 'rails_admin'
@@ -39,7 +38,8 @@ gem 'slim'
 
 gem 'active_link_to'
 gem 'autosize-rails'
-gem 'base64-cipher', git: 'https://github.com/grekko/base64-cipher.git', ref: 'HEAD'
+# gem 'base64-cipher', git: 'https://github.com/grekko/base64-cipher.git', ref: 'HEAD'
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
