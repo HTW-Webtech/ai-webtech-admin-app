@@ -4,8 +4,7 @@ module Apiv1
       app = App.where(name: params[:app_name]).first!
       report = JSON.parse(request.body.string)
       exercise_id = params[:exercise_id]
-      failures_count = report['failures_count']
-      result = ExerciseResult.new(app: app, exercise_id: exercise_id, failures_count: failures_count)
+      result = ExerciseResult.new(app: app, exercise_id: exercise_id)
       if result.save!
         render json: JSON.generate({ status: 'ok' })
       else
