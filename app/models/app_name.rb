@@ -1,6 +1,16 @@
 class AppName
-  PREFIX = %w(cherry alluring swift woopy sharp speedy wonky rocky cleary flashy snowy sweet sour angry funny silent)
-  NAMES = %w(blossom hound boar archid baham furud stewie brian richard bird elephant panda sheep tower castle)
+  PREFIX = %w(
+    cherry alluring swift woopy sharp speedy wonky
+    rocky cleary flashy snowy sweet sour angry
+    funny silent crazy happy fluffy huge tiny mad
+  )
+
+  NAMES = %w(
+    blossom hound boar archid baham furud stewie
+    brian richard bird elephant panda sheep tower
+    castle rabbit eagle house dolphin whale tiger
+    lion
+  )
 
   def self.generate_unique
     "#{pick_prefix}-#{pick_name}"
