@@ -48,10 +48,11 @@ class App < ActiveRecord::Base
   end
 
   def exercise_points
-    return 0 unless exercise_results.exists?
-    result = exercise_results.where('created_at < ?', Exercise.deadline(exercise_id)).order(created_at: :desc).first!
-    points = achievable_review_points - result.failures_count
-    [points, 0].max
+    return 0
+    # return 0 unless exercise_results.exists?
+    # result = exercise_results.where('created_at < ?', Exercise.deadline(exercise_id)).order(created_at: :desc).first!
+    # points = achievable_review_points - result.failures_count
+    # [points, 0].max
   end
 
   def achievable_total_points
