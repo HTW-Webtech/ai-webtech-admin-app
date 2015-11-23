@@ -15,3 +15,6 @@ config/apiv1-auth/
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore .env
+.env
