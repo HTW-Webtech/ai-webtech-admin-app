@@ -11,26 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111193830) do
+ActiveRecord::Schema.define(version: 20151123164107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "apps", force: :cascade do |t|
-    t.string   "name",                                     null: false
-    t.string   "ssh_key",                                  null: false
-    t.string   "pg_host",            default: "localhost", null: false
-    t.string   "pg_database",                              null: false
-    t.string   "pg_login",                                 null: false
-    t.string   "pg_passwd",                                null: false
+    t.string   "name",                                  null: false
+    t.string   "ssh_key",                               null: false
+    t.string   "pg_host",         default: "localhost", null: false
+    t.string   "pg_database",                           null: false
+    t.string   "pg_login",                              null: false
+    t.string   "pg_passwd",                             null: false
     t.text     "env_vars"
-    t.integer  "user_id",                                  null: false
-    t.integer  "exercise_id",                              null: false
+    t.integer  "user_id",                               null: false
+    t.integer  "exercise_id",                           null: false
     t.datetime "reviewed_at"
-    t.datetime "exercise_passed_at"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "exercise_points", default: 0
   end
+
+  add_index "apps", ["name"], name: "index_apps_on_name", unique: true, using: :btree
 
   create_table "exercise_results", force: :cascade do |t|
     t.integer  "app_id",      null: false
