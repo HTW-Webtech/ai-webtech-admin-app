@@ -40,7 +40,7 @@ class JenkinsService
       job = jobs[job_name] || {}
       job['exercise_base_url'] = app.public_url
       job['exercise_id']       = app.exercise_id
-      job['app_name']          = app.name
+      job['app_name']          = app.permalink
       job['user_name']         = app.user.name
       job['user_email']        = app.user.email
       jobs[job_name] = job
