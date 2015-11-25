@@ -1,6 +1,6 @@
 class ArisService
   def self.publish(app)
-    bookkeeper.add(app.name, app_opts(app))
+    bookkeeper.add(app.permalink, app_opts(app))
     write_semaphore(app)
   end
 
