@@ -17,7 +17,7 @@ class App < ActiveRecord::Base
   end
 
   def self.exercise_completed
-    where.not(exercise_passed_at: nil)
+    where('exercise_points > ?', 0)
   end
 
   # TODO: remove user dependency
@@ -49,7 +49,7 @@ class App < ActiveRecord::Base
   end
 
   def tests_passed?
-    exercise_passed_at?
+    exercise_points > 0
   end
 
   def total_points
