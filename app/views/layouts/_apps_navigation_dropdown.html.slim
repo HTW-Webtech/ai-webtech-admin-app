@@ -11,7 +11,7 @@ li.dropdown
 
       - current_user.apps.find_each do |app|
         li
-          = link_to app.name, user_app_path(current_user, app)
+          = link_to app.permalink, user_app_path(current_user, app)
     li.divider role="separator"
     li
       = link_to 'Create new app', new_user_app_path(current_user)

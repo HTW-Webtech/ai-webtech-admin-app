@@ -6,4 +6,4 @@
     ul.dropdown-menu
       - App.order(id: :desc).find_each do |app|
         li
-          = link_to app.name, admin_app_review_path(app)
+          = link_to app.permalink, admin_app_review_path(app.permalink)

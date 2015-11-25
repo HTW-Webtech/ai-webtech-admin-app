@@ -8,7 +8,7 @@ class AppLogTailer
   end
 
   def log_base_path
-    Pathname.new("/var/apps/#{app.name}/logs")
+    Pathname.new("/var/apps/#{app.permalink}/logs")
   end
 end
 

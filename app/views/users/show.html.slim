@@ -13,7 +13,7 @@ h2 Hi #{@user.name}!
     tbody
       - @apps.each do |app|
         tr class=app_status_class(app)
-          td= link_to_if app.ready?, app.name, user_app_path(app.user, app)
+          td= link_to_if app.ready?, app.permalink, user_app_path(app.user, app)
           td= app_status(app)
           td= app.exercise_id
           td= app_tests_passed_icon(app)
