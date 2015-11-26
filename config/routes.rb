@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     post 'fixtures/create_yml', controller: :fixtures, action: :create_yml
 
     get  ':app_id/app_review', controller: :app_reviews, action: :show, as: :app_review
-    post ':app_id/app_review/confirm', controller: :app_reviews, action: :confirm, as: :app_review_confirm
+    post ':app_id/app_review/:points/confirm', controller: :app_reviews, action: :confirm, as: :app_review_confirm
     post ':app_id/app_review/revoke', controller: :app_reviews, action: :revoke, as: :app_review_revoke
   end
 

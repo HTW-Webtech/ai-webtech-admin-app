@@ -1,11 +1,12 @@
 h1= "App Review for #{@app.permalink}"
 
-p
-  - if @app.reviewed?
-    | "Reviewed at #{@app.reviewed_at}"
-    = button_to 'Revoke review!', admin_app_review_confirm_path(@app), class: 'btn btn-primary'
-  - else
-    | Has not been reviewed yet!
-    = button_to 'Confirm review!', admin_app_review_confirm_path(@app), class: 'btn btn-primary'
+- if @app.reviewed?
+  p Reviewed with #{@app.review_points} Points at #{time_ago_in_words(@app.reviewed_at)}
+  p= button_to 'Revoke review!', admin_app_review_revoke_path(@app), class: 'btn btn-primary'
+- else
+  p Has not been reviewed yet!
+  p
+    - ReviewPoints.for(@app).each do |points|
+      = link_to "#{points} Points", admin_app_review_confirm_path(@app, points: points), method: :post, class: 'btn btn-primary'
 
 p= render 'apps/links', app: @app

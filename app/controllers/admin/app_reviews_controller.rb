@@ -8,14 +8,14 @@ module Admin
 
     def confirm
       @app = fetch_app(params[:app_id])
-      @app.update!(reviewed_at: Time.current)
-      redirect_to root_path
+      @app.update!(reviewed_at: Time.current, review_points: params[:points])
+      redirect_to admin_app_review_path(@app)
     end
 
     def revoke
       @app = fetch_app(params[:app_id])
       @app.update!(reviewed_at: nil)
-      redirect_to root_path
+      redirect_to admin_app_review_path(@app)
     end
   end
 end
