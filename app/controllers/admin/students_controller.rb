@@ -2,7 +2,7 @@ module Admin
   class StudentsController < BaseController
     def show
       @students = User.includes(:apps).all
-      @exercise_ids = Exercise.active_ids
+      @exercise_ids = ExercisePointMaster.exercise_ids
     end
   end
 end
