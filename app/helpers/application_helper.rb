@@ -40,7 +40,7 @@ module ApplicationHelper
 
   def app_review_icon(app)
     if app.reviewed?
-      "✓ +#{app.achievable_review_points} Points"
+      "✓ (T: +#{app.exercise_points}, R: #{app.review_points})"
     else
       '⤫'
     end
