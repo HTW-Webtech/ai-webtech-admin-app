@@ -3,7 +3,7 @@ module Apiv1
     def create
       exercise_result = params[:exercise_result]
       if exercise_result[:success] == true
-        app = App.where(name: params[:app_name]).first!
+        app = App.for_permalink_or_id(params[:app_permalink])
         exercise_id = params[:exercise_id]
         result = ExerciseResult.new(app: app, exercise_id: exercise_id)
         if result.save!
