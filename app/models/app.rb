@@ -62,7 +62,7 @@ class App < ActiveRecord::Base
   end
 
   def achievable_exercise_points
-    ExercisePointMaster.points(exercise_id)
+    ExercisePointMaster.points_for_exercise(exercise_id)
   end
 
   # TODO: Replace me with actual ReviewPoints

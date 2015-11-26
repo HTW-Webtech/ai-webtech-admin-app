@@ -32,6 +32,10 @@ class ExercisePointMaster
   end
 
   def self.points(exercise_result)
-    EXERCISES.fetch(exercise_result.exercise_id).first
+    points_for_exercise(exercise_result.exercise_id)
+  end
+
+  def self.points_for_exercise(exercise_id)
+    EXERCISES.fetch(exercise_id).first
   end
 end
