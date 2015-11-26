@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125045822) do
+ActiveRecord::Schema.define(version: 20151126061226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "apps", force: :cascade do |t|
     t.string   "name",                                  null: false
-    t.string   "ssh_key",                               null: false
-    t.string   "pg_host",         default: "localhost", null: false
-    t.string   "pg_database",                           null: false
-    t.string   "pg_login",                              null: false
-    t.string   "pg_passwd",                             null: false
+    t.string   "ssh_key"
+    t.string   "pg_host",         default: "localhost"
+    t.string   "pg_database"
+    t.string   "pg_login"
+    t.string   "pg_passwd"
     t.text     "env_vars"
     t.integer  "user_id",                               null: false
-    t.integer  "exercise_id",                           null: false
+    t.integer  "exercise_id"
     t.datetime "reviewed_at"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false

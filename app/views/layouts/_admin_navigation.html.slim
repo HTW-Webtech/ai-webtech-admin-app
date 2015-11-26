@@ -9,6 +9,7 @@
       li.divider role="separator"
       - if !Rails.env.production?
         li= link_to 'Create user and apps', admin_fixtures_create_path, method: :post
+      li= link_to 'Evaluate Points', admin_exercise_points_path, method: :post
       li= link_to 'Recreate jenkins yaml', admin_jenkins_path, method: :post
       li= link_to 'Recreate apps yml', admin_fixtures_create_yml_path, method: :post
       li.divider role="separator"

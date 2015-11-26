@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resource :exercise_points, only: [:create]
     resource :jenkins, only: [:create]
     resource :students, only: [:show]
     resource :exercises, only: [:show]
