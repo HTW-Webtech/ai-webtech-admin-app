@@ -7,7 +7,7 @@ module Apiv1
         exercise_id = params[:exercise_id]
         result = ExerciseResult.new(app: app, exercise_id: exercise_id)
         if result.save!
-          PointMaster.evaluate!(result)
+          ExercisePointMaster.evaluate!(result)
           render json: JSON.generate({ status: 'ok' })
         else
           render json: JSON.parse({ status: 'error', result: result.errors.to_s })
