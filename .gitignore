@@ -18,3 +18,6 @@ config/apiv1-auth/
 
 # Ignore .env
 .env
+
+# Ignore debug files
+.byebug_history
