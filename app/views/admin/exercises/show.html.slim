@@ -7,12 +7,9 @@ table.table.table-striped
   tbody
     - @exercise_ids.each do |exercise_id|
       - apps = @apps.select { |app| app.exercise_id == exercise_id }
-      - count = apps.size
-      - tests = apps.select { |app| app.exercise_passed_at.present? }.count
-      - reviewed = apps.select { |app| app.reviewed_at.present? }.count
       tr
         td= exercise_id
-        td= count
-        td= tests
-        td= reviewed
+        td= apps.count
+        td= apps.count { |app| app.exercise_points.present? }
+        td= apps.count(&:reviewed?)
 
