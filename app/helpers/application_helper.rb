@@ -25,7 +25,7 @@ module ApplicationHelper
   end
 
   def app_tests_passed_icon(app)
-    "#{app.exercise_points} / #{app.achievable_exercise_points} Points"
+    "#{app.exercise_points} / #{app.achievable_exercise_points}"
   end
 
   def app_tests_class(app)
