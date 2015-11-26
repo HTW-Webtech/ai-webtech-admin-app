@@ -1,12 +1,14 @@
 module Admin
   class BaseController < ::ApplicationController
     before_action :authenticate_user!
-    before_action :admin_required
+    before_action :redirect_non_admin_user
 
     private
 
-    def admin_required
-      current_user && current_user.admin?
+    def redirect_non_admin_user
+      if !current_user.admin?
+        redirect_to user_path(current_user)
+      end
     end
   end
 end
