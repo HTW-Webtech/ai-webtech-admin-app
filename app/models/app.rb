@@ -65,13 +65,8 @@ class App < ActiveRecord::Base
     ExercisePointMaster.points_for_exercise(exercise_id)
   end
 
-  # TODO: Replace me with actual ReviewPoints
-  def review_points
-    reviewed? ? achievable_review_points : 0
-  end
-
   def achievable_review_points
-    2
+    ReviewPoints.achievable(self)
   end
 
   def reviewed?

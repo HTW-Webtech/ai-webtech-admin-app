@@ -25,11 +25,7 @@ module ApplicationHelper
   end
 
   def app_tests_passed_icon(app)
-    if app.tests_passed?
-      "✓ +#{app.achievable_exercise_points} Points"
-    else
-      '⤫'
-    end
+    "#{app.exercise_points} / #{app.achievable_exercise_points} Points"
   end
 
   def app_tests_class(app)
@@ -39,11 +35,7 @@ module ApplicationHelper
   end
 
   def app_review_icon(app)
-    if app.reviewed?
-      "✓ (+#{app.review_points})"
-    else
-      '⤫'
-    end
+    "#{app.review_points} / #{app.achievable_review_points}"
   end
 
   def app_points(app)

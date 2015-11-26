@@ -8,4 +8,8 @@ class ReviewPoints
   def self.for(app)
     POINTS.fetch(app.exercise_id)
   end
+
+  def self.achievable(app)
+    self.for(app).max
+  end
 end
