@@ -21,3 +21,6 @@ config/apiv1-auth/
 
 # Ignore debug files
 .byebug_history
+
+# Ignore ctags file
+tags
