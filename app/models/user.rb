@@ -21,11 +21,11 @@ class User < ActiveRecord::Base
   end
 
   def total_points
-    app_completed_points + app_review_points
+    sum_of_exercise_points + sum_of_exercise_points
   end
 
-  def app_completed_points
-    apps.exercise_completed.inject { |sum, app| app.points } || 0
+  def sum_of_exercise_points
+    apps.inject { |sum, app| app.exercise_points } || 0
   end
 
   def app_review_points
