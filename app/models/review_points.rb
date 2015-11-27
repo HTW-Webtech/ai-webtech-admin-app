@@ -10,6 +10,6 @@ class ReviewPoints
   end
 
   def self.achievable(app)
-    self.for(app).max
+    for(app).max
   end
 end
