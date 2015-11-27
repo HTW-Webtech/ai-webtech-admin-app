@@ -5,11 +5,11 @@ class ReviewPoints
     3 => (2..4),
   }
 
-  def self.for(app)
-    POINTS.fetch(app.exercise_id)
+  def self.for_app(app)
+    POINTS.fetch(app.exercise_id, (0..0))
   end
 
   def self.achievable(app)
-    for(app).max
+    for_app(app).max
   end
 end
