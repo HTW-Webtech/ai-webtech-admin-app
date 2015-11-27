@@ -78,6 +78,10 @@ class App < ActiveRecord::Base
     "http://#{cc(:site).jenkins_hostname}/job/#{exercise_id}-#{permalink}/"
   end
 
+  def git_webview_url
+    "http://#{cc(:site).git_webview_url}/#{permalink}/commits/master"
+  end
+
   def publish_to_app_service
     ArisService.publish(self)
   end
