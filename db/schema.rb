@@ -11,26 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126172142) do
+ActiveRecord::Schema.define(version: 20151127041253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "apps", force: :cascade do |t|
-    t.string   "name",                                  null: false
+    t.string   "name",                        null: false
     t.string   "ssh_key"
-    t.string   "pg_host",         default: "localhost"
-    t.string   "pg_database"
-    t.string   "pg_login"
-    t.string   "pg_passwd"
     t.text     "env_vars"
-    t.integer  "user_id",                               null: false
+    t.integer  "user_id",                     null: false
     t.integer  "exercise_id"
     t.datetime "reviewed_at"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "exercise_points", default: 0
-    t.integer  "review_points",   default: 0,           null: false
+    t.integer  "review_points",   default: 0, null: false
   end
 
   create_table "exercise_results", force: :cascade do |t|

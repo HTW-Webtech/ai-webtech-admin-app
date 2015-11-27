@@ -21,13 +21,9 @@ class App < ActiveRecord::Base
   end
 
   # TODO: remove user dependency
-  # TODO: remove pg
   def prefill
     self.name        ||= AppName.generate_unique
     self.ssh_key     ||= user.ssh_key if user
-    self.pg_database ||= self.name
-    self.pg_login    ||= self.name
-    self.pg_passwd   ||= SecureRandom.uuid
     self.env_vars    ||= Hash.new
     self.exercise_id ||= Exercise.generate_next_id(user)
     self

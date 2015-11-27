@@ -4,11 +4,6 @@ p Wird als Lösung für die <strong>Aufgabe #{app.exercise_id}</strong> verwende
     html: { class: 'form-vertical' }, wrapper: :vertical_form do |f|
   = f.error_notification
 
-  = f.input :pg_host,     as: :hidden
-  = f.input :pg_database, as: :hidden
-  = f.input :pg_login,    as: :hidden
-  = f.input :pg_passwd,   as: :hidden
-
   = f.input :name, readonly: true
   = f.input :ssh_key,  as: :text
 
