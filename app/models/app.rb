@@ -79,7 +79,7 @@ class App < ActiveRecord::Base
   end
 
   def git_webview_url
-    "http://#{cc(:site).git_webview_url}/#{permalink}/commits/master"
+    "http://#{cc(:site).git_webview_hostname}/#{permalink}/commits/master"
   end
 
   def publish_to_app_service
