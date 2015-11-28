@@ -1,5 +1,6 @@
 class ArisService
   def self.publish(app)
+    return true if Rails.env.development?
     bookkeeper.add(app.permalink, app_opts(app))
     write_semaphore(app)
   end
