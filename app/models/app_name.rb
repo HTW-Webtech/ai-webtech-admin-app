@@ -3,13 +3,15 @@ class AppName
     cherry alluring swift woopy sharp speedy wonky
     rocky cleary flashy snowy sweet sour angry
     funny silent crazy happy fluffy huge tiny mad
+    loopy janky wild erratic funky kinky unique
+    prominent rare spiky wise odd splendid
   )
 
   NAMES = %w(
     blossom hound boar archid baham furud stewie
     brian richard bird elephant panda sheep tower
     castle rabbit eagle house dolphin whale tiger
-    lion
+    lion monkey shebang weasel wombat capybara
   )
 
   def self.generate_unique
