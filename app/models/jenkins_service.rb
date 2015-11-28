@@ -8,6 +8,7 @@
 #     user_email: foo@bar.com
 class JenkinsService
   def self.publish(app_or_apps)
+    return true if Rails.env.development?
     apps = Array(app_or_apps)
     jobs = load_jobs
     jobs = add_or_update(jobs, apps)
