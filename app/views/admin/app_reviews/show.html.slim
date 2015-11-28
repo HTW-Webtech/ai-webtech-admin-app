@@ -6,7 +6,7 @@ h1= "App Review for #{@app.permalink}"
 - else
   p Has not been reviewed yet!
   p
-    - ReviewPoints.for(@app).each do |points|
+    - ReviewPoints.for_app(@app).each do |points|
       = link_to "#{points} Points", admin_app_review_confirm_path(@app, points: points), method: :post, class: 'btn btn-primary'
 
 p= render 'apps/links', app: @app
