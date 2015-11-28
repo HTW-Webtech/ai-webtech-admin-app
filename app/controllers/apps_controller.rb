@@ -30,6 +30,16 @@ class AppsController < ::BaseController
     end
   end
 
+  def destroy
+    redirect_to user_path(current_user) unless current_user.admin?
+    @app = fetch_app(params[:id])
+    if @app.destroy!
+      redirect_to user_path(current_user), notice: 'App has been destroyed!'
+    else
+      redirect_to user_path(current_user), notice: @app.errors.join("\n")
+    end
+  end
+
   def update
     @app = fetch_app(params[:id])
     if @app.update_attributes(app_params)

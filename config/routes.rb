@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users, only: [:show, :edit, :update]  do
-    resources :apps, except: [:destroy] do
+    resources :apps do
       resources :logs, only: [:index, :show]
     end
   end
