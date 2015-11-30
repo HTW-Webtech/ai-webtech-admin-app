@@ -16,10 +16,6 @@ class App < ActiveRecord::Base
     where.not(reviewed_at: nil)
   end
 
-  def self.exercise_completed
-    where('exercise_points > ?', 0)
-  end
-
   # TODO: remove user dependency
   def prefill
     self.name        ||= AppName.generate_unique
