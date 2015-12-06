@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   end
 
   def display_name
-    name || email
+    (name.present? && name) || email
   end
 
   def app_count
