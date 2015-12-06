@@ -25,7 +25,7 @@ class UsersController < ::BaseController
 
   def fetch_user
     User.find(params[:id]).tap do |user|
-      redirect_to current_user unless user == current_user
+      redirect_to current_user unless user == current_user || current_user.admin?
     end
   end
 
