@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     persisted? && email == cc(:admin).email
   end
 
+  def display_name
+    name || email
+  end
+
   def app_count
     apps.count
   end
