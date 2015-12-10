@@ -41,6 +41,8 @@ gem 'autosize-rails'
 # gem 'base64-cipher', git: 'https://github.com/grekko/base64-cipher.git', ref: 'HEAD'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
+gem 'rack-mini-profiler'
+
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails', '~> 3.0'
