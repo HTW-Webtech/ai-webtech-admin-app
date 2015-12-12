@@ -69,6 +69,6 @@ class AppsController < ::BaseController
     params[:env_vars] or return {}
     params[:env_vars].each_with_object({}) do |var, env_vars|
       env_vars[var['name'].upcase] = var['value']
-    end
+    end.delete_if { |k,v| k.blank? || v.blank? }
   end
 end
