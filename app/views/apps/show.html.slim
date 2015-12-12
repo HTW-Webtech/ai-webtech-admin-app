@@ -2,6 +2,8 @@ h2= @app.permalink
 p Diese App wird als Lösung für die Aufgabe (#{@app.exercise_id}) verwendet.
 
 .row
+  .col-md-6
+    = render 'points', app: @app
   .col-md-12
     = render 'git_access', app: @app
   .col-md-12

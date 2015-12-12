@@ -4,21 +4,21 @@ h2 Hi #{@user.name}!
   table.table.table-striped
     thead
       th Name
-      th Status
-      th Aufgabe
-      th Tests passed?
-      th Reviewed?
-      th Punkte
+      th.hidden-xs.hidden-sm Status
+      th.hidden-xs.hidden-sm Aufgabe
+      th.hidden-xs.hidden-sm Tests passed?
+      th.hidden-xs.hidden-sm Reviewed?
+      th.hidden-xs.hidden-sm Punkte
       th Links
     tbody
       - @apps.each do |app|
         tr class=app_status_class(app)
           td= link_to_if app.ready?, app.permalink, user_app_path(app.user, app)
-          td= app_status(app)
-          td= app.exercise_id
-          td= app_tests_passed_icon(app)
-          td= app_review_icon(app)
-          td= app_points(app)
+          td.hidden-xs.hidden-sm= app_status(app)
+          td.hidden-xs.hidden-sm= app.exercise_id
+          td.hidden-xs.hidden-sm= app_tests_passed_icon(app)
+          td.hidden-xs.hidden-sm= app_review_icon(app)
+          td.hidden-xs.hidden-sm= app_points(app)
           td
             - if app.ready?
               = render 'apps/links', app: app
