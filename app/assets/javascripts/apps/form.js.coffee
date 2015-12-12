@@ -13,8 +13,8 @@ class Aris.AppEdit
     @$add_button.on 'click', @add_env_var
 
   init_delete_env_var_rows: ->
-    @$delete_container = $('[data-behavior="row-deleter-container"]')
-    @$delete_container.on 'click', '[data-behavior~="deletes-row"]', @delete_env_var_row
+    @$row_container = $('[data-behavior="row-container"]')
+    @$row_container.on 'click', '[data-behavior~="deletes-row"]', @delete_env_var_row
 
   delete_env_var_row: (event) =>
     event.preventDefault()
@@ -27,5 +27,5 @@ class Aris.AppEdit
     $rows = $('[data-behavior~="env-vars-template"]')
     template = $rows.first().clone()
     template.find('input').val('')
-    template.appendTo($rows.first().parent())
+    template.appendTo($rows.first().parent()).toggle();
 

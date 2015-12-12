@@ -11,9 +11,21 @@ p Wird als Lösung für die <strong>Aufgabe #{app.exercise_id}</strong> verwende
     .panel-heading:h3.panel-title ENV-Vars
 
     .panel-body
-      .grouped-env-vars data-behavior='row-deleter-container'
+      .grouped-env-vars data-behavior='row-container'
+        .row.form-group data-behavior='env-vars-template deletable-row' style="display: none;"
+          .col-md-4
+            label Name
+            input.form-control type='text' name="env_vars[][name]" value=''
+
+          .col-md-7
+            label Value
+            input.form-control type='text' name='env_vars[][value]' value=''
+
+          .col-md-1
+            button.btn.btn-danger.glyphicon.glyphicon-remove style='margin-top: 25px' data-behavior='deletes-row'
+
         - app.env_vars.each do |name, value|
-          .row.form-group data-behavior='env-vars-template deletable-row'
+          .row.form-group data-behavior='deletable-row'
             .col-md-4
               label Name
               input.form-control type='text' name="env_vars[][name]" value=name
