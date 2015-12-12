@@ -28,7 +28,7 @@ class ExercisePointMaster
   end
 
   def self.deadline(exercise_result)
-    EXERCISES.fetch(exercise_result.exercise_id).last
+    EXERCISES.fetch(exercise_result.exercise_id, [1.day.ago]).last
   end
 
   def self.points(exercise_result)
@@ -36,6 +36,6 @@ class ExercisePointMaster
   end
 
   def self.points_for_exercise(exercise_id)
-    EXERCISES.fetch(exercise_id).first
+    EXERCISES.fetch(exercise_id, [0]).first
   end
 end
