@@ -54,6 +54,7 @@ class AppsController < ::BaseController
   private
 
   def limit_apps_per_user
+    return true if current_user.admin?
     if current_user.apps.count >= cc(:site).app_limit
       redirect_to user_path(current_user), notice: "You can not create more than #{cc(:site).app_limit} apps right now"
     end
