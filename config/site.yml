@@ -18,4 +18,4 @@ production:
   jenkins_hostname: jenkins.htw-webtech.com
   git_hostname: htw-webtech.com
   git_webview_hostname: gitlist.htw-webtech.com
-  app_limit: 3
+  app_limit: 4
