@@ -1,4 +1,16 @@
-h1= "App Review for #{@app.permalink}"
+table.table.table.striped
+  thead
+    tr
+      th App
+      th.hidden-xs Tests passed
+      th.hidden-xs Review points
+      th User
+  tbody
+    tr
+      td= link_to @app.permalink, user_app_path(@app.user, @app.permalink)
+      td.hidden-xs= app_tests_passed_icon(@app)
+      td.hidden-xs= app_review_icon(@app)
+      td= link_to @app.user.display_name, user_path(@app.user)
 
 - if @app.reviewed?
   p Reviewed with #{@app.review_points} Points at #{time_ago_in_words(@app.reviewed_at)}
@@ -9,4 +21,5 @@ h1= "App Review for #{@app.permalink}"
     - ReviewPoints.for_app(@app).each do |points|
       = link_to "#{points} Points", admin_app_review_confirm_path(@app, points: points), method: :post, class: 'btn btn-primary'
 
-p= render 'apps/links', app: @app
+p
+  = render 'apps/links', app: @app

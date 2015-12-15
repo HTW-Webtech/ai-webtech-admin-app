@@ -15,3 +15,11 @@
       li.divider role="separator"
       li= active_link_to_li 'Rails-Admin', rails_admin.dashboard_path
 
+  li.dropdown
+    a.dropdown-toggle href='#' data-toggle="dropdown"
+      | Users
+      span.caret
+    ul.dropdown-menu
+      - User.find_each do |user|
+        li
+          = link_to user.display_name, user_path(user)
