@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'aris-control'
 gem 'complex_config', require: 'complex_config/rude'
+gem 'lograge' # Collapses rails logs into oneline. Makes correlations for performance inspections much more feasible
 
 gem 'devise', '3.5.1'
 gem 'rails_admin'
