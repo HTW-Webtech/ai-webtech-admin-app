@@ -29,6 +29,8 @@ gem 'aris-control'
 gem 'complex_config', require: 'complex_config/rude'
 gem 'lograge' # Collapses rails logs into oneline. Makes correlations for performance inspections much more feasible
 
+gem 'skylight'
+
 gem 'devise', '3.5.1'
 gem 'rails_admin'
 gem 'cancancan', '~> 1.10'
