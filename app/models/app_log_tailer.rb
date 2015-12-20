@@ -53,6 +53,7 @@ class AppLogTailer::Show < AppLogTailer
     File.exists?(log_file_path) or return "Log file not found: #{log_file_path}"
     result = "Fetching: #{log_file_path}, Size: #{max_bytes_to_fetch}, Offset: #{offset_bytes}\n\n"
     result += IO.binread(log_file_path, max_bytes_to_fetch, offset_bytes)
+    result.force_encoding("UTF-8")
     result
   end
 end
