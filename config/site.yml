@@ -1,16 +1,16 @@
 ---
 development:
-  hostname: htw-webtech.dev:8881
-  jenkins_hostname: jenkins.htw-webtech.dev:8081
+  hostname: localhost
+  jenkins_hostname:
   git_hostname: 127.0.0.1
-  git_webview_hostname: gitlist.htw-webtech.dev:8081
+  git_webview_hostname:
   app_limit: 10
 
 staging:
-  hostname: htw-webtech.dev:8081
-  jenkins_hostname: jenkins.htw-webtech.dev:8081
+  hostname: jessie
+  jenkins_hostname: jenkins.jessie
   git_hostname: vagrant
-  git_webview_hostname: gitlist.htw-webtech.dev:8081
+  git_webview_hostname: gitlist.jessie
   app_limit: 10
 
 production:
