@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resource :jenkins, only: [:create]
     resource :students, only: [:show]
     resource :exercises, only: [:show]
+    resource :statistics, only: [:show]
 
     post 'fixtures/create',     controller: :fixtures, action: :create
     post 'fixtures/create_yml', controller: :fixtures, action: :create_yml

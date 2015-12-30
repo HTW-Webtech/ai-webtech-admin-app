@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
     where(email: cc(:admin).email).first!
   end
 
+  def self.without_admin
+    where.not(email: cc(:admin).email)
+  end
+
   def admin?
     persisted? && email == cc(:admin).email
   end
