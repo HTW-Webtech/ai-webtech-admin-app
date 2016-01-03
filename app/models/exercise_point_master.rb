@@ -4,6 +4,7 @@ class ExercisePointMaster
     2 => [ 2, Date.new(2015, 11, 24) ],
     3 => [ 4, Date.new(2015, 12, 14) ],
     4 => [ 2, Date.new(2016, 1, 10) ],
+    5 => [ 0, Date.current ],
   }
 
   def self.evaluate_app!(app)
