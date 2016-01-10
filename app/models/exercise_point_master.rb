@@ -3,7 +3,7 @@ class ExercisePointMaster
     1 => [ 2, Date.new(2015, 11, 27) ],
     2 => [ 2, Date.new(2015, 11, 24) ],
     3 => [ 4, Date.new(2015, 12, 14) ],
-    4 => [ 2, Date.new(2016, 1, 10) ],
+    4 => [ 2, Date.new(2016, 1, 11) ],
     5 => [ 0, Date.current ],
   }
 
