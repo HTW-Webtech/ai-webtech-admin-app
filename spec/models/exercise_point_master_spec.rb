@@ -16,7 +16,7 @@ RSpec.describe ExercisePointMaster do
     let(:third_exercise_result) { ExerciseResult.new(exercise_id: 3) }
 
     it 'returns the correct deadlines' do
-      expect(described_class.deadline(first_exercise_result)).to eq Date.parse('2015-11-24')
+      expect(described_class.deadline(first_exercise_result)).to eq Date.parse('2015-11-27')
       expect(described_class.deadline(third_exercise_result)).to eq Date.parse('2015-12-14')
     end
   end
@@ -25,8 +25,8 @@ RSpec.describe ExercisePointMaster do
     let(:sunday_night) { Date.parse('2015-11-22 23:55') }
     let(:in_time) { FactoryGirl.build_stubbed(:exercise_result, exercise_id: 1, created_at: sunday_night) }
 
-    let(:wednesday) { Date.parse('2015-11-25 08:00') }
-    let(:too_late) { FactoryGirl.build_stubbed(:exercise_result, exercise_id: 1, created_at: wednesday) }
+    let(:saturday) { Date.parse('2015-11-28 08:00') }
+    let(:too_late) { FactoryGirl.build_stubbed(:exercise_result, exercise_id: 1, created_at: saturday) }
 
     it 'returns true when the deadline is matched' do
       expect(described_class.reached_deadline?(in_time)).to eq true
@@ -38,8 +38,8 @@ RSpec.describe ExercisePointMaster do
     let(:sunday_night) { Date.parse('2015-11-22 23:55') }
     let(:in_time) { FactoryGirl.create(:exercise_result, exercise_id: 1, created_at: sunday_night) }
 
-    let(:wednesday) { Date.parse('2015-11-25 08:00') }
-    let(:too_late) { FactoryGirl.create(:exercise_result, exercise_id: 1, created_at: wednesday) }
+    let(:saturday) { Date.parse('2015-11-28 08:00') }
+    let(:too_late) { FactoryGirl.create(:exercise_result, exercise_id: 1, created_at: saturday) }
 
     it 'adds the given points to the app' do
       expect(in_time.app.exercise_points).to eq 0
