@@ -8,6 +8,7 @@ class ExercisePointMaster
   }
 
   def self.evaluate_app!(app)
+    # TODO: Skip results after deadline
     ExerciseResult.where(app: app, exercise_id: exercise_ids).find_each do |result|
       evaluate!(result)
     end
