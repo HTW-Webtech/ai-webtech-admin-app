@@ -3,5 +3,6 @@
 = link_to 'Logs', user_app_logs_path(app.user, app), class: 'btn btn-default'
 = link_to 'Jenkins', app.jenkins_url, target: :blank, class: 'btn btn-default'
 - if current_user.admin?
+  = link_to 'Review', app_review_path(app), target: :blank, class: 'btn btn-default btn-danger'
   = link_to 'View commits', app.git_webview_url, target: :blank, class: 'btn btn-default btn-danger'
   = link_to 'Destroy!', user_app_path(app.user, app), method: :delete, data: { confirm: 'Sure?' }, class: 'btn btn-danger'
