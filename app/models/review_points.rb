@@ -1,17 +1,16 @@
 class ReviewPoints
-  POINTS = {
-    1 => (0..2),
-    2 => (0..2),
-    3 => (2..4),
-    4 => (0..0),
-    5 => (0..14),
-  }
+  attr_accessor :course, :points
 
-  def self.for_app(app)
-    POINTS.fetch(app.exercise_id, (0..0))
+  def initialize(course = Courses.current_course)
+    @course = course
+    @points = course.review_points
   end
 
-  def self.achievable(app)
+  def for_app(app)
+    points.fetch(app.exercise_id, (0..0))
+  end
+
+  def achievable(app)
     for_app(app).max
   end
 end

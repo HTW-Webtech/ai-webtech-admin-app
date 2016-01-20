@@ -54,11 +54,11 @@ class App < ActiveRecord::Base
   end
 
   def achievable_exercise_points
-    ExercisePointMaster.points_for_exercise(exercise_id)
+    ExercisePointMaster.new.points_for_exercise(exercise_id)
   end
 
   def achievable_review_points
-    ReviewPoints.achievable(self)
+    ReviewPoints.new.achievable(self)
   end
 
   def reviewed?
