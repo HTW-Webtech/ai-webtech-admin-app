@@ -1,19 +1,11 @@
 module Courses
-  module Summer2016
-    module_function
+  class Summer2016 < Base
+    class << self
+      def exercises
+      end
 
-    EXERCISES = {
-    }
-
-    REVIEW_POINTS = {
-    }
-
-    def exercises
-      EXERCISES
-    end
-
-    def review_points
-      REVIEW_POINTS
+      def review_points
+      end
     end
   end
 end

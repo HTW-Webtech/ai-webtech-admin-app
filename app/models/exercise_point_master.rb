@@ -1,7 +1,7 @@
 class ExercisePointMaster
   attr_accessor :course, :exercises
 
-  def initialize(course = Courses.current_course)
+  def initialize(course = Courses.current)
     @course    = course
     @exercises = course.exercises
   end

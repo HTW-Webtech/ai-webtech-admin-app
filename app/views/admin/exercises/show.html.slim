@@ -3,7 +3,7 @@ table.table.table-striped
     th Exercise
     th Count
     th Tests passed
-    th Reviewed?
+    th Code Reviewed
   tbody
     - @exercise_ids.each do |exercise_id|
       - apps = @apps.select { |app| app.exercise_id == exercise_id }

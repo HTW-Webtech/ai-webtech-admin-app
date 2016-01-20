@@ -2,6 +2,7 @@ class UsersController < ::BaseController
   def show
     @user = fetch_user
     @apps = @user.apps.order(id: :asc)
+    @course = Courses.current
   end
 
   def edit

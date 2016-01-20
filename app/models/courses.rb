@@ -1,7 +1,7 @@
 module Courses
   module_function
 
-  def current_course
+  def current
     Winter2015
   end
 end

@@ -1,7 +1,7 @@
 class ReviewPoints
   attr_accessor :course, :points
 
-  def initialize(course = Courses.current_course)
+  def initialize(course = Courses.current)
     @course = course
     @points = course.review_points
   end

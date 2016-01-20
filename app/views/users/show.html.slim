@@ -28,7 +28,7 @@ h2 Hi #{@user.name}!
     tfoot
       tr
         td colspan=8
-          h4 Gesamtpunkte: #{@user.total_points}
+          h4 Gesamtpunkte: #{@user.total_points} / #{@course.total_points}
 
 - else
   p You currently have no app configured.
