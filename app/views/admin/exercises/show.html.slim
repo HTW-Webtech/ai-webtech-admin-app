@@ -10,6 +10,6 @@ table.table.table-striped
       tr
         td= exercise_id
         td= apps.count
-        td= apps.count { |app| app.exercise_points.present? }
+        td= apps.count(&:tests_passed?)
         td= apps.count(&:reviewed?)
 
