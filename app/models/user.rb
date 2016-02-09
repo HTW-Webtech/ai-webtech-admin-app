@@ -32,6 +32,14 @@ class User < ActiveRecord::Base
     @appraisal ||= User::Appraisal.new(self)
   end
 
+  def matrikel_number
+    if m = email.match(%r{(s\d+)})
+      m[0]
+    else
+      '-'
+    end
+  end
+
   def total_points
     apps.inject(0) { |sum, app| sum + app.total_points } || 0
   end

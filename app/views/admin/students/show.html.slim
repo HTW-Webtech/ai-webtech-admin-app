@@ -3,6 +3,7 @@
     table.table.table-striped
       thead
         th Name
+        th Matrikel-Nr.
         th %-Punkte
         th Note
         - @exercise_ids.each do |id|
@@ -10,6 +11,7 @@
       tbody
         - @students.each do |student|
           td= link_to student.display_name, user_path(student)
+          td= student.matrikel_number
           td= number_to_percentage(student.appraisal.percentage, precision: 0)
           td= student.appraisal.grade
           - @exercise_ids.each do |student_exercise_id|
