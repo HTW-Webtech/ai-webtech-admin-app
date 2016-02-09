@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
     apps.count
   end
 
+  def appraisal
+    @appraisal ||= User::Appraisal.new(self)
+  end
+
   def total_points
     apps.inject(0) { |sum, app| sum + app.total_points } || 0
   end
