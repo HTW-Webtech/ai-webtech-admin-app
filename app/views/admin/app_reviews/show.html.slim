@@ -18,6 +18,7 @@ table.table.table.striped
 - else
   p Has not been reviewed yet!
   p
+    = link_to "Fraud", admin_app_review_confirm_path(@app, points: -1), method: :post, class: 'btn btn-primary'
     - ReviewPoints.new.for_app(@app).each do |points|
       = link_to "#{points} Points", admin_app_review_confirm_path(@app, points: points), method: :post, class: 'btn btn-primary'
 
