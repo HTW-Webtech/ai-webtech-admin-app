@@ -2,7 +2,7 @@
   .col-md-6
     h2 Profil bearbeiten
 
-    = simple_form_for @user, html: { class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
+    = simple_form_for @user do |f|
       = f.error_notification
 
       = f.input :name
@@ -13,8 +13,7 @@
   .col-md-6
     h2 Passwort ändern
 
-    = simple_form_for @user,
-        html: { class: 'form-horizontal'}, wrapper: :horizontal_form do |f|
+    = simple_form_for @user do |f|
       = f.error_notification
       = f.input :reset_password_token, as: :hidden
 
