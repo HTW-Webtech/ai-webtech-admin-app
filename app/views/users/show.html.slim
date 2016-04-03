@@ -1,4 +1,4 @@
-h2 Hi #{@user.name}!
+h2 Hi #{@user.display_name}!
 
 - if @apps.size > 0
   table.table.table-striped
@@ -33,4 +33,11 @@ h2 Hi #{@user.name}!
 - else
   p You currently have no app configured.
 
-= link_to 'Create a new app!', new_user_app_path(current_user), class: 'btn btn-primary'
+= link_to 'Create a new app!', new_user_app_path(@user), class: 'btn btn-primary'
+
+- if current_user.admin?
+  hr
+  - if @user.blocked?
+    = button_to 'Unblock the user', admin_unblock_user_path(@user), class: 'btn btn-danger'
+  - else
+    = button_to 'Block the user', admin_block_user_path(@user), class: 'btn btn-danger'

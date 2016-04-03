@@ -2,6 +2,7 @@
 = link_to 'View online', app.public_url, target: :blank, class: 'btn btn-default'
 = link_to 'Logs', user_app_logs_path(app.user, app), class: 'btn btn-default'
 = link_to 'Jenkins', app.jenkins_url, target: :blank, class: 'btn btn-default'
+
 - if current_user.admin?
   = link_to 'Review', admin_app_review_path(app), target: :blank, class: 'btn btn-default btn-danger'
   = link_to 'View commits', app.git_webview_url, target: :blank, class: 'btn btn-default btn-danger'

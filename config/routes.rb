@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin/rails_admin', as: 'rails_admin'
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 
   root 'home#index'
 
@@ -16,6 +18,9 @@ Rails.application.routes.draw do
     resource :students, only: [:show]
     resource :exercises, only: [:show]
     resource :statistics, only: [:show]
+
+    post ':user_id/block',   controller: :users, action: :block, as: :block_user
+    post ':user_id/unblock', controller: :users, action: :unblock, as: :unblock_user
 
     post 'fixtures/create',     controller: :fixtures, action: :create
     post 'fixtures/create_yml', controller: :fixtures, action: :create_yml

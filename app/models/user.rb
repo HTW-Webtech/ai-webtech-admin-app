@@ -23,7 +23,15 @@ class User < ActiveRecord::Base
   end
 
   def display_name
+    "#{display_blocked}#{display_name_or_email}"
+  end
+
+  def display_name_or_email
     (name.present? && name) || email
+  end
+
+  def display_blocked
+    "[B] " if blocked?
   end
 
   def app_count
@@ -44,6 +52,19 @@ class User < ActiveRecord::Base
 
   def total_points
     apps.inject(0) { |sum, app| sum + app.total_points } || 0
+  end
+
+  def blocked?
+    blocked_at && blocked_at < Time.current
+  end
+
+  def block!
+    return false if admin?
+    update! blocked_at: Time.current
+  end
+
+  def unblock!
+    update! blocked_at: nil
   end
 
   private
