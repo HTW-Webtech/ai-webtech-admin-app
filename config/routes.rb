@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  if const_defined? RailsAdmin
+  if Object.const_defined?(:RailsAdmin)
     mount RailsAdmin::Engine => '/admin/rails_admin', as: 'rails_admin'
   end
 

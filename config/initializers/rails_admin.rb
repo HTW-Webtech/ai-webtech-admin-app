@@ -1,4 +1,4 @@
-if const_defined? RailsAdmin
+if Object.const_defined?(:RailsAdmin)
   RailsAdmin.config do |config|
 
     ### Popular gems integration
