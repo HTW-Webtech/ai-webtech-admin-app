@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :lockable, :timeoutable and :omniauthable
+  # :rememberable manages generating and clearing tokens from a cookie
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :trackable, :validatable,
+         :confirmable
 
   has_many :apps
 

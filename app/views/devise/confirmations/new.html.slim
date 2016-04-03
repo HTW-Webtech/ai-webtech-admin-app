@@ -1,0 +1,16 @@
+h2 Resend confirmation instructions
+
+.row
+  .col-md-6
+    = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name),
+      html: { method: :post, class: 'form-vertical' }, wrapper: :vertical_form) do |f|
+      = f.error_notification
+      = f.full_error :confirmation_token
+
+      .form-inputs= f.input :email, required: true, autofocus: true
+
+      = f.button :submit, "Request password"
+
+.row
+  .col-md-6
+    = render 'devise/shared/links'

@@ -1,8 +1,22 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   #
-  # Devise
-  config.action_mailer.default_url_options = { host: 'aris.igelmund.info', port: 80 }
+  # ActionMailer
+  config.action_mailer.default_url_options = { host: cc(:site).hostname, port: 80 }
+  config.action_mailer.smtp_settings = {
+    user_name:            ENV.fetch('SENDGRID_USER'),
+    password:             ENV.fetch('SENDGRID_PASSWORD'),
+    domain:               cc(:site).hostname,
+    address:              'smtp.sendgrid.net',
+    port:                 587,
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
+
+  config.action_mailer.default_options = {
+    from: "no-reply@#{cc(:site).hostname}",
+    reply_to: "no-reply@#{cc(:site).hostname}"
+  }
 
 
   # Code is not reloaded between requests.

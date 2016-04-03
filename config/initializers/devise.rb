@@ -99,7 +99,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  config.pepper = ENV['APP_DEVISE_PEPPER']
+  config.pepper = ENV.fetch('APP_DEVISE_PEPPER')
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -171,7 +171,7 @@ Devise.setup do |config|
   # :time  = Re-enables login after a certain amount of time (see :unlock_in below)
   # :both  = Enables both strategies
   # :none  = No unlock strategy. You should handle unlocking by yourself.
-  config.unlock_strategy = :time
+  config.unlock_strategy = :email
 
   # Number of authentication tries before locking an account if lock_strategy
   # is failed attempts.

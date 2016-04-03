@@ -1,0 +1,15 @@
+h2 Forgot your password?
+
+.row
+  .col-md-6
+    = simple_form_for(resource, as: resource_name, url: password_path(resource_name),
+        html: { method: :post, class: 'form-vertical' }, wrapper: :vertical_form) do |f|
+      = f.error_notification
+
+      .form-inputs= f.input :email, required: true, autofocus: true
+
+      = f.button :submit, "Request new password"
+
+.row
+  .col-md-6
+    = render 'devise/shared/links'
