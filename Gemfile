@@ -6,14 +6,14 @@ gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# gem 'sass-rails'
+# gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# gem 'uglifier'
+# gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-# gem 'coffee-rails'
+# gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -48,21 +48,21 @@ gem 'switch_user'
 
 # gem 'simple_form', '~> 3'
 # gem 'simple_form', '3.2.1'
+gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'slim'
 
-# gem 'active_link_to' # TODO: Should work with rails 5?
-# gem 'autosize-rails'
-# gem 'base64-cipher', git: 'https://github.com/grekko/base64-cipher.git', ref: 'HEAD'
+gem 'active_link_to' # TODO: Should work with rails 5?
+gem 'autosize-rails'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 gem 'rack-mini-profiler'
 
 group :development, :test do
   gem 'rspec'
-  gem 'rspec-rails', '~> 3.0'
+  # gem 'rspec-rails', '~> 3.0'
   # gem 'rspec-rails', '3.5.0.beta1'
-  # gem 'rspec-rails'
+  gem 'rspec-rails'
   gem 'byebug'
   gem 'foreman'
 end
