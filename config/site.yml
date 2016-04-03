@@ -16,7 +16,7 @@ staging:
   app_limit: 10
 
 production:
-  hostname: htw-webtech.com
+  hostname: admin.htw-webtech.com
   jenkins_hostname: jenkins.htw-webtech.com
   git_hostname: htw-webtech.com
   git_webview_hostname: gitlist.htw-webtech.com
