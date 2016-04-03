@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin/rails_admin', as: 'rails_admin'
+  if const_defined? RailsAdmin
+    mount RailsAdmin::Engine => '/admin/rails_admin', as: 'rails_admin'
+  end
+
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
