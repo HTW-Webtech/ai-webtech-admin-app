@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :confirmable
 
   has_many :apps
+  has_and_belongs_to_many :groups, join_table: :groups_users
 
   validate :allow_only_htwberlin_accounts, on: :create
 
