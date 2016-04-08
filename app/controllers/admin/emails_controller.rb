@@ -11,7 +11,7 @@ module Admin
         body: email_params[:body]
       )
       if scheduler.run
-        redirect_to new_admin_email_path, alert: 'Mails have not been fully sent'
+        redirect_to new_admin_email_path, notice: 'Mails have all been sent'
       else
         render :new, alert: 'Mails have not been fully sent'
       end
