@@ -4,6 +4,8 @@ Rails.application.configure do
   # Devise
   config.action_mailer.default_url_options = { host: cc(:site).hostname, port: ENV.fetch('PORT') }
   config.action_mailer.perform_deliveries = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :test
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
