@@ -1,5 +1,6 @@
 class UsersController < ::BaseController
   def show
+    @announcements = Announcement.all
     @user = fetch_user
     @apps = @user.apps.order(id: :asc)
     @course = Courses.current

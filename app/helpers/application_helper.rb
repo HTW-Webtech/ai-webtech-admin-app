@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def announcements
+    @announcements ||= []
+  end
+
   def active_link_to_li(*args)
     additional = { wrap_tag: :li, active: :exclusive }
     opts = if args.last.is_a?(Hash)

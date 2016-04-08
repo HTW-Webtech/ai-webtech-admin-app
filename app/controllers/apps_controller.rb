@@ -7,6 +7,7 @@ class AppsController < ::BaseController
   end
 
   def show
+    @announcements = Announcement.all
     @app = fetch_app(params[:id])
   end
 

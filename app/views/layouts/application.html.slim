@@ -22,4 +22,12 @@ body
 
     .row
       .col-md-12
+        - announcements.each do |announcement|
+          .alert.alert-dismissible class="alert-warning"
+            button.close type="button" data-dismiss="alert" aria-label="Close"
+              span aria-hidden="true" ×
+            = announcement.text
+
+    .row
+      .col-md-12
         = yield
