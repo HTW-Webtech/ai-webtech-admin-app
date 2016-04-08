@@ -1,4 +1,5 @@
 # Aris Application management
+
 Aris ist eine Web-Applikation zur Verwaltung von Web-Applikationen für die Übungen
 der Lehrveranstaltung "Webentwicklung". Die zentralen Features sind
 
@@ -7,8 +8,11 @@ der Lehrveranstaltung "Webentwicklung". Die zentralen Features sind
 * Verwaltung von Umgebungsvariablen um sensible Daten nicht im sourcecode verwalten zu müssen
 * Anzeige und Verwaltung der Übungs-Punkte
 
+
 ## Live
+
 http://admin.htw-webtech.com/
 
 # License
+
 http://grekko.mit-license.org/

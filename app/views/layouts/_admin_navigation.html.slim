@@ -4,9 +4,9 @@
       | Admin
       span.caret
     ul.dropdown-menu
-      li= active_link_to_li 'Übungen', admin_exercises_path
+      li= active_link_to_li 'Exercises', admin_exercises_path
       li= active_link_to_li 'Students', admin_students_path
-      li= active_link_to_li 'Statistiken', admin_statistics_path
+      li= active_link_to_li 'Statistics', admin_statistics_path
       li.divider role="separator"
       - if !Rails.env.production?
         li= link_to 'Create user and apps', admin_fixtures_create_path, method: :post
