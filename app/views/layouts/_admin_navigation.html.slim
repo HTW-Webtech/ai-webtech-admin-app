@@ -26,3 +26,12 @@
       - User.find_each do |user|
         li
           = link_to user.display_name, user_path(user)
+
+  li.dropdown
+    a.dropdown-toggle href='#' data-toggle="dropdown"
+      | Groups
+      span.caret
+    ul.dropdown-menu
+      - Group.find_each do |group|
+        li
+          = link_to group.display_name, admin_group_path(group)
