@@ -1,4 +1,5 @@
 module Courses
+  # TODO: Use Module instead of class
   class Base
     class << self
       def exercises
