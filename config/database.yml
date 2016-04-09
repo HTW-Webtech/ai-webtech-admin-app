@@ -6,7 +6,18 @@ default: &default
   username: admin
   password: <%= ENV.fetch('POSTGRES_PASSWORD') %>
 
-development: *default
-test: *default
-staging: *default
-production: *default
+development:
+  <<: *default
+  database: aris_development
+
+test:
+  <<: *default
+  database: aris_test
+
+staging:
+  <<: *default
+  database: aris_staging
+
+production:
+  <<: *default
+  database: admin
