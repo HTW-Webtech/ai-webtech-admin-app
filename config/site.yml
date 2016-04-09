@@ -4,7 +4,6 @@ development: &development
   jenkins_hostname: jenkins
   git_hostname: 127.0.0.1
   git_webview_hostname: gitlist.localhost
-  app_limit: 10
 
 test: *development
 
@@ -13,11 +12,9 @@ staging:
   jenkins_hostname: jenkins.jessie
   git_hostname: vagrant
   git_webview_hostname: gitlist.jessie
-  app_limit: 10
 
 production:
   hostname: admin.htw-webtech.com
   jenkins_hostname: jenkins.htw-webtech.com
   git_hostname: htw-webtech.com
   git_webview_hostname: gitlist.htw-webtech.com
-  app_limit: 5
