@@ -115,6 +115,8 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     lograge (0.3.6)
       actionpack (>= 3)
       activesupport (>= 3)
@@ -273,6 +275,7 @@ DEPENDENCIES
   foreman
   jbuilder (~> 2.0)
   jquery-rails
+  launchy
   lograge
   pg
   rack-mini-profiler
