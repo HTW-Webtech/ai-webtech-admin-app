@@ -5,7 +5,7 @@ module Courses
 
     def exercises
       {
-        2: {
+        2 => {
           points: {
             tests: 0,
             review: (0..2)
