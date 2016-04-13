@@ -33,5 +33,6 @@
       span.caret
     ul.dropdown-menu
       - Group.find_each do |group|
-        li
-          = link_to group.display_name, admin_group_path(group)
+        li= link_to group.display_name, rails_admin.show_path(model_name: :group, id: group.id)
+      li.divider role="separator"
+      li= link_to 'New Group', rails_admin.new_path(:group)
