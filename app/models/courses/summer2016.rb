@@ -1,9 +1,7 @@
 module Courses
-  module Summer2016
-    include Base
-    module_function
+  class Summer2016 < Base
 
-    def exercises
+    def self.exercises
       {
         2 => {
           points: {
@@ -16,9 +14,9 @@ module Courses
       }
     end
 
-    def review_points
-      {
-      }
+    # TODO: The Base class expects a certain data structure. FIXME
+    def self.total_test_points
+      0
     end
   end
 end

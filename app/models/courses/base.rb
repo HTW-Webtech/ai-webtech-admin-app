@@ -1,24 +1,22 @@
 module Courses
-  module Base
-    module_function
-
-    def exercises
+  class Base
+    def self.exercises
       { 1 => [ 2, Date.current ] }
     end
 
-    def review_points
+    def self.review_points
       { 1 => (0..5) }
     end
 
-    def total_test_points
+    def self.total_test_points
       exercises.values.sum(&:first)
     end
 
-    def total_review_points
+    def self.total_review_points
       review_points.values.sum(&:max)
     end
 
-    def total_points
+    def self.total_points
       total_test_points + total_review_points
     end
   end

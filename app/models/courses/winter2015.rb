@@ -1,9 +1,6 @@
 module Courses
-  module Winter2015
-    include Base
-    module_function
-
-    def exercises
+  class Winter2015 < Base
+    def self.exercises
       {
         1 => [ 2, Date.new(2015, 11, 27) ],
         2 => [ 2, Date.new(2015, 11, 24) ],
@@ -13,7 +10,7 @@ module Courses
       }
     end
 
-    def review_points
+    def self.review_points
       {
         1 => (0..2),
         2 => (0..2),
