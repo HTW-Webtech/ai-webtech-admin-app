@@ -4,5 +4,6 @@ development: &development
   email: igelmund@htw-berlin.de
   pub_ssh_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSoUnD2zl5fKZlndTi6gABTZOzT8gJ6y6dwbq+TwNuW5TjNTSM8KoBOiiFXPrRbCEGWsk8s+wfZXoD1oATjV2sTfHy8xOQ5ev93LtahKnBZ61A2iORNDd1S+MIs7mU9a/dNEMu9NJmPcLekzXLai5hzBwRDHu9Ny5P+TA9lC+M9V0NMasiIjPuSDmLla1aMWJhtZyrGfCG2AiPeWJjZdvFM0S8dZ8LhNGE7cN6m6GqNBxyqQeS9CFsrca7Dn/2PybJxbGHt0rZMK59lybEB6XKDoI01Xzr3OuyFRwzYdStzIfMP5tJO80JAl/gjPBnleGU3WWOZu7l1DbfcG5rr6fN gregoryigelmund@Gregorys-MacBook-Pro.local
 
+test: *development
 staging: *development
 production: *development
