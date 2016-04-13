@@ -15,5 +15,10 @@ module Courses
         },
       }
     end
+
+    def review_points
+      {
+      }
+    end
   end
 end
