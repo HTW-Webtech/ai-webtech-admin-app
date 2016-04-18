@@ -3,6 +3,7 @@ development: &development
   hostname: localhost
   port: 3003
   jenkins_hostname: jenkins
+  app_hostname: jenkins
   git_hostname: 127.0.0.1
   git_webview_hostname: gitlist.localhost
 
@@ -11,6 +12,7 @@ test: *development
 staging:
   hostname: jessie
   port: 80
+  app_hostname: jenkins.jessie
   jenkins_hostname: jenkins.jessie
   git_hostname: vagrant
   git_webview_hostname: gitlist.jessie
@@ -18,6 +20,7 @@ staging:
 production:
   hostname: admin.htw-webtech.com
   port: 80
+  app_hostname: htw-webtech.com
   jenkins_hostname: jenkins.htw-webtech.com
   git_hostname: htw-webtech.com
   git_webview_hostname: gitlist.htw-webtech.com

@@ -89,6 +89,6 @@ class App < ActiveRecord::Base
   end
 
   def public_url
-    "http://#{permalink}.#{cc(:site).hostname}"
+    "http://#{permalink}.#{cc(:site).app_hostname}"
   end
 end
