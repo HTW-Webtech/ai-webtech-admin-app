@@ -5,8 +5,6 @@ class App < ActiveRecord::Base
   belongs_to :user
   has_many :exercise_results
 
-  serialize :env_vars, JSON
-
   def self.for_permalink_or_id(permalink_or_id)
     id = permalink_or_id.to_s.split('-').first
     find(id)
@@ -20,7 +18,6 @@ class App < ActiveRecord::Base
   def prefill
     self.name        ||= AppName.generate_unique
     self.ssh_key     ||= user.ssh_key if user
-    self.env_vars    ||= Hash.new
     self.exercise_id ||= Exercise.generate_next_id(user)
     self
   end

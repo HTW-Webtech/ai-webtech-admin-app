@@ -11,10 +11,9 @@ class ArisService
 
   def self.app_opts(app)
     opts = {}
-    opts[:name]     = app.permalink
-    opts[:email]    = app.user.email
-    opts[:ssh_key]  = app.ssh_key
-    opts[:env_vars] = app.env_vars || {}
+    opts[:name]    = app.permalink
+    opts[:email]   = app.user.email
+    opts[:ssh_key] = app.ssh_key
     opts
   end
 

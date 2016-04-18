@@ -1,9 +1,0 @@
-.panel.panel-default
-  .panel-heading:strong ENV Vars
-  .panel-body
-    - app.env_vars.each do |name, value|
-      .row
-        .col-md-4
-          strong= name
-        .col-md-8
-          pre= value

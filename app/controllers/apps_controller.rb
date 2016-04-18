@@ -62,13 +62,6 @@ class AppsController < ::BaseController
 
   def app_params
     params.require(:app).permit(:name, :ssh_key).
-      merge(user_id: current_user.id, env_vars: env_vars_params)
-  end
-
-  def env_vars_params
-    params[:env_vars] or return {}
-    params[:env_vars].each_with_object({}) do |var, env_vars|
-      env_vars[var['name'].upcase] = var['value']
-    end.delete_if { |k,v| k.blank? || v.blank? }
+      merge(user_id: current_user.id)
   end
 end
