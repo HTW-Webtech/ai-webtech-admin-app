@@ -3,15 +3,18 @@ module Courses
 
     def self.exercises
       {
-        2 => {
-          points: {
-            tests: 0,
-            review: (0..2)
-          },
-          # TODO: Fix Deadline
-          deadline: Date.new(2016, 4, 24)
-        },
+        1 => [ 2, Date.new(2015, 11, 27) ]
       }
+      # {
+      #   2 => {
+      #     points: {
+      #       tests: 0,
+      #       review: (0..2)
+      #     },
+      #     # TODO: Fix Deadline
+      #     deadline: Date.new(2016, 4, 24)
+      #   },
+      # }
     end
 
     # TODO: The Base class expects a certain data structure. FIXME
