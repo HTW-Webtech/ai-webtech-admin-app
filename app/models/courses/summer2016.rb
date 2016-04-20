@@ -3,24 +3,16 @@ module Courses
 
     def self.exercises
       {
-        1 => [ 2, Date.new(2015, 11, 27) ],
-        2 => [ 2, Date.new(2015, 11, 27) ]
+        1 => [ 0, Date.new(2016, 12, 12) ],
+        2 => [ 2, Date.new(2016, 4, 26) ]
       }
-      # {
-      #   2 => {
-      #     points: {
-      #       tests: 0,
-      #       review: (0..2)
-      #     },
-      #     # TODO: Fix Deadline
-      #     deadline: Date.new(2016, 4, 24)
-      #   },
-      # }
     end
 
-    # TODO: The Base class expects a certain data structure. FIXME
-    def self.total_test_points
-      0
+    def self.review_points
+      {
+        1 => (0..0),
+        2 => (0..0),
+      }
     end
   end
 end
