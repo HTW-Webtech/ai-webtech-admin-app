@@ -1,8 +1,8 @@
 module Admin
   class StudentsController < BaseController
     def show
-      @students = User.includes(:apps).all
-      @exercise_ids = ExercisePointMaster.new.exercise_ids
+      @students = current_course.students.includes(:apps)
+      @exercise_ids = ExercisePointMaster.new(current_course).exercise_ids
     end
   end
 end

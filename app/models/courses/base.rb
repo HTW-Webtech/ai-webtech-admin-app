@@ -8,6 +8,10 @@ module Courses
       name.demodulize
     end
 
+    def self.students
+      Group.where(name: display_name).first.users
+    end
+
     def self.review_points
       { 1 => (0..5) }
     end
