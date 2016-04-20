@@ -4,6 +4,7 @@ module Courses
     def self.exercises
       {
         1 => [ 2, Date.new(2015, 11, 27) ]
+        2 => [ 2, Date.new(2015, 11, 27) ]
       }
       # {
       #   2 => {
