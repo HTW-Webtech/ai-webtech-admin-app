@@ -5,10 +5,17 @@ class BaseController < ::ApplicationController
   before_action :authenticate_user!
   before_action :redirect_users_to_users_namespace
   before_action :ensure_user_belongs_to_one_group
+  before_action :notify_users_without_name
 
   def ensure_user_belongs_to_one_group
     if current_user && current_user.groups.empty?
       current_user.groups << Group.current_course
+    end
+  end
+
+  def notify_users_without_name
+    if current_user && current_user.name.blank?
+      flash[:alert] = "Please set a name on your Profile page"
     end
   end
 
