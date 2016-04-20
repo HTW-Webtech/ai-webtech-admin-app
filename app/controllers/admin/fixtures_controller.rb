@@ -8,6 +8,7 @@ module Admin
         ssh_key: "ssh-rsa …",
         password: '123geheim',
         password_confirmation: '123geheim',
+        confirmed_at: Time.now,
       })
       10.times do |i|
         app = App.new(user: user).prefill
