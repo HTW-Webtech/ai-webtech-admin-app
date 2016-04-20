@@ -28,6 +28,14 @@ body
               span aria-hidden="true" ×
             = announcement.text
 
+    - if @current_course
+      .row
+        .col-md-12
+          h3 Kurs auswählen
+          ul
+          - Courses.all.each do |course|
+            li= link_to course.display_name, current_url(query: "current_course=#{course.display_name}")
+
     .row
       .col-md-12
         = yield

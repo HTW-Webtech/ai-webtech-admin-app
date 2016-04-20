@@ -3,6 +3,12 @@ module ApplicationHelper
     @announcements ||= []
   end
 
+  def current_url(query:)
+    uri = URI.parse(request.url)
+    uri.query = query if query
+    uri.to_s
+  end
+
   def active_link_to_li(*args)
     additional = { wrap_tag: :li, active: :exclusive }
     opts = if args.last.is_a?(Hash)
