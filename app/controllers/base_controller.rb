@@ -5,11 +5,18 @@ class BaseController < ::ApplicationController
   before_action :authenticate_user!
   before_action :redirect_users_to_users_namespace
   before_action :ensure_user_belongs_to_one_group
+  before_action :ensure_user_belongs_to_one_course
   before_action :notify_users_without_name
 
   def ensure_user_belongs_to_one_group
     if current_user && current_user.groups.empty?
       current_user.groups << Group.current_course
+    end
+  end
+
+  def ensure_user_belongs_to_one_course
+    if current_user && current_user.course.empty?
+      current_user.update course: Courses.current.display_name
     end
   end
 
