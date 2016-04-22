@@ -40,7 +40,11 @@ class User < ActiveRecord::Base
   end
 
   def appraisal
-    @appraisal ||= User::Appraisal.new(self)
+    @appraisal ||= User::Appraisal.new(self, course: course_klass)
+  end
+
+  def course_klass
+    "Courses::#{course}".constantize
   end
 
   def matrikel_number
