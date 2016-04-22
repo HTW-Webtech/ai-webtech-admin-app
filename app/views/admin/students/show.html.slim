@@ -15,7 +15,7 @@
           td= number_to_percentage(student.appraisal.percentage, precision: 0)
           td= student.appraisal.grade
           - @exercise_ids.each do |student_exercise_id|
-            - app = student.apps.detect { |app| app.exercise_id == student_exercise_id } || App.new
+            - app = student.apps.detect { |app| app.exercise_id == student_exercise_id } || App.new(user: student, exercise_id: student_exercise_id)
             td class=app_tests_class(app)
-              = app_review_icon(app)
+              = app_points(app)
           tr

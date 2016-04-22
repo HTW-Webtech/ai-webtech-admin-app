@@ -2,8 +2,8 @@ class ExercisePointMaster
   attr_accessor :course, :exercises
 
   def initialize(course = Courses.current)
-    @course    = course
-    @exercises = course.exercises
+    @course    = course || Courses.current
+    @exercises = @course.exercises
   end
 
   def evaluate_app!(app)

@@ -51,11 +51,17 @@ class App < ActiveRecord::Base
   end
 
   def achievable_exercise_points
-    ExercisePointMaster.new.points_for_exercise(exercise_id)
+    ExercisePointMaster.new(course).points_for_exercise(exercise_id)
   end
 
   def achievable_review_points
-    ReviewPoints.new.achievable(self)
+    ReviewPoints.new(course).achievable(self)
+  end
+
+  def course
+    if user
+      "Courses::#{user.course}".constantize
+    end
   end
 
   def reviewed?
