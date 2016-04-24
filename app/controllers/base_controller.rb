@@ -15,7 +15,7 @@ class BaseController < ::ApplicationController
   end
 
   def ensure_user_belongs_to_one_course
-    if current_user && current_user.course.empty?
+    if current_user && current_user.course.blank?
       current_user.update course: Courses.current.display_name
     end
   end
