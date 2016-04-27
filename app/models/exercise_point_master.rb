@@ -17,6 +17,10 @@ class ExercisePointMaster
     exercises.keys
   end
 
+  def exercise_name(exercise_id)
+    course.exercise_names.fetch(exercise_id, '')
+  end
+
   def evaluate!(exercise_result)
     if reached_deadline? exercise_result
       !!exercise_result.app.update(exercise_points: points(exercise_result))

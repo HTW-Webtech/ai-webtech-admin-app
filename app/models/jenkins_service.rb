@@ -1,14 +1,5 @@
-# YAML:
-# jenkins_jobs:
-#   1-app-name:
-#     url: http://app-name.webtech.com
-#     exercise_id: 1
-#     app_name: foo@bar.com
-#     user_name: foo@bar.com
-#     user_email: foo@bar.com
 class JenkinsService
   def self.publish(app_or_apps)
-    return true if Rails.env.development?
     apps = Array(app_or_apps)
     jobs = load_jobs
     jobs = add_or_update(jobs, apps)
@@ -40,8 +31,7 @@ class JenkinsService
       job_name = "#{app.exercise_id}-#{app.permalink}"
       job = jobs[job_name] || {}
       job['exercise_base_url'] = app.public_url
-      job['exercise_id']       = app.exercise_id
-      job['app_name']          = app.permalink
+      job['exercise_name']     = app.exercise_name
       job['user_name']         = app.user.name
       job['user_email']        = app.user.email
       jobs[job_name] = job
@@ -50,6 +40,10 @@ class JenkinsService
   end
 
   def self.jenkins_jobs_yaml_path
-    '/opt/aris/config/jenkins_jobs.yml'
+    if Rails.env.development?
+      Rails.root.join('tmp/jenkins_jobs.yml')
+    else
+      '/opt/aris/config/jenkins_jobs.yml'
+    end
   end
 end

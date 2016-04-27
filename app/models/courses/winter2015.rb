@@ -10,6 +10,10 @@ module Courses
       }
     end
 
+    def self.exercise_names
+      { }
+    end
+
     def self.review_points
       {
         1 => (0..2),

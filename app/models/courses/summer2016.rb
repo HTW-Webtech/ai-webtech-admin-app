@@ -8,6 +8,13 @@ module Courses
       }
     end
 
+    def self.exercise_names
+      {
+        3 => 'html',
+        4 => 'ruby',
+      }
+    end
+
     def self.review_points
       {
         1 => (0..0),

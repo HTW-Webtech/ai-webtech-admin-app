@@ -38,6 +38,10 @@ class App < ActiveRecord::Base
     Rails.root + "tmp/#{permalink}-reloading"
   end
 
+  def exercise_name
+    ExercisePointMaster.new(course).exercise_name(exercise_id)
+  end
+
   def tests_passed?
     exercise_points > 0
   end
