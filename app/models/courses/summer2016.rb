@@ -11,6 +11,7 @@ module Courses
 
     def self.exercise_names
       {
+        2 => 'http',
         3 => 'html',
         4 => 'ruby',
       }
