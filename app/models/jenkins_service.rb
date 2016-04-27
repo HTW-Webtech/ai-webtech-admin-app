@@ -30,6 +30,7 @@ class JenkinsService
     apps.each do |app|
       job_name = "#{app.exercise_id}-#{app.permalink}"
       job = jobs[job_name] || {}
+      job['app_name']          = app.permalink
       job['exercise_base_url'] = app.public_url
       job['exercise_id']       = app.exercise_id
       job['exercise_name']     = app.exercise_name
