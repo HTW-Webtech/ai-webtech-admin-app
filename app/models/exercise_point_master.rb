@@ -1,9 +1,24 @@
 class ExercisePointMaster
-  attr_accessor :course, :exercises
+  attr_accessor :course, :exercises, :messages
 
   def initialize(course = Courses.current)
     @course    = course || Courses.current
     @exercises = @course.exercises
+    @messages = []
+  end
+
+  def evaluate!(exercise_result)
+    if reached_deadline? exercise_result
+      messages << "Deadline hit."
+      messages << "Points: #{points(exercise_result)}"
+      exercise_result.app.update_exercise_points(points(exercise_result))
+    else
+      messages << "Deadline missed."
+      messages << "Deadline: #{deadline(exercise_result)}."
+      messages << "Now: #{Time.now}."
+    end
+    exercise_result.update message: messages.join("\n")
+    self
   end
 
   def evaluate_app!(app)
@@ -19,14 +34,6 @@ class ExercisePointMaster
 
   def exercise_name(exercise_id)
     course.exercise_names.fetch(exercise_id, '')
-  end
-
-  def evaluate!(exercise_result)
-    if reached_deadline? exercise_result
-      !!exercise_result.app.update(exercise_points: points(exercise_result))
-    else
-      false
-    end
   end
 
   def reached_deadline?(exercise_result)
