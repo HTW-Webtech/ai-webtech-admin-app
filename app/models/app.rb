@@ -83,7 +83,7 @@ class App < ActiveRecord::Base
 
   # TODO: Extract me
   def jenkins_url
-    "http://#{cc(:site).jenkins_hostname}/job/#{exercise_id}-#{permalink}/"
+    "http://#{cc(:site).jenkins_hostname}/job/#{permalink}/"
   end
 
   def git_webview_url
