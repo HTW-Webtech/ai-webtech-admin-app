@@ -62,6 +62,6 @@ class AppsController < ::BaseController
 
   def app_params
     params.require(:app).permit(:name, :ssh_key).
-      merge(user_id: current_user.id, course: user.course)
+      merge(user_id: current_user.id, course: current_user.course)
   end
 end
