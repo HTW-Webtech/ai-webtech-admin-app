@@ -34,6 +34,11 @@ class App < ActiveRecord::Base
     !reloading?
   end
 
+  def update_exercise_points(points)
+    update exercise_points: points
+    Email::AppPointsMailer.new(app: self, points: points).run
+  end
+
   def semaphore_file_path
     Rails.root + "tmp/#{permalink}-reloading"
   end
