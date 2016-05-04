@@ -28,7 +28,7 @@ class JenkinsService
 
   def self.add_or_update(jobs, apps)
     apps.each do |app|
-      job_name = "#{app.exercise_id}-#{app.permalink}"
+      job_name = app.permalink
       job = jobs[job_name] || {}
       job['app_name']          = app.permalink
       job['exercise_base_url'] = app.public_url
