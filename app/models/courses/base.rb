@@ -4,6 +4,10 @@ module Courses
       { 1 => [ 2, Date.current ] }
     end
 
+    def self.apps
+      App.where(course: display_name)
+    end
+
     def self.display_name
       name.demodulize
     end
