@@ -35,8 +35,10 @@ class App < ActiveRecord::Base
   end
 
   def update_exercise_points(points)
+    if exercise_points == 0
+      Email::AppPointsMailer.new(app: self, points: points).run
+    end
     update exercise_points: points
-    Email::AppPointsMailer.new(app: self, points: points).run
   end
 
   def semaphore_file_path
