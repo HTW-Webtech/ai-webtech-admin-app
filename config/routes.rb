@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resource :students, only: [:show]
     resource :exercises, only: [:show]
     resource :statistics, only: [:show]
+    resources :exceptions, only: [:create]
 
     post ':user_id/block',   controller: :users, action: :block, as: :block_user
     post ':user_id/unblock', controller: :users, action: :unblock, as: :unblock_user

@@ -23,6 +23,7 @@ gem 'jquery-rails'
 # This way I can e.g. render the navigation once without the need to re-render it with
 # each request.
 # gem 'turbolinks'
+gem 'exception_notification'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'

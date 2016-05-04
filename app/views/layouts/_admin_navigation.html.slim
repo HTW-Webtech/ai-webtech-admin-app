@@ -17,6 +17,7 @@
       li= link_to 'Recreate apps yml', admin_fixtures_create_yml_path, method: :post
       li.divider role="separator"
       li= active_link_to_li 'Rails-Admin', rails_admin.dashboard_path
+      li= link_to 'Exception test', admin_exceptions_path, method: :post
 
   li.dropdown
     a.dropdown-toggle href='#' data-toggle="dropdown"

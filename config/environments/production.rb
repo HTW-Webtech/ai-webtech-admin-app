@@ -20,6 +20,13 @@ Rails.application.configure do
     reply_to: "no-reply@#{cc(:site).hostname}"
   }
 
+  # Exception notifier
+  config.middleware.use ExceptionNotification::Rack,
+    email: {
+      email_prefix: "[Exception] ",
+      sender_address: %{"notifier" <notifier@#{cc(:site).hostname}>},
+      exception_recipients: %w{igelmund@htw-berlin.de}
+    }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
