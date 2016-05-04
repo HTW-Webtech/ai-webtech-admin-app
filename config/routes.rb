@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :emails, only: [:new, :create]
     resource :exercise_points, only: [:create]
     resource :jenkins, only: [:create]
+    resource :apps, only: [:create]
     resource :students, only: [:show]
     resource :exercises, only: [:show]
     resource :statistics, only: [:show]
@@ -28,7 +29,6 @@ Rails.application.routes.draw do
     post ':user_id/unblock', controller: :users, action: :unblock, as: :unblock_user
 
     post 'fixtures/create',     controller: :fixtures, action: :create
-    post 'fixtures/create_yml', controller: :fixtures, action: :create_yml
 
     get  ':app_id/app_review', controller: :app_reviews, action: :show, as: :app_review
     post ':app_id/app_review/:points/confirm', controller: :app_reviews, action: :confirm, as: :app_review_confirm

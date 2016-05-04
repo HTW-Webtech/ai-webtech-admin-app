@@ -14,7 +14,7 @@
         li= link_to 'Create user and apps', admin_fixtures_create_path, method: :post
       li= link_to 'Evaluate Points', admin_exercise_points_path, method: :post
       li= link_to 'Recreate jenkins yaml', admin_jenkins_path, method: :post
-      li= link_to 'Recreate apps yml', admin_fixtures_create_yml_path, method: :post
+      li= link_to 'Recreate apps yml', admin_apps_path, method: :post
       li.divider role="separator"
       li= active_link_to_li 'Rails-Admin', rails_admin.dashboard_path
       li= link_to 'Exception test', admin_exceptions_path, method: :post
