@@ -35,7 +35,7 @@ class App < ActiveRecord::Base
   end
 
   def update_exercise_points(points)
-    if exercise_points == 0
+    if exercise_points < 1
       Email::AppPointsMailer.new(app: self, points: points).run
     end
     update exercise_points: points
