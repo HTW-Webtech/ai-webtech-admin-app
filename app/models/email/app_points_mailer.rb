@@ -10,7 +10,7 @@ module Email
     def run
       ApplicationMailer.sent_email(
         email: app.user.email,
-        bcc: 'igelmund@htw-berlin.dw',
+        bcc: 'igelmund@htw-berlin.de',
         subject: "#{points} Punkt(e) für App: #{app.permalink}",
         body: <<-MESSAGE.strip_heredoc
           Es wurden gerade für deine App #{app.permalink} #{points} Punkte im Aris eingetragen.
