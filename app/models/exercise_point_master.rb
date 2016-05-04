@@ -40,6 +40,7 @@ class ExercisePointMaster
     exercise_result.created_at < deadline(exercise_result)
   end
 
+  # TODO: Use a better abstraction here
   def deadline(exercise_result)
     exercises.fetch(exercise_result.exercise_id, [1.day.ago]).last
   end
