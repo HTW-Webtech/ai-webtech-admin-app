@@ -4,7 +4,7 @@ module Courses
     def self.exercises
       {
         1 => [ 0, Date.new(2016, 12, 12) ],
-        2 => [ 2, Date.new(2016, 5, 5) ], # TODO: Deadline moved to 4th of May
+        2 => [ 2, Date.new(2016, 5, 6) ],
         3 => [ 4, Date.new(2016, 5, 9) ],
         4 => [ 2, Date.new(2016, 5, 16) ],
       }
