@@ -24,6 +24,7 @@ gem 'jquery-rails'
 # each request.
 # gem 'turbolinks'
 gem 'exception_notification'
+gem 'slack-notifier'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'

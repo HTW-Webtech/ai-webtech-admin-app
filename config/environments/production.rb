@@ -26,6 +26,13 @@ Rails.application.configure do
       email_prefix: "[Exception] ",
       sender_address: %{"notifier" <notifier@#{cc(:site).hostname}>},
       exception_recipients: %w{igelmund@htw-berlin.de}
+    },
+		slack: {
+    webhook_url: ENV['SLACK_WEBHOOK_URL'],
+    channel: "#general",
+    additional_parameters: {
+      icon_url: "http://image.jpg",
+      mrkdwn: true
     }
 
   # Code is not reloaded between requests.

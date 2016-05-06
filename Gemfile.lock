@@ -228,6 +228,7 @@ GEM
       activemodel (> 4, < 5.1)
     skylight (0.10.3)
       activesupport (>= 3.0.0)
+    slack-notifier (1.5.1)
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -291,6 +292,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   simple_form
   skylight
+  slack-notifier
   slim
   spring
   switch_user
