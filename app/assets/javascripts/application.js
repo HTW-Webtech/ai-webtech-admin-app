@@ -16,4 +16,5 @@
 //= require vendor/autosize-3.0.13
 //
 //= require initialize/autosize
+//= require apps/form
 //= require_tree .

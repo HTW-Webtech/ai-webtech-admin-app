@@ -61,7 +61,7 @@ class AppsController < ::BaseController
   end
 
   def app_params
-    params.require(:app).permit(:name, :ssh_key).
+    params.require(:app).permit(:name, :ssh_key, :external_hosting, :external_url).
       merge(user_id: current_user.id, course: current_user.course)
   end
 end

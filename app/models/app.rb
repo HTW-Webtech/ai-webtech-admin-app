@@ -88,6 +88,12 @@ class App < ActiveRecord::Base
     "http://#{cc(:site).jenkins_hostname}/job/#{permalink}/"
   end
 
+  def testing_url
+    if external_hosting?
+      external_url || jenkins_url
+    end
+  end
+
   def git_webview_url
     "http://#{cc(:site).git_webview_hostname}/#{permalink}/commits/master"
   end
