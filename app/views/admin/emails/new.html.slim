@@ -1,3 +1,5 @@
+h1 E-Mail Versand
+
 = simple_form_for :email, url: admin_emails_path do |f|
   = f.input :receiver_group, as: :select, collection: Group.pluck(:name)
   = f.input :subject, as: :string

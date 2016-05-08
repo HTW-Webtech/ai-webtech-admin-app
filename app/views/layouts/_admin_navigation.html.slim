@@ -9,6 +9,7 @@
       li= active_link_to_li 'Statistics', admin_statistics_path
       li.divider role="separator"
       li= active_link_to_li 'Send E-Mails', new_admin_email_path
+      li= active_link_to_li 'Create Review Date', new_admin_review_date_path
       li.divider role="separator"
       - if !Rails.env.production?
         li= link_to 'Create user and apps', admin_fixtures_create_path, method: :post

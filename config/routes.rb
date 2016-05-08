@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :emails, only: [:new, :create]
+    resources :review_dates, only: [:new, :create]
     resources :jenkins, only: [:create, :update]
     resources :apps, only: [:create, :update]
     resource :exercise_points, only: [:create]
