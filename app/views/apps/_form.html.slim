@@ -6,7 +6,7 @@ p Wird als Lösung für die <strong>Aufgabe #{app.exercise_id}</strong> verwende
   = f.input :name, readonly: true
   = f.input :external_hosting, label: 'Sinatra/Rails App?', input_html: { style: 'width: 20px', :'data-behavior' => 'external-hosting-toggle' },
       hint: 'Wenn es sich bei deiner App um eine Ruby-Applikation handelt, muss diese auf einem anderen Server gehostet werden.'
-  = f.input :external_url, label: 'URL zur App', hint: 'Gib hier die URL zu der App an, bspw. für Heroku-Apps: http://dein-app-name.herokuapp.com',
+  = f.input :external_url, label: 'URL zur App', hint: 'Gib hier die URL zu der App an, bspw. für Heroku-Apps: http://dein-app-name.herokuapp.com. Eine Anleitung wie du eine App bspw. auf Heroku hosten kannst, findest du in den Übungsunterlagen.',
       placeholder: 'http://dein-app-name.herokuapp.com', wrapper_html: { style: 'display: none;', :'data-external-visible' => true }
   = f.input :ssh_key, as: :text, wrapper_html: { :'data-external-visible' => false }
 
