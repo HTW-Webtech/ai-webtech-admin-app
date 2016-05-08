@@ -92,7 +92,7 @@ class App < ActiveRecord::Base
     if external_hosting?
       external_url
     else
-      jenkins_url
+      public_url
     end
   end
 
