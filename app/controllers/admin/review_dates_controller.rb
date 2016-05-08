@@ -4,10 +4,8 @@ module Admin
     end
 
     def create
-      review_dates.each do |date|
-        date.save
-      end
-      redirect_to :back
+      dates = review_dates.each &:save
+      redirect_to :back, notice: "Created #{dates.count} new Review Dates."
     end
 
     private

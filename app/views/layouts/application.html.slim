@@ -14,12 +14,13 @@ body
 
     .row
       .col-md-12
-        - flash.each do |type, message|
+        - flash.each do |type, messages|
           - klass = { 'alert' => 'danger', 'notice' => 'success' }[type]
-          .alert.alert-dismissible class="alert-#{klass}"
-            button.close type="button" data-dismiss="alert" aria-label="Close"
-              span aria-hidden="true" ×
-            = message
+          - Array(messages).each do |message|
+            .alert.alert-dismissible class="alert-#{klass}"
+              button.close type="button" data-dismiss="alert" aria-label="Close"
+                span aria-hidden="true" ×
+              = message.html_safe
 
     .row
       .col-md-12

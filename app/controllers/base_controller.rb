@@ -7,6 +7,9 @@ class BaseController < ::ApplicationController
   before_action :ensure_user_belongs_to_one_group
   before_action :ensure_user_belongs_to_one_course
   before_action :notify_users_without_name
+  before_action :notify_users_about_review_dates
+
+  private
 
   def ensure_user_belongs_to_one_group
     if current_user && current_user.groups.empty?
@@ -26,6 +29,15 @@ class BaseController < ::ApplicationController
     end
   end
 
+  def notify_users_about_review_dates
+    if current_user
+      ReviewDate.upcoming_for_user(current_user).each do |date|
+        link_to_info = "<a href='https://portal.htw-webtech.com/site/courses/ss2016/'>Mehr Infos zum CodeReview-Termin.</a>"
+        add_flash type: :notice, message: "Du hast einen CodeReview-Termin (#{date.id}) für die #{date.exercise_id}te Aufgabe am #{date.begins_at.to_s(:long)} Uhr. #{link_to_info}"
+      end
+    end
+  end
+
   def redirect_users_to_users_namespace
     if current_user && !current_user.admin? && !request.path.start_with?("/users/")
       redirect_to user_path(current_user)
@@ -34,5 +46,10 @@ class BaseController < ::ApplicationController
 
   def after_sign_in_path_for(_)
     user_path(current_user)
+  end
+
+  def add_flash(type:, message:)
+    flash.now[type] ||= []
+    flash.now[type] << message
   end
 end
