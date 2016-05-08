@@ -33,7 +33,7 @@ class BaseController < ::ApplicationController
     if current_user
       ReviewDate.upcoming_for_user(current_user).each do |date|
         link_to_info = "<a href='https://portal.htw-webtech.com/site/courses/ss2016/'>Mehr Infos zum CodeReview-Termin.</a>"
-        add_flash type: :notice, message: "Du hast einen CodeReview-Termin (#{date.id}) für die #{date.exercise_id}te Aufgabe am #{date.begins_at.to_s(:long)} Uhr. #{link_to_info}"
+        add_flash type: :notice, message: "Du hast einen CodeReview-Termin (#{date.id}) für die #{date.exercise_id}te Aufgabe am #{date.begins_at.to_s(:long)} Uhr. Geplante Dauer: #{date.length_in_minutes} Min. #{link_to_info}"
       end
     end
   end

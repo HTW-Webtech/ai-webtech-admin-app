@@ -14,7 +14,7 @@ module Admin
     def review_dates
       begins_at = start_time
       groups_without_review_date.map do |group|
-        ReviewDate.new(review_group: group, exercise_id: exercise_id, begins_at: begins_at).tap do
+        ReviewDate.new(review_group: group, exercise_id: exercise_id, begins_at: begins_at, length_in_minutes: length_in_minutes).tap do
           begins_at += length_in_minutes.minutes
         end
       end
