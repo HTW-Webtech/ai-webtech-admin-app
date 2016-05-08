@@ -90,7 +90,9 @@ class App < ActiveRecord::Base
 
   def testing_url
     if external_hosting?
-      external_url || jenkins_url
+      external_url
+    else
+      jenkins_url
     end
   end
 
