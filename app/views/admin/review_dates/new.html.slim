@@ -22,8 +22,8 @@ table
     - ReviewGroup.includes(:review_dates).find_each do |group|
       tr
         td= group.display_name
-      - exercises.each do |exercise_id, name|
-        - if date = group.review_dates.where(exercise_id: exercise_id).first
-          td= date.formatted_begins_at
-        - else
-          td Kein Termin
+        - exercises.each do |exercise_id, name|
+          - if date = group.review_dates.where(exercise_id: exercise_id).first
+            td= date.formatted_begins_at
+          - else
+            td Kein Termin
