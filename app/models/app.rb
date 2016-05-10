@@ -79,10 +79,6 @@ class App < ActiveRecord::Base
     reviewed_at.present?
   end
 
-  def fetch_logs
-    @logs ||= AppLogTailer.fetch(self)
-  end
-
   # TODO: Extract me
   def jenkins_url
     "http://#{cc(:site).jenkins_hostname}/job/#{permalink}/"
