@@ -34,7 +34,7 @@ module Email
     end
 
     def formatted_date
-      review_date.begins_at.to_s(:long)
+      review_date.formatted_begins_at
     end
   end
 end

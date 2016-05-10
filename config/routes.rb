@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :emails, only: [:new, :create]
-    resources :review_dates, only: [:new, :create]
+    resources :review_dates, only: [:new, :create, :show]
     resources :jenkins, only: [:create, :update]
     resources :apps, only: [:create, :update]
     resource :exercise_points, only: [:create]
@@ -32,6 +32,9 @@ Rails.application.routes.draw do
     get  ':app_id/app_review', controller: :app_reviews, action: :show, as: :app_review
     post ':app_id/app_review/:points/confirm', controller: :app_reviews, action: :confirm, as: :app_review_confirm
     post ':app_id/app_review/revoke', controller: :app_reviews, action: :revoke, as: :app_review_revoke
+
+    post 'review_dates/:id/confirm/:points', controller: :review_dates, action: :confirm, as: :review_date_confirm
+    post 'review_dates/:id/revoke', controller: :review_dates, action: :revoke, as: :review_date_revoke
   end
 
   namespace :apiv1, path: 'api-v1', format: true, constraints: { format: 'json' }  do

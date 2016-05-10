@@ -7,7 +7,11 @@ class ReviewPoints
   end
 
   def for_app(app)
-    points.fetch(app.exercise_id, (0..0))
+    for_exercise_id(app.exercise_id)
+  end
+
+  def for_exercise_id(exercise_id)
+    points.fetch(exercise_id, (0..0))
   end
 
   def achievable(app)

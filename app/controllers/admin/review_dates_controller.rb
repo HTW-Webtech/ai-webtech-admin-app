@@ -3,6 +3,24 @@ module Admin
     def new
     end
 
+    def show
+      @review_date = ReviewDate.find(params[:id])
+    end
+
+    def confirm
+      @review_date = ReviewDate.find(params[:id])
+      @review_date.confirm params[:points].to_i
+
+      redirect_to :back, notice: "Erfolgreich #{@review_date.review_points} für Aufgabe #{@review_date.exercise_id} eingetragen."
+    end
+
+    def revoke
+      @review_date = ReviewDate.find(params[:id])
+      @review_date.revoke
+
+      redirect_to :back, notice: "Review zurückgesetzt."
+    end
+
     def create
       dates = review_dates.each &:save
       dates.each {|date| Email::ReviewDatesMailer.new(review_date: date).run }
