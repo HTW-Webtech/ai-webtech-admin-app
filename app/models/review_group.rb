@@ -6,4 +6,8 @@ class ReviewGroup < ActiveRecord::Base
     groups_with_date_ids = includes(:review_dates).where(review_dates: { exercise_id: exercise_id }).pluck(:id)
     where.not(id: groups_with_date_ids)
   end
+
+  def display_name
+    "(#{id}): #{users.map(&:display_name).join(', ')}"
+  end
 end
