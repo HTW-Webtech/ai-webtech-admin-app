@@ -4,6 +4,11 @@ module Courses
       { 1 => [ 2, Date.current ] }
     end
 
+    def self.exercise_names_with_review
+      ids = review_points.select { |_, points| points.max > 0 }.map(&:first)
+      exercise_names.select { |exercise_id, _| ids.include?(exercise_id) }
+    end
+
     def self.apps
       App.where(course: display_name)
     end

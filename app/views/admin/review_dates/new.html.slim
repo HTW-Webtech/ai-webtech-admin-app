@@ -1,10 +1,29 @@
 h1 Neuer Review-Termin
 
 = simple_form_for :review_date, url: admin_review_dates_path do |f|
-  = f.input :exercise_id, as: :select, collection: Courses.current.exercise_names.invert.to_a
+  = f.input :exercise_id, as: :select, collection: Courses.current.exercise_names_with_review.invert.to_a
   = f.input :date, as: :date
   = f.input :start_time, as: :time
   = f.input :group_count, as: :select, collection: 1.upto(7), selected: 7
   = f.input :length_in_minutes, as: :integer, default: 10
 
   = f.button :submit, 'Create & send E-Mails', class: 'btn-primary'
+
+h2 Review-Statistiken
+
+- exercises = Courses.current.exercise_names_with_review
+table
+  thead
+    tr
+      th Review Group
+      - exercises.each do |exercise_id, name|
+        th= name
+  tbody
+    - ReviewGroup.includes(:review_dates).find_each do |group|
+      tr
+        td= group.display_name
+      - exercises.each do |exercise_id, name|
+        - if date = group.review_dates.where(exercise_id: exercise_id).first
+          td= date.formatted_begins_at
+        - else
+          td Kein Termin
