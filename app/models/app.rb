@@ -53,6 +53,10 @@ class App < ActiveRecord::Base
     exercise_points > 0
   end
 
+  def has_tests?
+    achievable_exercise_points > 0
+  end
+
   def total_points
     exercise_points + review_points
   end

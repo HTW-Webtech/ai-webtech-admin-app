@@ -1,6 +1,7 @@
 = link_to 'Edit', edit_user_app_path(app.user, app), class: 'btn btn-primary'
 = link_to 'View online', app.testing_url, target: :blank, class: 'btn btn-default'
-= link_to 'Jenkins', app.jenkins_url, target: :blank, class: 'btn btn-default'
+- if app.has_tests?
+  = link_to 'Jenkins', app.jenkins_url, target: :blank, class: 'btn btn-default'
 
 - if current_user.admin?
   = link_to 'Recreate Jenkins', admin_jenkin_path(app), class: 'btn btn-default btn-danger', method: :put
