@@ -19,16 +19,16 @@
       li= active_link_to_li 'Rails-Admin', rails_admin.dashboard_path
       li= link_to 'Exception test', admin_exceptions_path, method: :post
 
-li.dropdown
-  a.dropdown-toggle href='#' data-toggle="dropdown"
-    | ReviewDates
-    span.caret
-  ul.dropdown-menu
-    - ReviewDate.find_each do |review_date|
-      li
-        = link_to "ReviewDate: #{review_date.formatted_begins_at}", admin_review_date_path(review_date)
-    li.divider role="separator"
-    li= active_link_to_li 'Create Review Date', new_admin_review_date_path
+  li.dropdown
+    a.dropdown-toggle href='#' data-toggle="dropdown"
+      | ReviewDates
+      span.caret
+    ul.dropdown-menu
+      - ReviewDate.find_each do |review_date|
+        li
+          = link_to "ReviewDate: #{review_date.formatted_begins_at}", admin_review_date_path(review_date)
+      li.divider role="separator"
+      li= active_link_to_li 'Create Review Date', new_admin_review_date_path
 
 
   li.dropdown
