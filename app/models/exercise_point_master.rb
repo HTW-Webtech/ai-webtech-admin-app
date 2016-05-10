@@ -17,7 +17,9 @@ class ExercisePointMaster
       messages << "Deadline: #{deadline(exercise_result)}."
       messages << "Now: #{Time.now}."
     end
-    exercise_result.update message: messages.join("\n")
+    message = messages.join(', ')
+    Notifier.notify "Exercise-Result for App #{exercise_result.app.display_name}: #{message}"
+    exercise_result.update message: message
     self
   end
 

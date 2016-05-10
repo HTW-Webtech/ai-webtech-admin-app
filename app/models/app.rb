@@ -26,6 +26,10 @@ class App < ActiveRecord::Base
     "#{id}-#{name}"
   end
 
+  def display_name
+    permalink
+  end
+
   def reloading?
     File.exists? semaphore_file_path
   end
