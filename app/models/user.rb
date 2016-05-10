@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :confirmable
 
   has_many :apps
-  has_many :review_dates
+  has_many :review_dates, through: :review_group
   belongs_to :review_group
   has_and_belongs_to_many :groups, join_table: :groups_users
 
