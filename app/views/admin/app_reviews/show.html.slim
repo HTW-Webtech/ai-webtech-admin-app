@@ -8,8 +8,8 @@ table.table.table.striped
   tbody
     tr
       td= link_to @app.permalink, user_app_path(@app.user, @app.permalink)
-      td.hidden-xs= app_tests_passed_icon(@app)
-      td.hidden-xs= app_review_icon(@app)
+      td.hidden-xs= app_tests_status(@app)
+      td.hidden-xs= app_review_status(@app)
       td= link_to @app.user.display_name, user_path(@app.user)
 
 - if @app.reviewed?

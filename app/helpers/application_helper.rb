@@ -34,7 +34,7 @@ module ApplicationHelper
     end
   end
 
-  def app_tests_passed_icon(app)
+  def app_tests_status(app)
     "#{app.exercise_points} / #{app.achievable_exercise_points}"
   end
 
@@ -44,8 +44,12 @@ module ApplicationHelper
     end
   end
 
-  def app_review_icon(app)
-    "#{app.review_points} / #{app.achievable_review_points}"
+  def app_review_status(app)
+    if app.achievable_review_points > 0
+      "#{app.review_points} / #{app.achievable_review_points}"
+    else
+      "-"
+    end
   end
 
   def app_points(app)

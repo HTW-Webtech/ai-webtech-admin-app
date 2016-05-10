@@ -16,8 +16,8 @@ h2 Hi #{@user.display_name}!
           td= link_to_if app.ready?, app.permalink, user_app_path(app.user, app)
           td.hidden-xs.hidden-sm= app_status(app)
           td.hidden-xs.hidden-sm= app.exercise_id
-          td.hidden-xs.hidden-sm= app_tests_passed_icon(app)
-          td.hidden-xs.hidden-sm= app_review_icon(app)
+          td.hidden-xs.hidden-sm= app_tests_status(app)
+          td.hidden-xs.hidden-sm= app_review_status(app)
           td.hidden-xs.hidden-sm= app_points(app)
           td
             - if app.ready?
