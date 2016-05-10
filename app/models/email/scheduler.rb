@@ -17,6 +17,7 @@ module Email
         )
       end
       mails.all? { |mail| mail.deliver_now! }
+      Notifier.notify "#{mails.count} E-Mails have been sent to: #{group.users.map(&:email).join(', ')}"
     end
   end
 end
