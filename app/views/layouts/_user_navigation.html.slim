@@ -2,6 +2,8 @@
   = render 'layouts/admin_navigation'
   = render 'layouts/apps_navigation_dropdown'
 
+  - if current_user.review_group.present?
+    = active_link_to_li 'Code Review Gruppe', user_review_group_path(current_user)
   = active_link_to_li 'Edit Profile', edit_user_path(current_user)
   = active_link_to_li 'Logout', destroy_user_session_path, method: :delete
   = render 'layouts/login_as_user'

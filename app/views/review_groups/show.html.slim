@@ -1,0 +1,7 @@
+h2 Hi #{current_user.display_name}!
+
+p Deine Review Gruppe besteht aus #{@review_group.users.count} Personen:
+
+ul
+  - @review_group.users.each do |user|
+    li= user.display_name_with_matrikel

@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
     persisted? && email == cc(:admin).email
   end
 
+  def display_name_with_matrikel
+    "#{display_name} (#{matrikel_number})"
+  end
+
   def display_name
     "#{display_blocked}#{display_name_or_email}"
   end

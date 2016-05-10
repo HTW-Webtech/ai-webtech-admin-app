@@ -5,5 +5,4 @@
       span.caret
     ul.dropdown-menu
       - User.find_each do |user|
-        li
-          = link_to "#{user.display_name} (#{user.email})", "/switch_user?scope_identifier=user_#{user.id}"
+        li= link_to user.display_name_with_matrikel, "/switch_user?scope_identifier=user_#{user.id}"
