@@ -21,7 +21,7 @@ module Email
         subject: subject,
         body: message
       ).deliver_now!
-      Notifier.notify subject
+      Notifier.notify "#{points} Punkt(e) für App: #{app.permalink}, User: #{app.user.display_name}"
     end
   end
 end
