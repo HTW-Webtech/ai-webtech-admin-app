@@ -6,4 +6,4 @@
     ul.dropdown-menu
       - User.find_each do |user|
         li
-          = link_to user.display_name, "/switch_user?scope_identifier=user_#{user.id}"
+          = link_to "#{user.display_name} (#{user.email})", "/switch_user?scope_identifier=user_#{user.id}"
