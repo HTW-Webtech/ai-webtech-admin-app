@@ -6,17 +6,23 @@ module Email
       @review_date = review_date
     end
 
+    def subject
+      "Neuer CodeReview-Termin am #{formatted_date}"
+    end
+
+    def message
+      "Es wurde gerade für die #{exercise_id}te Aufgabe ein neuer CodeReview-Temin am #{formatted_date} eingetragen. Mehr Infos im Aris dazu."
+    end
+
     def run
       users.each do |user|
         ApplicationMailer.sent_email(
           email: user.email,
-          bcc: 'igelmund@htw-berlin.de',
-          subject: "Neuer CodeReview-Termin am #{formatted_date}",
-          body: <<-MESSAGE.strip_heredoc
-            Es wurde gerade für die #{exercise_id}te Aufgabe ein neuer CodeReview-Temin am #{formatted_date} eingetragen. Mehr Infos im Aris dazu.
-          MESSAGE
+          subject: subject,
+          body: message,
         ).deliver_now!
       end
+      Notifier.notify "Review-Date Email '#{subject}' verschickt an: #{users.map(&:email).join(', ')}"
     end
 
     def users
