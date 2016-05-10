@@ -29,7 +29,7 @@ Rails.application.configure do
     },
     slack: {
       webhook_url: ENV['SLACK_WEBHOOK_URL'],
-      channel: "#general",
+      channel: "#app-notifications",
     }
 
   # Code is not reloaded between requests.
