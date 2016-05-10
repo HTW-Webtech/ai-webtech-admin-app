@@ -35,7 +35,11 @@ module ApplicationHelper
   end
 
   def app_tests_status(app)
-    "#{app.exercise_points} / #{app.achievable_exercise_points}"
+    if app.achievable_exercise_points > 0
+      "#{app.exercise_points} / #{app.achievable_exercise_points}"
+    else
+      "-"
+    end
   end
 
   def app_tests_class(app)
@@ -53,7 +57,11 @@ module ApplicationHelper
   end
 
   def app_points(app)
-    "#{app.total_points} / #{app.achievable_total_points}"
+    if app.achievable_review_points > 0
+      "#{app.total_points} / #{app.achievable_total_points}"
+    else
+      "-"
+    end
   end
 
   def link_to_back(record)
