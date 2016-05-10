@@ -27,7 +27,7 @@ class JenkinsService
   end
 
   def self.add_or_update(jobs, apps)
-    apps.each do |app|
+    apps.select(&:has_tests?).each do |app|
       job_name = app.permalink
       job = jobs[job_name] || {}
       job['app_name']          = app.permalink
