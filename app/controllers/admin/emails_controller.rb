@@ -4,9 +4,8 @@ module Admin
     end
 
     def create
-      group = Group.where(name: email_params[:receiver_group]).first!
       scheduler = Email::Scheduler.new(
-        group: group,
+        group: group_or_review_group!,
         subject: email_params[:subject],
         body: email_params[:body]
       )
@@ -19,8 +18,24 @@ module Admin
 
     private
 
+    def group_or_review_group!
+      group_or_review_group or raise(ArgumentError, "You have to select either a group or review group")
+    end
+
+    def group_or_review_group
+      group || review_group
+    end
+
+    def review_group
+      ReviewGroup.where(id: email_params[:review_group_id]).first
+    end
+
+    def group
+      Group.where(id: email_params[:group_id]).first
+    end
+
     def email_params
-      params.require(:email).permit(:receiver_group, :subject, :body)
+      params.require(:email).permit(:group_id, :review_group_id, :subject, :body)
     end
   end
 end

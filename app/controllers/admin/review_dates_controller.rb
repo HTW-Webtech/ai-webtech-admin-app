@@ -22,7 +22,7 @@ module Admin
     end
 
     def create
-      dates = review_dates.each &:save
+      dates = review_dates.each &:save!
       dates.each {|date| Email::ReviewDatesMailer.new(review_date: date).run }
       redirect_to :back, notice: "Created #{dates.count} new Review Dates."
     end
