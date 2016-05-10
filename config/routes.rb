@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update]  do
     resources :apps
+    post 'review_dates/:id/cancel', controller: :review_dates, action: :cancel, as: :review_date_cancel
   end
 
   namespace :admin do

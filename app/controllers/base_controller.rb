@@ -33,7 +33,8 @@ class BaseController < ::ApplicationController
     if current_user
       ReviewDate.upcoming_for_user(current_user).each do |date|
         link_to_info = "<a href='https://portal.htw-webtech.com/site/courses/ss2016/index.html#code-review'>Mehr Infos zum CodeReview-Termin.</a>"
-        add_flash type: :notice, message: "Du hast einen CodeReview-Termin (#{date.id}) für die #{date.exercise_id}te Aufgabe am #{date.begins_at.to_s(:long)} Uhr. Geplante Dauer: #{date.length_in_minutes} Min. #{link_to_info}"
+        link_to_cancel = "<a data-method='destroy' data-confirm='Der Termin wird für alle in der Gruppe abgesagt.' href='/users/#{current_user.id}/review_dates/#{date.id}/cancel'>absagen</a>"
+        add_flash type: :notice, message: "Du hast einen CodeReview-Termin (#{date.id}) für die #{date.exercise_id}te Aufgabe am #{date.begins_at.to_s(:long)} Uhr. Geplante Dauer: #{date.length_in_minutes} Min. #{link_to_info}.<br/>Wenn du an dem Termin nicht teilnehmen kannst, kannst du den Termin für die Gruppe #{link_to_cancel}."
       end
     end
   end
