@@ -1,0 +1,10 @@
+- if current_user.review_group.present?
+  li.dropdown
+    a.dropdown-toggle href='#' data-toggle="dropdown"
+      | Code Reviews
+      span.caret
+    ul.dropdown-menu
+      = active_link_to_li 'Code Review Gruppe', user_review_group_path(current_user)
+      li.divider role="separator"
+      - current_user.review_dates.each do |date|
+        li= link_to date.formatted_begins_at, '#'
