@@ -16,9 +16,11 @@ module Admin
 
     def confirm
       @review_date = ReviewDate.find(params[:id])
-      @review_date.confirm params[:points].to_i
+      points = params[:review_date][:review_points]
+      user_id = params[:review_date][:user_id]
+      @review_date.confirm points, user_id
 
-      redirect_to :back, notice: "Erfolgreich #{@review_date.review_points} für Aufgabe #{@review_date.exercise_id} eingetragen."
+      redirect_to :back, notice: "Erfolgreich #{@review_date.review_points} Punkte eingetragen."
     end
 
     def revoke

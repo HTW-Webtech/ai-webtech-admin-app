@@ -35,12 +35,16 @@ class ReviewDate < ActiveRecord::Base
     begins_at.to_s(:long)
   end
 
-  def confirm(points)
+  def confirm(points, user_id)
     users.each do |user|
-      app = user.apps.where(exercise_id: exercise_id).first!
-      app.update!(reviewed_at: Time.current, review_points: points)
+      if app = user.apps.where(exercise_id: exercise_id).first
+        app.update!(reviewed_at: Time.current, review_points: points)
+      end
     end
     update reviewed_at: Time.current, review_points: points
+    update user_id: user_id
+    Email::CodeReviewConfirmationMailer.new(self).run
+  end
   end
 
   def revoke

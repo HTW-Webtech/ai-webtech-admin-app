@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     post ':app_id/app_review/:points/confirm', controller: :app_reviews, action: :confirm, as: :app_review_confirm
     post ':app_id/app_review/revoke', controller: :app_reviews, action: :revoke, as: :app_review_revoke
 
-    post 'review_dates/:id/confirm/:points', controller: :review_dates, action: :confirm, as: :review_date_confirm
+    post 'review_dates/:id/confirm', controller: :review_dates, action: :confirm, as: :review_date_confirm
     post 'review_dates/:id/revoke', controller: :review_dates, action: :revoke, as: :review_date_revoke
   end
 
