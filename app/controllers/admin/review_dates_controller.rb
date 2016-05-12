@@ -48,7 +48,7 @@ module Admin
     end
 
     def groups_without_review_date
-      ReviewGroup.limit(groups_limit).without_date_for_exercise(exercise_id)
+      ReviewGroup.where(order: order).limit(groups_limit).without_date_for_exercise(exercise_id)
     end
 
     def start_time
@@ -61,6 +61,10 @@ module Admin
 
     def date_month
       params[:review_date]['date(2i)'].to_i
+    end
+
+    def order
+      params[:review_date][:order]
     end
 
     def date_day

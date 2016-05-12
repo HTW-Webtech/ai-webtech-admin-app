@@ -8,6 +8,6 @@ class ReviewGroup < ActiveRecord::Base
   end
 
   def display_name
-    "(#{id}): #{users.map(&:display_name).join(', ')}"
+    "(#{order}. Gruppe): #{users.map(&:display_name).join(', ')}"
   end
 end

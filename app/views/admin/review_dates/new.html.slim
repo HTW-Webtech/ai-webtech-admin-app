@@ -4,6 +4,7 @@ h1 Neuer Review-Termin
   = f.input :exercise_id, as: :select, collection: Courses.current.exercise_names_with_review.invert.to_a
   = f.input :date, as: :date
   = f.input :start_time, as: :time
+  = f.input :order, as: :select, collection: [['1. Gruppe', 1], ['2. Gruppe', 2]], selected: 1
   = f.input :group_count, as: :select, collection: 1.upto(7), selected: 7
   = f.input :length_in_minutes, as: :integer, default: 10
 
@@ -21,7 +22,7 @@ table.table.table-bordered.table-striped
   tbody
     - ReviewGroup.includes(:review_dates).find_each do |group|
       tr
-        td= group.display_name
+        td= link_to group.display_name, rails_admin.show_path(:review_group, group)
         - exercises.each do |exercise_id, name|
           - if date = group.review_dates.where(exercise_id: exercise_id).first
             td= date.formatted_begins_at
