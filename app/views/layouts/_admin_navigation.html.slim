@@ -38,7 +38,7 @@
       span.caret
     ul.dropdown-menu
       - User.find_each do |user|
-        li= link_to user.display_name, user_path(user)
+        li= link_to user.display_name_with_matrikel, user_path(user)
 
   li.dropdown
     a.dropdown-toggle href='#' data-toggle="dropdown"
