@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update]  do
     resources :apps
-    resource :review_group, only: [:show]
+    resource :review_group, only: [:show, :update]
   end
 
   namespace :admin do
