@@ -11,7 +11,7 @@ module Email
       "#{points} Punkt(e) für App: #{app.permalink}"
     end
 
-    def message
+    def body
       "Es wurden gerade für deine App #{app.permalink} #{points} Punkte im Aris eingetragen."
     end
 
@@ -19,9 +19,8 @@ module Email
       ApplicationMailer.sent_email(
         email: app.user.email,
         subject: subject,
-        body: message
+        body: body
       ).deliver_now!
-      Notifier.notify "#{points} Punkt(e) für App: #{app.permalink}, User: #{app.user.display_name}"
     end
   end
 end
