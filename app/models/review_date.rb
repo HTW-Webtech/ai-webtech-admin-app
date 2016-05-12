@@ -15,6 +15,10 @@ class ReviewDate < ActiveRecord::Base
     where('begins_at > ?', [1.day.from_now])
   end
 
+  def user_apps
+    App.where(user: users, exercise_id: exercise_id)
+  end
+
   def presenter_display_name
     user.try(:display_name) || '-'
   end
