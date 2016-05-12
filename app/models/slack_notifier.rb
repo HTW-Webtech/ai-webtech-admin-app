@@ -6,6 +6,7 @@ class Notifier
   end
 
   def self.notify(message)
+    return unless Rails.env.production?
     notifier.ping message
   end
 end
