@@ -3,6 +3,12 @@ module Admin
     def new
     end
 
+    # TODO: will_paginate?
+    def index
+      @past_dates = ReviewDate.past
+      @upcoming_dates = ReviewDate.upcoming
+    end
+
     def show
       @review_date = ReviewDate.find(params[:id])
     end

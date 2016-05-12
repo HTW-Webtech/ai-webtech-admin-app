@@ -1,0 +1,22 @@
+- { 'Upcoming Dates' => @upcoming_dates, 'Past Dates' => @past_dates}.each do |title, dates|
+
+  h1= title
+
+  table.table.table-striped
+    thead
+      tr
+        th Beginn
+        th Übung
+        th Reviewed at
+        th Punkte
+        th Präsentiert von
+        th Teilnehmer
+    tbody
+      - dates.each do |date|
+        tr
+          td= link_to date.formatted_begins_at, admin_review_date_path(date)
+          td= date.exercise_id
+          td= date.formatted_reviewed_at
+          td= date.review_points
+          td= date.presenter_display_name
+          td= date.review_group.display_name

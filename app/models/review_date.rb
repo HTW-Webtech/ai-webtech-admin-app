@@ -7,8 +7,24 @@ class ReviewDate < ActiveRecord::Base
     where('begins_at > ?', [Time.now]).where(review_group_id: user.review_group_id)
   end
 
+  def self.past
+    where('begins_at < ?', [1.day.from_now])
+  end
+
+  def self.upcoming
+    where('begins_at > ?', [1.day.from_now])
+  end
+
   def presenter_display_name
     user.try(:display_name) || '-'
+  end
+
+  def formatted_reviewed_at
+    if reviewed?
+      reviewed_at.to_s(:long)
+    else
+      "-"
+    end
   end
 
   def formatted_begins_at
