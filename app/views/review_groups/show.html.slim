@@ -1,34 +1,35 @@
-.col-md-6
-  h2 Hi #{current_user.display_name}!
+.row
+  .col-md-6
+    h2 Hi #{current_user.display_name}!
 
-  p Deine Review Gruppe besteht aus #{@review_group.users.count} Persone(n):
+    p Deine Review Gruppe besteht aus #{@review_group.users.count} Persone(n):
 
-  ul
-    - @review_group.users.each do |user|
-      li= user.display_name_with_matrikel
+    ul
+      - @review_group.users.each do |user|
+        li= user.display_name_with_matrikel
 
 
-  h2 Einstellungen
-  p Entscheidet für Eure Code Review Gruppe, wann ihr präsentieren möchtet:
-  = simple_form_for [current_user, @review_group] do |f|
-    = f.input :order, as: :select, label: 'Gruppe', hint: '1. Gruppe: Termine von 18-19 Uhr. 2. Gruppe 19:30-20:30 Uhr.', collection: [1, 2].map { |order| ["#{order}. Gruppe", order] }
-    = f.button :submit, 'Speichern', class: 'btn btn-primary'
+    h2 Einstellungen
+    p Entscheidet für Eure Code Review Gruppe, wann ihr präsentieren möchtet:
+    = simple_form_for :review_group, url: user_review_group_path(current_user), method: :put do |f|
+      = f.input :order, as: :select, label: 'Gruppe', hint: '1. Gruppe: Termine von 18-19 Uhr. 2. Gruppe 19:30-20:30 Uhr.', collection: [1, 2].map { |order| ["#{order}. Gruppe", order] }
+      = f.button :submit, 'Speichern', class: 'btn btn-primary'
 
-.col-md-6
-  h2 Code Review Termine
-  table.table.table-striped
-    thead
-      tr
-        th Datum
-        th Übung
-        th Punkte
-        th Präsentiert von
-    tbody
-      - @review_group.review_dates.each do |date|
+  .col-md-6
+    h2 Code Review Termine
+    table.table.table-striped
+      thead
         tr
-          td= date.formatted_begins_at
-          td= date.exercise_id
-          td= date.review_points
-          td= date.presenter_display_name
+          th Datum
+          th Übung
+          th Punkte
+          th Präsentiert von
+      tbody
+        - @review_group.review_dates.each do |date|
+          tr
+            td= date.formatted_begins_at
+            td= date.exercise_id
+            td= date.review_points
+            td= date.presenter_display_name
 
 
