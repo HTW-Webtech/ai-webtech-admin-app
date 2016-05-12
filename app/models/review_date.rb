@@ -1,9 +1,14 @@
 class ReviewDate < ActiveRecord::Base
   has_many :users, through: :review_group
+  belongs_to :user
   belongs_to :review_group
 
   def self.upcoming_for_user(user)
     where('begins_at > ?', [Time.now]).where(review_group_id: user.review_group_id)
+  end
+
+  def presenter_display_name
+    user.try(:display_name) || '-'
   end
 
   def formatted_begins_at
