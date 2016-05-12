@@ -10,7 +10,8 @@ module Admin
     end
 
     def show
-      @review_date = ReviewDate.find(params[:id])
+      @review_date = ReviewDate.includes(users: [:apps]).find(params[:id])
+      @user_apps = @review_date.user_apps
     end
 
     def confirm

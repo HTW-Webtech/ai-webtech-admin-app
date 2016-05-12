@@ -1,18 +1,36 @@
-h1 Review-Termin
-p Gruppe: #{@review_date.review_group.display_name}
-p Aufgabe: #{@review_date.exercise_id}
+.row
+  .col-md-6
+    h2 Studierende
+    ul
+      - @review_date.users.each do |user|
+        li= link_to user.display_name, user_path(user)
 
-h2 Studierende
-ul
-  - @review_date.users.each do |user|
-    li= link_to user.display_name, user_path(user)
+    h2 Aufgabe 5
+    - if @review_date.reviewed?
+      p Reviewed with #{@review_date.review_points} Points at #{time_ago_in_words(@review_date.reviewed_at)}
+      p= button_to 'Revoke review!', admin_review_date_revoke_path(@review_date), class: 'btn btn-primary'
+    - else
+      p Has not been reviewed yet!
+      p
+        = simple_form_for :review_date, url: admin_review_date_confirm_path(@review_date), method: :post do |f|
+          = f.input :review_points, as: :select, collection: ReviewPoints.new.for_exercise_id(@review_date.exercise_id)
+          = f.input :user_id, as: :select, label: 'Presenter', collection: @review_date.users.map { |user| [user.display_name, user.id] }, selected:  @review_date.users.map(&:id).sample
+          = f.button :submit, 'Speichern'
 
-- if @review_date.reviewed?
-  p Reviewed with #{@review_date.review_points} Points at #{time_ago_in_words(@review_date.reviewed_at)}
-  p= button_to 'Revoke review!', admin_review_date_revoke_path(@review_date), class: 'btn btn-primary'
-- else
-  p Has not been reviewed yet!
-  p
-    - ReviewPoints.new.for_exercise_id(@review_date.exercise_id).each do |points|
-      = link_to "#{points} Points", admin_review_date_confirm_path(@review_date, points: points), method: :post, class: 'btn btn-primary'
-  p= link_to "Fraud", admin_review_date_confirm_path(@review_date, points: -1), method: :post, class: 'btn btn-danger'
+  .col-md-6
+    h2 Apps zur Aufgabe
+    table.table.table-striped
+      thead
+        tr
+          th App
+          th User
+          th Tests
+          th Links
+      tbody
+        - @user_apps.each do |app|
+          tr
+            td= link_to app.display_name, user_app_path(app.user, app)
+            td= app.user.display_name
+            td= app_tests_status(app)
+            td= link_to 'View online', app.testing_url, target: :blank, class: 'btn btn-default'
+
