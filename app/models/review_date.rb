@@ -45,7 +45,6 @@ class ReviewDate < ActiveRecord::Base
     update user_id: user_id
     Email::CodeReviewConfirmationMailer.new(self).run
   end
-  end
 
   def revoke
     users.each do |user|
