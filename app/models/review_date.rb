@@ -8,11 +8,11 @@ class ReviewDate < ActiveRecord::Base
   end
 
   def self.past
-    where('begins_at < ?', [1.day.from_now])
+    where('begins_at < ?', [1.day.from_now]).order(begins_at: :asc)
   end
 
   def self.upcoming
-    where('begins_at > ?', [1.day.ago])
+    where('begins_at > ?', [1.day.ago]).order(begins_at: :asc)
   end
 
   def user_apps
