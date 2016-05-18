@@ -6,7 +6,7 @@
       - @review_date.users.each do |user|
         li= link_to user.display_name, user_path(user)
 
-    h2 Aufgabe 5
+    h2= "Aufgabe #{@review_date.exercise_id}"
     - if @review_date.reviewed?
       p Reviewed with #{@review_date.review_points} Points at #{time_ago_in_words(@review_date.reviewed_at)}
       p= button_to 'Revoke review!', admin_review_date_revoke_path(@review_date), class: 'btn btn-primary'

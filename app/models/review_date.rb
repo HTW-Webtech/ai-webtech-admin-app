@@ -15,6 +15,10 @@ class ReviewDate < ActiveRecord::Base
     where('begins_at > ?', [1.day.ago]).order(begins_at: :asc)
   end
 
+  def self.without_review
+    where(reviewed_at: nil)
+  end
+
   def user_apps
     App.where(user: users, exercise_id: exercise_id)
   end
