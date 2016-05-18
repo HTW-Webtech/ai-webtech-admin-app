@@ -12,7 +12,7 @@ class ReviewDate < ActiveRecord::Base
   end
 
   def self.upcoming
-    where('begins_at > ?', [1.day.from_now])
+    where('begins_at > ?', [1.day.ago])
   end
 
   def user_apps
