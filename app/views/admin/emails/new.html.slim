@@ -3,7 +3,7 @@ h1 E-Mail Versand
 = simple_form_for :email, url: admin_emails_path do |f|
   = f.input :group_id, as: :select, collection: Group.all.map { |group| [group.name, group.id] }
   = f.input :review_group_id, as: :select, collection: ReviewGroup.all.map { |group| [group.display_name, group.id] }
-  = f.input :subject, as: :string
+  = f.input :subject, as: :string, value: 'Webentwicklung: '
   = f.input :body, as: :text
 
   = f.button :submit, 'Send', class: 'btn-primary'
