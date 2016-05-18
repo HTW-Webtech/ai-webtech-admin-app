@@ -1,5 +1,6 @@
 .row
   .col-md-6
+    h2= @review_date.formatted_begins_at
     h2 Studierende
     ul
       - @review_date.users.each do |user|
