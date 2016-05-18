@@ -2,6 +2,8 @@ require 'securerandom'
 
 class App < ActiveRecord::Base
   validates :user, presence: true
+  validates :external_url, url: true, allow_blank: true
+
   belongs_to :user
   has_many :exercise_results
 
