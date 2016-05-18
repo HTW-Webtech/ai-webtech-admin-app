@@ -48,7 +48,7 @@ module Admin
     end
 
     def groups_without_review_date
-      ReviewGroup.where(order: order).limit(groups_limit).without_date_for_exercise(exercise_id)
+      ReviewGroup.without_date_for_exercise(exercise_id).where(order: order).limit(groups_limit)
     end
 
     def start_time
