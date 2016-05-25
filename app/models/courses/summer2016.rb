@@ -8,6 +8,7 @@ module Courses
         3 => [ 4, Date.new(2016, 5, 11) ],
         4 => [ 2, Date.new(2016, 5, 16) ],
         5 => [ 4, Date.new(2016, 5, 23) ],
+        6 => [ 8, Date.new(2016, 6, 12) ],
       }
     end
 
@@ -17,6 +18,7 @@ module Courses
         3 => 'html',
         4 => 'ruby',
         5 => 'sinatra',
+        6 => 'datamapper',
       }
     end
 
@@ -27,6 +29,7 @@ module Courses
         3 => (0..2),
         4 => (0..0),
         5 => (0..2),
+        6 => (0..6),
       }
     end
   end
