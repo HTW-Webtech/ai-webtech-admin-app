@@ -36,6 +36,8 @@ Rails.application.routes.draw do
 
     post 'review_dates/:id/confirm', controller: :review_dates, action: :confirm, as: :review_date_confirm
     post 'review_dates/:id/revoke', controller: :review_dates, action: :revoke, as: :review_date_revoke
+
+    post 'apps/:app_id/exercise_points/:points', controller: :app_exercise_points, action: :update, as: :app_exercise_points
   end
 
   namespace :apiv1, path: 'api-v1', format: true, constraints: { format: 'json' }  do

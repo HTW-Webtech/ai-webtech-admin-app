@@ -22,5 +22,11 @@ table.table.table.striped
     - ReviewPoints.new.for_app(@app).each do |points|
       = link_to "#{points} Points", admin_app_review_confirm_path(@app, points: points), method: :post, class: 'btn btn-primary'
 
+h2 Exercise Points
+- max_points = ExercisePointMaster.new.points_for_exercise(@app.exercise_id)
+- Range.new(0, max_points).each do |points|
+  = link_to "#{points} Points", admin_app_exercise_points_path(@app, points: points), method: :post, class: 'btn btn-primary'
+
+h2 Actions
 p
   = render 'apps/links', app: @app
