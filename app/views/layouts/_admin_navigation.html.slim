@@ -26,8 +26,8 @@
     ul.dropdown-menu
       li= link_to "Alle Review Dates", admin_review_dates_path
       li.divider role="separator"
-      - ReviewDate.upcoming.without_review.find_each do |review_date|
-        li= link_to "ReviewDate: #{review_date.formatted_begins_at}", admin_review_date_path(review_date)
+      - ReviewDate.upcoming.without_review.order(begins_at: :asc).find_each do |review_date|
+        li= link_to review_date.formatted_begins_at, admin_review_date_path(review_date)
       li.divider role="separator"
       li= active_link_to_li 'Create Review Date', new_admin_review_date_path
 
