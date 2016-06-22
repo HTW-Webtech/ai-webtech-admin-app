@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   end
 
   def review_marker
-    reviewed_at.present? ? '✓' : 'x'
+    reviewed_at.present? ? "✓ #{reviewed_at.to_s(:long)}" : 'x'
   end
 
   def display_name
