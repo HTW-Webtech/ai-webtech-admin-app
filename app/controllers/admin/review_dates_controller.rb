@@ -16,7 +16,7 @@ module Admin
 
     def confirm
       @review_date = ReviewDate.find(params[:id])
-      points = params[:review_date][:review_points]
+      points  = params[:review_date][:review_points]
       user_id = params[:review_date][:user_id]
       @review_date.confirm points, user_id
 
@@ -32,7 +32,7 @@ module Admin
 
     def create
       dates = review_dates.each &:save!
-      dates.each {|date| Email::ReviewDatesMailer.new(review_date: date).run }
+      dates.each { |date| Email::ReviewDatesMailer.new(review_date: date).run }
       redirect_to :back, notice: "Created #{dates.count} new Review Dates."
     end
 
