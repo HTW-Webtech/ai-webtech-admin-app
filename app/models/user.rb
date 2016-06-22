@@ -29,8 +29,16 @@ class User < ActiveRecord::Base
     "#{display_name} (#{matrikel_number})"
   end
 
+  def display_name_with_review_marker
+    "#{display_name} [#{review_marker}]"
+  end
+
+  def review_marker
+    reviewed_at.present? ? '✓' : 'x'
+  end
+
   def display_name
-    "#{display_blocked}#{display_name_or_email}"
+    "#{display_blocked}#{display_name_or_email} "
   end
 
   def display_name_or_email

@@ -40,11 +40,14 @@ class ReviewDate < ActiveRecord::Base
   end
 
   def confirm(points, user_id)
+    user_id = user_id.to_i
     users.each do |user|
       if app = user.apps.where(exercise_id: exercise_id).first
         app.update!(reviewed_at: Time.current, review_points: points)
       end
     end
+    review_user = users.detect { |user| user.id == user_id }
+    review_user.update reviewed_at: Time.current
     update reviewed_at: Time.current, review_points: points
     update user_id: user_id
     Email::CodeReviewConfirmationMailer.new(self).run

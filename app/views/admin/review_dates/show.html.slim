@@ -4,7 +4,7 @@
     h2 Studierende
     ul
       - @review_date.users.each do |user|
-        li= link_to user.display_name, user_path(user)
+        li= link_to user.display_name_with_review_marker, user_path(user)
 
     h2= "Aufgabe #{@review_date.exercise_id}"
     - if @review_date.reviewed?
