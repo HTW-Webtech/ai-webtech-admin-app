@@ -3,6 +3,8 @@ class ReviewDate < ActiveRecord::Base
   belongs_to :user
   belongs_to :review_group
 
+  validates_inclusion_of :exercise_id, in: Courses.current.exercise_names.keys
+
   def self.upcoming_for_user(user)
     where('begins_at > ?', [Time.now]).where(review_group_id: user.review_group_id)
   end
