@@ -57,7 +57,7 @@ module ApplicationHelper
   end
 
   def app_points(app)
-    if app.achievable_review_points > 0
+    if app.achievable_total_points > 0
       "#{app.total_points} / #{app.achievable_total_points}"
     else
       "-"
