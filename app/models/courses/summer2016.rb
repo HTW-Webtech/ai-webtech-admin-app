@@ -10,6 +10,7 @@ module Courses
         5 => [ 4, Date.new(2016, 5, 30) ],
         6 => [ 8, Date.new(2016, 6, 12) ],
         7 => [ 2, Date.new(2016, 7, 4) ],
+        8 => [ 0, Date.new ],
       }
     end
 
