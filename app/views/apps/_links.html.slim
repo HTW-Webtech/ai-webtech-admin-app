@@ -2,6 +2,8 @@
 = link_to 'View online', app.testing_url, target: :blank, class: 'btn btn-default'
 - if app.has_tests?
   = link_to 'Jenkins', app.jenkins_url, target: :blank, class: 'btn btn-default'
+- if app.feedback.present?
+  = link_to 'Show feedback', app_feedback_path(app), class: 'btn btn-default btn-primary'
 
 - if current_user.admin?
   = link_to 'Recreate Jenkins', admin_jenkin_path(app), class: 'btn btn-default btn-danger', method: :put
@@ -9,7 +11,5 @@
   = link_to 'Review', admin_app_review_path(app), target: :blank, class: 'btn btn-default btn-danger'
   = link_to 'View commits', app.git_webview_url, target: :blank, class: 'btn btn-default btn-danger'
   = link_to 'Destroy!', user_app_path(app.user, app), method: :delete, data: { confirm: 'Sure?' }, class: 'btn btn-danger'
-  - if app.feedback.present?
-    = link_to 'Show feedback', app_feedback_path(app), class: 'btn btn-default btn-primary'
-  - else
+  - if app.feedback.blank?
     = link_to 'Add feedback', new_app_feedback_path(app), class: 'btn btn-primary'
