@@ -1,5 +1,6 @@
 h2= @app.permalink
 p Diese App wird als Lösung für die Aufgabe (#{@app.exercise_id}) verwendet.
+p Student: #{link_to(@app.user.display_name_with_matrikel, user_path(@app.user))}
 
 .row
   .col-md-6
