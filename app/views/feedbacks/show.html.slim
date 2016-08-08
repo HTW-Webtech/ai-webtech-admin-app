@@ -1,0 +1,8 @@
+h1 Feedback
+
+= @feedback.body_as_html
+
+- if current_user.admin?
+  = link_to 'Edit', edit_app_feedback_path(@app), class: 'btn btn-primary'
+
+= link_to_back @feedback.app

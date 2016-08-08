@@ -1,0 +1,4 @@
+= simple_form_for([feedback.app, feedback], url: app_feedback_path(feedback.app)) do |f|
+  = f.error_notification
+  = f.input :body, as: :text, input_html: { value: feedback_template(feedback) }
+  = f.button :submit, class: 'btn-primary'

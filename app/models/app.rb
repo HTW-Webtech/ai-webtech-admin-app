@@ -6,6 +6,7 @@ class App < ActiveRecord::Base
 
   belongs_to :user
   has_many :exercise_results
+  has_one :feedback
 
   def self.for_permalink_or_id(permalink_or_id)
     id = permalink_or_id.to_s.split('-').first

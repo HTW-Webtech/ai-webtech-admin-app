@@ -53,6 +53,7 @@ gem 'switch_user'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'slim'
+gem 'kramdown'
 
 gem 'active_link_to' # TODO: Should work with rails 5?
 gem 'autosize-rails'

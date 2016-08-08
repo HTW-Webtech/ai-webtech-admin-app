@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     resources :apps
     resource :review_group, only: [:show, :update]
   end
+  resources :apps, only: [:show] do
+    resource :feedback
+  end
 
   namespace :admin do
     resources :emails, only: [:new, :create]
