@@ -15,7 +15,7 @@ module FeedbacksHelper
     |----------------------------------------|
     | Auflistung: Upcoming Appointments | ?/1 | |
     |----------------------------------------|
-    | Auflisutng: Past Appointments | ?/1 | |
+    | Auflistung: Past Appointments | ?/1 | |
     |----------------------------------------|
     | Auflistung: Notizen p. Patient | ?/1 | |
     |----------------------------------------|
