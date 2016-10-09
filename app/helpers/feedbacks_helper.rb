@@ -1,23 +1,27 @@
 module FeedbacksHelper
   EXERCISE_TEMPLATES = {
     8 => <<-EOF.strip_heredoc
-    # Bewertung Abschlussprojekt
+    # Bewertung Abschlussprojekt: PatMan
 
-    | Feature | Punkte | Erreicht | Feedback |
+    | Feature | Punkte: Erreicht/Von | Feedback |
     |----------------------------------------|
-    | CRUD Projekte | 3 | ? | |
+    | CRUD Patient | ?/3 | |
     |----------------------------------------|
-    | CRUD Arbeitszeiten | 3 | ? | |
+    | CRUD Note    | ?/3 | |
     |----------------------------------------|
-    | CRUD Rechnungen | 4 | ? | |
+    | CRUD Appointment | ?/4 |
     |----------------------------------------|
-    | Statistiken | 3 | ? | |
+    | Statistiken | ?/2 | |
     |----------------------------------------|
-    | Druck-Vorschau | 1 | ? | |
+    | Auflistung: Upcoming Appointments | ?/1 | |
     |----------------------------------------|
-    | Berechnung MwST/Netto | 2 | ? | |
+    | Auflisutng: Past Appointments | ?/1 | |
     |----------------------------------------|
-    | **Gesamtpunkte** | | ? |
+    | Auflistung: Notizen p. Patient | ?/1 | |
+    |----------------------------------------|
+    | Auflistung: Appointments p. Patient | ?/1 | |
+    |----------------------------------------|
+    | **Gesamtpunkte** | ?/16 | |
     |----------------------------------------|
     {: .table }
     EOF
